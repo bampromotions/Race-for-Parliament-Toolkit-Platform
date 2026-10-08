@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+@import '@nuxt/ui';
+
+:root {
+  --ui-primary: #7657f6;
+  --ui-radius: 0.9rem;
+}
+
+body {
+  background: #fafbff;
+  color: #25243a;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
