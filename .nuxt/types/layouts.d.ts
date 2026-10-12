@@ -3,6 +3,10 @@ import type { ComponentProps } from "../../node_modules/vue-component-type-helpe
 
 declare module 'nuxt/app' {
   interface NuxtLayouts {
+    admin: ComponentProps<typeof import("C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/app/layouts/admin.vue").default>
+    auth: ComponentProps<typeof import("C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/app/layouts/auth.vue").default>
+    default: ComponentProps<typeof import("C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/app/layouts/default.vue").default>
+    participant: ComponentProps<typeof import("C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/app/layouts/participant.vue").default>
   }
   export type LayoutKey = keyof NuxtLayouts extends never ? string : keyof NuxtLayouts
   interface PageMeta {

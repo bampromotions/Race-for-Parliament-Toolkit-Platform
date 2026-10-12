@@ -14,6 +14,8 @@ type HydrationStrategies = {
 type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }> & T
 
 
+export const LanguageSwitcher: typeof import("../app/components/LanguageSwitcher.vue")['default']
+export const PlatformLayout: typeof import("../app/components/PlatformLayout.vue")['default']
 export const UColorModeAvatar: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/color-mode/ColorModeAvatar.vue")['default']
 export const UColorModeButton: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/color-mode/ColorModeButton.vue")['default']
 export const UColorModeImage: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/color-mode/ColorModeImage.vue")['default']
@@ -217,6 +219,8 @@ export const NuxtImg: typeof import("../node_modules/nuxt/dist/app/components/nu
  * @see https://nuxt.com/docs/4.x/api/components/nuxt-picture
  */
 export const NuxtPicture: typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']
+export const NuxtLinkLocale: typeof import("../node_modules/@nuxtjs/i18n/dist/runtime/components/NuxtLinkLocale")['default']
+export const SwitchLocalePathLink: typeof import("../node_modules/@nuxtjs/i18n/dist/runtime/components/SwitchLocalePathLink")['default']
 /**
  * Renders the current page from the `pages/` directory.
  *
@@ -240,6 +244,8 @@ export const ColorScheme: typeof import("../node_modules/@nuxtjs/color-mode/dist
  * @see https://nuxt.com/docs/4.x/api/components/nuxt-island
  */
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
+export const LazyLanguageSwitcher: LazyComponent<typeof import("../app/components/LanguageSwitcher.vue")['default']>
+export const LazyPlatformLayout: LazyComponent<typeof import("../app/components/PlatformLayout.vue")['default']>
 export const LazyUColorModeAvatar: LazyComponent<typeof import("../node_modules/@nuxt/ui/dist/runtime/components/color-mode/ColorModeAvatar.vue")['default']>
 export const LazyUColorModeButton: LazyComponent<typeof import("../node_modules/@nuxt/ui/dist/runtime/components/color-mode/ColorModeButton.vue")['default']>
 export const LazyUColorModeImage: LazyComponent<typeof import("../node_modules/@nuxt/ui/dist/runtime/components/color-mode/ColorModeImage.vue")['default']>
@@ -467,6 +473,8 @@ export const LazyNuxtImg: LazyComponent<typeof import("../node_modules/nuxt/dist
  * @see https://nuxt.com/docs/4.x/api/components/nuxt-picture
  */
 export const LazyNuxtPicture: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']>
+export const LazyNuxtLinkLocale: LazyComponent<typeof import("../node_modules/@nuxtjs/i18n/dist/runtime/components/NuxtLinkLocale")['default']>
+export const LazySwitchLocalePathLink: LazyComponent<typeof import("../node_modules/@nuxtjs/i18n/dist/runtime/components/SwitchLocalePathLink")['default']>
 /**
  * Lazy-loaded version of `<NuxtPage>`.
  *

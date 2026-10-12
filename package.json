@@ -13,7 +13,10 @@
   "dependencies": {
     "@iconify-json/lucide": "^1.2.140",
     "@nuxt/ui": "^4.11.3",
+    "@nuxtjs/i18n": "^10.6.0",
     "crypto": "^1.0.1",
+    "firebase": "^11.10.0",
+    "firebase-admin": "^13.10.0",
     "nuxt": "^4.6.0",
     "pinio": "^0.0.3",
     "tailwindcss": "^4.3.3"
@@ -23,6 +26,9 @@
     "esbuild@0.28.2": true,
     "vue-demi@0.14.10": true,
     "serialport@8.0.8": true,
-    "@serialport/bindings@8.0.8": true
+    "@serialport/bindings@8.0.8": true,
+    "esbuild@0.25.12": true,
+    "firebase@11.10.0": true,
+    "protobufjs@7.6.6": true
   }
 }

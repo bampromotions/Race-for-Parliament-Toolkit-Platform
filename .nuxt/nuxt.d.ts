@@ -1,6 +1,8 @@
 /// <reference types="@nuxt/ui" />
-/// <reference types="@nuxt/devtools" />
+/// <reference types="@nuxtjs/i18n" />
 /// <reference types="@nuxt/telemetry" />
+/// <reference types="@nuxt/devtools" />
+/// <reference types="@nuxt/devtools" />
 /// <reference path="types/nitro-layouts.d.ts" />
 /// <reference path="types/builder-env.d.ts" />
 /// <reference path="types/plugins.d.ts" />
@@ -19,6 +21,7 @@
 /// <reference path="imports.d.ts" />
 /// <reference path="types/imports.d.ts" />
 /// <reference path="schema/nuxt.schema.d.ts" />
+/// <reference path="types/i18n-plugin.d.ts" />
 /// <reference path="types/nitro-internal-api.d.ts" />
 /// <reference path="types/nitro.d.ts" />
 

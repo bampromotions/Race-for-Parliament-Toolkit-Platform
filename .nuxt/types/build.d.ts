@@ -52,3 +52,5 @@ declare module "#build/component-chunk.mjs";
 declare module "#build/component-chunk";
 declare module "#build/color-mode-options.mjs";
 declare module "#build/color-mode-options";
+declare module "#build/i18n-options.mjs";
+declare module "#build/i18n-options";

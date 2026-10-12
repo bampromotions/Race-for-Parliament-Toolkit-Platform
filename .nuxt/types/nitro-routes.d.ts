@@ -3,6 +3,27 @@ import type { Serialize, Simplify } from "nitropack/types";
 declare module "nitropack/types" {
   type Awaited<T> = T extends PromiseLike<infer U> ? Awaited<U> : T
   interface InternalApi {
+    '/api/admin/overview': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/overview.get').default>>>>
+    }
+    '/api/admin/participants': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/participants.get').default>>>>
+    }
+    '/api/admin/participants/:id': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/participants/[id].get').default>>>>
+    }
+    '/api/admin/results': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/results.get').default>>>>
+    }
+    '/api/progress': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/progress.get').default>>>>
+    }
+    '/api/quiz/attempt/:id': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/quiz/attempt/[id].get').default>>>>
+    }
+    '/api/quiz/submit': {
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/quiz/submit.post').default>>>>
+    }
     '/__nuxt_error': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxt/nitro-server/dist/runtime/handlers/renderer').default>>>>
     }
@@ -11,6 +32,9 @@ declare module "nitropack/types" {
     }
     '/api/_nuxt_icon/:collection': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxt/icon/dist/runtime/server/api').default>>>>
+    }
+    '/_i18n/:hash/:locale/messages.json': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/server/routes/messages').default>>>>
     }
     '/__nuxt_island/**': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/#internal/nuxt/island-renderer').default>>>>

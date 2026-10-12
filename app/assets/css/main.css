@@ -2,13 +2,13 @@
 @import '@nuxt/ui';
 
 :root {
-  --ui-primary: #7657f6;
+  --ui-primary: #166534;
   --ui-radius: 0.9rem;
 }
 
 body {
-  background: #fafbff;
-  color: #25243a;
+  background: #f8fafc;
+  color: #0f172a;
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
 }
 
