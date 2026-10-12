@@ -9,9 +9,9 @@ export default defineNuxtPlugin(() => {
     apiKey: config.firebaseApiKey,
     authDomain: config.firebaseAuthDomain,
     projectId: config.firebaseProjectId,
-    appId: config.firebaseAppId,
     storageBucket: config.firebaseStorageBucket,
     messagingSenderId: config.firebaseMessagingSenderId,
+    appId: config.firebaseAppId,
     measurementId: String(config.firebaseMeasurementId || ''),
   }
   const configured: boolean = Boolean(
@@ -42,8 +42,8 @@ export default defineNuxtPlugin(() => {
     }
   }
 
-  const app = getApps().find((item) => item.name === 'race-for-parliament')
-    ?? initializeApp(firebaseConfig, 'race-for-parliament')
+  const app = getApps().find((item) => item.name === '[DEFAULT]')
+    ?? initializeApp(firebaseConfig)
   if (firebaseConfig.measurementId) {
     void isSupported().then((supported) => {
       if (supported) getAnalytics(app)

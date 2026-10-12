@@ -43,6 +43,7 @@ export function useAuth() {
       })
       await firebase.refreshSession()
     } catch (error) {
+      console.error('Error creating user document:', error)
       await deleteUser(credential.user)
       throw error
     }
