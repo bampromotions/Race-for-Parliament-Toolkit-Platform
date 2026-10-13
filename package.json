@@ -20,6 +20,7 @@
     "nuxt": "^4.6.0",
     "pinio": "^0.0.3",
     "pino": "^10.4.0",
+    "pino-http": "^11.0.0",
     "tailwindcss": "^4.3.3"
   },
   "allowScripts": {

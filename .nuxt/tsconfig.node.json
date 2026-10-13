@@ -105,7 +105,7 @@
   "exclude": [
     "../node_modules",
     "../node_modules/nuxt/node_modules",
-    "../node_modules/@nuxt/ui/node_modules",
+    "../node_modules/.pnpm/@nuxt+ui@4.11.3_90c7a248b45f3956138b5594e74397bd/node_modules/@nuxt/ui/node_modules",
     "../node_modules/@nuxtjs/i18n/node_modules",
     "../node_modules/@nuxt/devtools/node_modules",
     "../node_modules/@nuxt/telemetry/node_modules",
@@ -124,6 +124,8 @@
     "../modules/*/runtime/server/**/*",
     "../layers/*/server/**/*",
     "../layers/*/modules/*/runtime/server/**/*",
+    "../node_modules/.pnpm/@nuxt+ui@4.11.3_90c7a248b45f3956138b5594e74397bd/node_modules/runtime",
+    "../node_modules/.pnpm/@nuxt+ui@4.11.3_90c7a248b45f3956138b5594e74397bd/node_modules/dist/runtime",
     "../node_modules/runtime",
     "../node_modules/dist/runtime"
   ]

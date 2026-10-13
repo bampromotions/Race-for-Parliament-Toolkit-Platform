@@ -11,12 +11,14 @@ const progress = ref<CourseProgress | null>(null)
 const latestResult = ref<{ score: number; passed: boolean; moduleId: number } | null>(null)
 const loading = ref(true)
 const errorMessage = ref('')
+const clientReady = ref(false)
 const firstUnpassedModule = computed(() => courseModules.find((module) => !progress.value?.passedModules.includes(module.id)) ?? null)
 const completion = computed(() => progress.value ? Math.round((progress.value.passedModules.length / courseModules.length) * 100) : 0)
 
 useSeoMeta({ title: () => `${t('navigation.dashboard')} · ${t('brand.name')}` })
 
 onMounted(async () => {
+  clientReady.value = true
   try {
     progress.value = await api.getProgress()
     if (progress.value.latestAttemptId) {
@@ -34,7 +36,7 @@ onMounted(async () => {
   <div class="space-y-8">
     <header>
       <p class="text-sm font-semibold text-emerald-800">{{ t('brand.name') }}</p>
-      <h1 class="mt-2 text-3xl font-bold tracking-tight text-slate-950">{{ t('dashboard.welcome', { name: firebase.session.value?.displayName || firebase.session.value?.email || '' }) }}</h1>
+      <h1 class="mt-2 text-3xl font-bold tracking-tight text-slate-950">{{ t('dashboard.welcome', { name: clientReady ? firebase.session.value?.displayName || firebase.session.value?.email || '' : '' }) }}</h1>
       <p class="mt-2 text-slate-600">{{ t('dashboard.intro') }}</p>
     </header>
 

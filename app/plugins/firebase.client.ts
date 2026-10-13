@@ -2,9 +2,12 @@ import { getApps, initializeApp } from 'firebase/app'
 import { getAnalytics, isSupported } from 'firebase/analytics'
 import { getAuth, onAuthStateChanged, type User } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
+import type { FirebaseClient, FirebaseSession } from '../types/firebase'
 
 export default defineNuxtPlugin(() => {
+  
   const config = useRuntimeConfig().public
+
   const firebaseConfig = {
     apiKey: config.firebaseApiKey,
     authDomain: config.firebaseAuthDomain,
@@ -12,45 +15,43 @@ export default defineNuxtPlugin(() => {
     storageBucket: config.firebaseStorageBucket,
     messagingSenderId: config.firebaseMessagingSenderId,
     appId: config.firebaseAppId,
-    measurementId: String(config.firebaseMeasurementId || ''),
+    measurementId: config.firebaseMeasurementId,
   }
-  const configured: boolean = Boolean(
+   
+  const configured = Boolean(
     firebaseConfig.apiKey
-      && firebaseConfig.authDomain
-      && firebaseConfig.projectId
-      && firebaseConfig.appId,
+    && firebaseConfig.authDomain
+    && firebaseConfig.projectId
+    && firebaseConfig.appId,
   )
   const session = useState<FirebaseSession | null>('firebase-session', () => null)
   const error = useState<string | null>('firebase-session-error', () => null)
 
-  const emptyFirebaseClient: FirebaseClient = {
-    configured: false,
-    app: null,
-    auth: null,
-    db: null,
-    ready: Promise.resolve(),
-    refreshSession: async () => {},
-    session,
-    error,
-  }
-
   if (!configured) {
-    return {
-      provide: {
-        firebase: emptyFirebaseClient,
-      },
+    const firebase: FirebaseClient = {
+      configured: false,
+      app: null,
+      auth: null,
+      db: null,
+      ready: Promise.resolve(),
+      refreshSession: async () => {},
+      session,
+      error,
     }
+
+    return { provide: { firebase } }
   }
 
   const app = getApps().find((item) => item.name === '[DEFAULT]')
     ?? initializeApp(firebaseConfig)
+  const auth = getAuth(app)
+  const db = getFirestore(app)
   if (firebaseConfig.measurementId) {
     void isSupported().then((supported) => {
       if (supported) getAnalytics(app)
     })
   }
-  const auth = getAuth(app)
-  const db = getFirestore(app)
+
   let resolveReady!: () => void
   const ready = new Promise<void>((resolve) => {
     resolveReady = resolve
@@ -80,12 +81,11 @@ export default defineNuxtPlugin(() => {
   }
 
   const refreshSession = () => updateSession(auth.currentUser)
-
   onAuthStateChanged(auth, (user) => {
     void updateSession(user)
   })
 
-  const firebaseClient: FirebaseClient = {
+  const firebase: FirebaseClient = {
     configured: true,
     app,
     auth,
@@ -96,9 +96,5 @@ export default defineNuxtPlugin(() => {
     error,
   }
 
-  return {
-    provide: {
-      firebase: firebaseClient,
-    },
-  }
+  return { provide: { firebase } }
 })

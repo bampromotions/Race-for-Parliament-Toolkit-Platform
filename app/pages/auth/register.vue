@@ -12,11 +12,25 @@ const errorMessage = ref('')
 useSeoMeta({ title: () => `${t('auth.createAccount')} · ${t('brand.name')}` })
 
 async function submit() {
+  if (pending.value || !firebase.configured) return
+
   errorMessage.value = ''
+  const email = form.email.trim()
+  if (
+    !form.name.trim()
+    || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    || !form.password.trim()
+    || form.password.length < 8
+  ) {
+    errorMessage.value = t('auth.authError')
+    return
+  }
+
   pending.value = true
   try {
     await auth.register({
       ...form,
+      email,
       preferredLanguage: locale.value === 'st' ? 'st' : 'en',
     })
     await navigateTo(localePath('/dashboard'), { replace: true })

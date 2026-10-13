@@ -7,15 +7,16 @@ import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent
 import { escapeHtml } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/@vue/shared/dist/shared.cjs.js';
 import viteNodeEntry_mjs from 'file:///C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs';
 import { viteNodeFetch } from 'file:///C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/@nuxt/vite-builder/dist/vite-node.mjs';
-import { getFirestore, FieldValue } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/firebase-admin/lib/esm/firestore/index.js';
-import { getApps, cert, applicationDefault, initializeApp } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/firebase-admin/lib/esm/app/index.js';
-import { getAuth } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/firebase-admin/lib/esm/auth/index.js';
+import { getFirestore, FieldValue } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/.pnpm/firebase-admin@13.10.0_@fir_3a4b2c103a4421ced396da0ef185ee96/node_modules/firebase-admin/lib/esm/firestore/index.js';
+import { existsSync, readFileSync, promises } from 'node:fs';
+import { getApps, cert, applicationDefault, initializeApp } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/.pnpm/firebase-admin@13.10.0_@fir_3a4b2c103a4421ced396da0ef185ee96/node_modules/firebase-admin/lib/esm/app/index.js';
+import { getAuth } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/.pnpm/firebase-admin@13.10.0_@fir_3a4b2c103a4421ced396da0ef185ee96/node_modules/firebase-admin/lib/esm/auth/index.js';
+import pino from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/.pnpm/pino@10.4.0/node_modules/pino/pino.js';
 import { stringify, uneval } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/devalue/src/index.js';
 import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, joinRelativeURL, withoutTrailingSlash, parsePath, withLeadingSlash, decodePath, parseQuery } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/ufo/dist/index.mjs';
 import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/vue-bundle-renderer/dist/runtime.mjs';
 import destr, { destr as destr$1 } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/destr/dist/index.mjs';
 import { createHead as createHead$1, propsToString, renderSSRHead } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/unhead/dist/server.mjs';
-import { existsSync, readFileSync, promises } from 'node:fs';
 import process$1 from 'node:process';
 import { klona } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/klona/dist/index.mjs';
 import defu, { defuFn, createDefu } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/defu/dist/defu.mjs';
@@ -45,6 +46,7 @@ import { createRouterMatcher } from 'file://C:/Users/USER/Documents/shelileworkp
 import _Z4Vm0BJMJeyU_KFYzGBgSOBoZ4JOQn4jYmko_KtDwU from 'file:///C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/@nuxt/vite-builder/dist/ssr-sourcemap.mjs';
 import { fileURLToPath } from 'node:url';
 import { dirname as dirname$1, resolve as resolve$1 } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/pathe/dist/index.mjs';
+import pinoHttp from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/.pnpm/pino-http@11.0.0/node_modules/pino-http/logger.js';
 import { getIcons } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/@iconify/utils/lib/index.js';
 import { collections } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/.nuxt/nuxt-icon-server-bundle.mjs';
 import { renderToString } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/vue/server-renderer/index.mjs';
@@ -2200,6 +2202,41 @@ function createPathIndexLanguageParser(index = 0) {
   };
 }
 
+const isDevelopment = true;
+const environment = "development" ;
+const logger$1 = pino({
+  level: "debug" ,
+  redact: {
+    paths: [
+      "password",
+      "*.password",
+      "email",
+      "*.email",
+      "accessToken",
+      "*.accessToken",
+      "refreshToken",
+      "*.refreshToken",
+      "idToken",
+      "*.idToken",
+      "authorization",
+      "*.authorization",
+      "cookie",
+      "*.cookie",
+      "serviceAccount",
+      "*.serviceAccount",
+      "firebaseServiceAccountJson",
+      "*.firebaseServiceAccountJson"
+    ],
+    censor: "[REDACTED]"
+  }
+});
+function useLogger() {
+  function log(level, message, details = {}) {
+    logger$1[level](details, message);
+  }
+  return { environment, isDevelopment, log };
+}
+
 function getAdminApp(event) {
   const existing = getApps().find((app) => app.name === "race-for-parliament-server");
   if (existing) return existing;
@@ -2209,7 +2246,23 @@ function getAdminApp(event) {
     throw createError({ statusCode: 500, statusMessage: "Firebase Admin is missing NUXT_PUBLIC_FIREBASE_PROJECT_ID." });
   }
   const serviceAccountJson = config.firebaseServiceAccountJson;
-  const credential = serviceAccountJson ? cert(JSON.parse(serviceAccountJson)) : applicationDefault();
+  const serviceAccountPath = resolve(process.cwd(), "raceforpalament-39d8d-firebase-adminsdk-fbsvc-bcfdae06a5.json");
+  let credential;
+  if (serviceAccountJson) {
+    try {
+      credential = cert(JSON.parse(serviceAccountJson));
+    } catch {
+      throw createError({ statusCode: 500, statusMessage: "NUXT_FIREBASE_SERVICE_ACCOUNT_JSON is not valid service-account JSON." });
+    }
+  } else if (existsSync(serviceAccountPath)) {
+    try {
+      credential = cert(JSON.parse(readFileSync(serviceAccountPath, "utf8")));
+    } catch {
+      throw createError({ statusCode: 500, statusMessage: "The root Firebase service-account file is not valid service-account JSON." });
+    }
+  } else {
+    credential = applicationDefault();
+  }
   return initializeApp({
     credential,
     projectId
@@ -2231,7 +2284,27 @@ async function requireFirebaseUser(event) {
   const adminAuth = getFirebaseAdmin(event).auth;
   try {
     return await adminAuth.verifyIdToken(match[1], true);
-  } catch {
+  } catch (error) {
+    const code = typeof error === "object" && error !== null && "code" in error && typeof error.code === "string" ? error.code : void 0;
+    const invalidTokenCodes = /* @__PURE__ */ new Set([
+      "auth/argument-error",
+      "auth/id-token-expired",
+      "auth/id-token-revoked",
+      "auth/invalid-id-token",
+      "auth/user-disabled",
+      "auth/user-not-found"
+    ]);
+    if (!code || !invalidTokenCodes.has(code)) {
+      const { log } = useLogger();
+      log("error", "Firebase ID token verification failed", {
+        errorCode: code != null ? code : "unknown",
+        errorName: error instanceof Error ? error.name : "UnknownError"
+      });
+      throw createError({
+        statusCode: 503,
+        statusMessage: "Firebase Admin credentials are unavailable. Configure NUXT_FIREBASE_SERVICE_ACCOUNT_JSON or Application Default Credentials."
+      });
+    }
     throw createError({ statusCode: 401, statusMessage: "The authentication token is invalid or expired." });
   }
 }
@@ -3369,6 +3442,36 @@ const _sdI24c = eventHandler((event) => {
   return readAsset(id);
 });
 
+const logger = pino({
+  level: "debug" ,
+  serializers: {
+    req: (request) => {
+      var _a;
+      return {
+        method: request.method,
+        url: (_a = request.url) == null ? void 0 : _a.split("?")[0],
+        remoteAddress: request.socket.remoteAddress
+      };
+    },
+    res: (response) => ({
+      statusCode: response.statusCode
+    }),
+    err: (error) => ({ type: error.name, message: error.message, stack: error.stack }) 
+  }
+});
+const httpLogger = pinoHttp({
+  logger,
+  customLogLevel: (_request, response, error) => {
+    if (error || response.statusCode >= 500) return "error";
+    if (response.statusCode >= 400) return "warn";
+    return "debug" ;
+  }
+});
+const _CjyNY4 = defineEventHandler((event) => {
+  httpLogger(event.node.req, event.node.res, () => {
+  });
+});
+
 const options = {"iconifyApiEndpoint":"https://api.iconify.design"};
 
 const warnOnceSet = /* @__PURE__ */ new Set();
@@ -4187,6 +4290,7 @@ const _lazy_iXQ1WW = () => Promise.resolve().then(function () { return errorChan
 
 const handlers = [
   { route: '', handler: _sdI24c, lazy: false, middleware: true, method: undefined },
+  { route: '', handler: _CjyNY4, lazy: false, middleware: true, method: undefined },
   { route: '/api/admin/overview', handler: _lazy_bL9hl5, lazy: true, middleware: false, method: "get" },
   { route: '/api/admin/participants', handler: _lazy_ghsDwI, lazy: true, middleware: false, method: "get" },
   { route: '/api/admin/participants/:id', handler: _lazy_xHwAFH, lazy: true, middleware: false, method: "get" },
@@ -4617,8 +4721,20 @@ const results_get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.definePrope
 const progress_get = defineEventHandler(async (event) => {
   const user = await requireFirebaseUser(event);
   const { db } = getFirebaseAdmin(event);
-  const snapshot = await db.doc(`users/${user.uid}/courseProgress/race-for-parliament`).get();
-  return snapshot.exists ? snapshot.data() : { passedModules: [], scores: {}, attemptsByModule: {}, latestAttemptId: null };
+  try {
+    const snapshot = await db.doc(`users/${user.uid}/courseProgress/race-for-parliament`).get();
+    return snapshot.exists ? snapshot.data() : { passedModules: [], scores: {}, attemptsByModule: {}, latestAttemptId: null };
+  } catch (error) {
+    const { log } = useLogger();
+    log("error", "Failed to fetch progress data", {
+      errorName: error instanceof Error ? error.name : "UnknownError",
+      errorMessage: error instanceof Error ? error.message : String(error)
+    });
+    throw createError({
+      statusCode: 500,
+      statusMessage: "Failed to fetch progress data"
+    });
+  }
 });
 
 const progress_get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({

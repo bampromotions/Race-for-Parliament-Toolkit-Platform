@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { courseId } from '../data/course'
+
 const props = defineProps<{ area: 'participant' | 'admin' }>()
 const { t } = useI18n()
 const localePath = useLocalePath()
@@ -7,6 +9,11 @@ const firebase = useFirebase()
 const auth = useAuth()
 const mobileOpen = ref(false)
 const signOutError = ref('')
+const clientReady = ref(false)
+
+onMounted(() => {
+  clientReady.value = true
+})
 
 const navigation = computed(() => props.area === 'admin'
   ? [
@@ -21,6 +28,7 @@ const navigation = computed(() => props.area === 'admin'
       { label: 'navigation.dashboard', path: '/dashboard' },
       { label: 'navigation.course', path: '/course' },
       { label: 'navigation.progress', path: '/progress' },
+      { label: 'navigation.quizzes', path: `/course/${courseId}/module/1/quiz` },
       { label: 'navigation.profile', path: '/profile' },
     ])
 
@@ -62,7 +70,7 @@ async function handleSignOut() {
         </NuxtLink>
       </nav>
       <div class="border-t border-slate-100 p-4">
-        <p class="truncate text-sm font-semibold">{{ firebase.session.value?.displayName || firebase.session.value?.email }}</p>
+        <p v-if="clientReady" class="truncate text-sm font-semibold">{{ firebase.session.value?.displayName || firebase.session.value?.email }}</p>
         <p v-if="signOutError" role="alert" class="mt-2 text-xs text-red-700">{{ signOutError }}</p>
         <button class="mt-3 text-sm font-medium text-slate-600 hover:text-slate-950" @click="handleSignOut">
           {{ t('navigation.signOut') }}

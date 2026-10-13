@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { courseId, courseModules } from '../../../../data/course'
-import { createCourseProgressRepository, type QuizAttemptResult } from '../../../../repositories/courseProgressRepository'
+import { courseId, courseModules } from '~/data/course'
+import { createCourseProgressRepository, type QuizAttemptResult } from '~/repositories/courseProgressRepository'
 
 definePageMeta({ layout: 'participant', middleware: 'auth' })
 const route = useRoute()

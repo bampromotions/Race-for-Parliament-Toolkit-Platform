@@ -8,6 +8,14 @@ import {
 } from 'firebase/auth'
 import { doc, serverTimestamp, setDoc } from 'firebase/firestore'
 
+type RegistrationInput = {
+  name: string
+  email: string
+  password: string
+  organisation: string
+  preferredLanguage: 'en' | 'st'
+}
+
 export function useAuth() {
   const firebase = useFirebase()
   const { log } = useLogger()
@@ -40,18 +48,22 @@ export function useAuth() {
     }
   }
 
-  async function register(input: {
-    name: string
-    email: string
-    password: string
-    organisation: string
-    preferredLanguage: 'en' | 'st'
-  }) {
+  async function register(input: RegistrationInput) {
+    const email = input.email.trim()
+    if (
+      !input.name.trim()
+      || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+      || !input.password.trim()
+      || input.password.length < 8
+    ) {
+      throw new Error('A valid email, name, and password of at least 8 characters are required.')
+    }
+
     log('debug', 'Authentication registration started', { event: 'auth.register.started' })
     let credential
     try {
       const { auth, db } = firebase.requireFirebase()
-      credential = await createUserWithEmailAndPassword(auth, input.email.trim(), input.password)
+      credential = await createUserWithEmailAndPassword(auth, email, input.password)
 
       await updateProfile(credential.user, { displayName: input.name.trim() })
       await setDoc(doc(db, 'users', credential.user.uid), {

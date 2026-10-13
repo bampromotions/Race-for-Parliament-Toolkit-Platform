@@ -1,6 +1,9 @@
+import { existsSync, readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
 import { applicationDefault, cert, getApps, initializeApp } from 'firebase-admin/app'
 import { getAuth } from 'firebase-admin/auth'
 import { getFirestore } from 'firebase-admin/firestore'
+import { useLogger } from '../../app/composables/useLogger'
 import type { H3Event } from 'h3'
 
 function getAdminApp(event: H3Event) {
@@ -13,9 +16,24 @@ function getAdminApp(event: H3Event) {
     throw createError({ statusCode: 500, statusMessage: 'Firebase Admin is missing NUXT_PUBLIC_FIREBASE_PROJECT_ID.' })
   }
   const serviceAccountJson = config.firebaseServiceAccountJson
-  const credential = serviceAccountJson
-    ? cert(JSON.parse(serviceAccountJson))
-    : applicationDefault()
+  const serviceAccountPath = resolve(process.cwd(), 'raceforpalament-39d8d-firebase-adminsdk-fbsvc-bcfdae06a5.json')
+  let credential
+
+  if (serviceAccountJson) {
+    try {
+      credential = cert(JSON.parse(serviceAccountJson))
+    } catch {
+      throw createError({ statusCode: 500, statusMessage: 'NUXT_FIREBASE_SERVICE_ACCOUNT_JSON is not valid service-account JSON.' })
+    }
+  } else if (existsSync(serviceAccountPath)) {
+    try {
+      credential = cert(JSON.parse(readFileSync(serviceAccountPath, 'utf8')))
+    } catch {
+      throw createError({ statusCode: 500, statusMessage: 'The root Firebase service-account file is not valid service-account JSON.' })
+    }
+  } else {
+    credential = applicationDefault()
+  }
 
   return initializeApp({
     credential,
@@ -41,7 +59,30 @@ export async function requireFirebaseUser(event: H3Event) {
   const adminAuth = getFirebaseAdmin(event).auth
   try {
     return await adminAuth.verifyIdToken(match[1], true)
-  } catch {
+  } catch (error) {
+    const code = typeof error === 'object' && error !== null && 'code' in error && typeof error.code === 'string'
+      ? error.code
+      : undefined
+    const invalidTokenCodes = new Set([
+      'auth/argument-error',
+      'auth/id-token-expired',
+      'auth/id-token-revoked',
+      'auth/invalid-id-token',
+      'auth/user-disabled',
+      'auth/user-not-found',
+    ])
+    if (!code || !invalidTokenCodes.has(code)) {
+      const { log } = useLogger()
+      log('error', 'Firebase ID token verification failed', {
+        errorCode: code ?? 'unknown',
+        errorName: error instanceof Error ? error.name : 'UnknownError',
+      })
+      throw createError({
+        statusCode: 503,
+        statusMessage: 'Firebase Admin credentials are unavailable. Configure NUXT_FIREBASE_SERVICE_ACCOUNT_JSON or Application Default Credentials.',
+      })
+    }
+
     throw createError({ statusCode: 401, statusMessage: 'The authentication token is invalid or expired.' })
   }
 }

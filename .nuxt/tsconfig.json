@@ -95,10 +95,10 @@
         "../node_modules/nuxt/dist/app/compat/vue-demi"
       ],
       "#ui": [
-        "../node_modules/@nuxt/ui/dist/runtime"
+        "../node_modules/.pnpm/@nuxt+ui@4.11.3_90c7a248b45f3956138b5594e74397bd/node_modules/@nuxt/ui/dist/runtime"
       ],
       "#ui/*": [
-        "../node_modules/@nuxt/ui/dist/runtime/*"
+        "../node_modules/.pnpm/@nuxt+ui@4.11.3_90c7a248b45f3956138b5594e74397bd/node_modules/@nuxt/ui/dist/runtime/*"
       ],
       "@intlify/shared": [
         "../node_modules/@intlify/shared/dist/shared"
@@ -232,18 +232,22 @@
     "../shared/**/*",
     "../modules/*/shared/**/*",
     "../layers/*/shared/**/*",
+    "../node_modules/.pnpm/@nuxt+ui@4.11.3_90c7a248b45f3956138b5594e74397bd/node_modules/runtime",
+    "../node_modules/.pnpm/@nuxt+ui@4.11.3_90c7a248b45f3956138b5594e74397bd/node_modules/dist/runtime",
     "../node_modules/runtime",
     "../node_modules/dist/runtime",
     "../shared/**/*.vue",
     "../modules/*/shared/**/*.vue",
     "../layers/*/shared/**/*.vue",
+    "../node_modules/.pnpm/@nuxt+ui@4.11.3_90c7a248b45f3956138b5594e74397bd/node_modules/runtime/**/*.vue",
+    "../node_modules/.pnpm/@nuxt+ui@4.11.3_90c7a248b45f3956138b5594e74397bd/node_modules/dist/runtime/**/*.vue",
     "../node_modules/runtime/**/*.vue",
     "../node_modules/dist/runtime/**/*.vue"
   ],
   "exclude": [
     "../node_modules",
     "../node_modules/nuxt/node_modules",
-    "../node_modules/@nuxt/ui/node_modules",
+    "../node_modules/.pnpm/@nuxt+ui@4.11.3_90c7a248b45f3956138b5594e74397bd/node_modules/@nuxt/ui/node_modules",
     "../node_modules/@nuxtjs/i18n/node_modules",
     "../node_modules/@nuxt/devtools/node_modules",
     "../node_modules/@nuxt/telemetry/node_modules",
@@ -256,6 +260,8 @@
     "../modules/*/runtime/server/**/*",
     "../layers/*/server/**/*",
     "../layers/*/modules/*/runtime/server/**/*",
+    "../node_modules/.pnpm/@nuxt+ui@4.11.3_90c7a248b45f3956138b5594e74397bd/node_modules/runtime/server",
+    "../node_modules/.pnpm/@nuxt+ui@4.11.3_90c7a248b45f3956138b5594e74397bd/node_modules/dist/runtime/server",
     "../node_modules/runtime/server",
     "../node_modules/dist/runtime/server"
   ],
