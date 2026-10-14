@@ -1,20 +1,15 @@
 # Race for Parliament Toolkit Platform
 
-A bilingual (English and Sesotho) learning website for the Race for Parliament Toolkit. Participants create profiles, work through course modules in order, complete quizzes, and save their learning progress. Staff roles support course administration, question authoring, and quiz marking.
+A bilingual (English and Sesotho) learning website for the Race for Parliament Toolkit. Participants create profiles, work through course modules in order, complete quizzes, and save their learning progress. Admins manage course materials, quiz questions, participants, results, and marking.
 
 ## User flow
 
 ```text
-Admin registers an account
+Trusted operator creates an Admin account in Firebase Authentication
+and a matching users/{uid} Firestore profile with role "admin"
         |
         v
-Operator assigns the Admin role in Firebase
-        |
-        v
-Admin signs in and adds bilingual lesson material
-        |
-        v
-Content editor adds bilingual questions
+Admin signs in and manages materials, questions, results, and marking
         |
         v
 Participant registers and signs in
@@ -25,58 +20,31 @@ Participant reads Module 1 and submits its quiz
         v
 Progress is saved; passing unlocks the next module
         |
-        v
-Marker reviews the submission and confirms or adjusts the score
-        |
-        v
 Participant continues through the ordered modules;
-staff monitor progress and quiz results
+Admin monitors progress and quiz results
 ```
 
 ## Create the first Admin
 
-There is no public Admin sign-up. New accounts always register as Participants; a trusted operator promotes the first staff account from a secured environment.
+There is no public Admin sign-up. Public registration creates Participants. A trusted operator creates each Admin account manually in Firebase Authentication and Firestore.
 
 For the complete website access, credential, and role-management walkthrough, see [ADMIN_ACCESS_GUIDE.md](./ADMIN_ACCESS_GUIDE.md).
 
-1. Finish the Firebase setup below and start the website.
-2. Open the registration page and create an account for the person who will be the first Admin.
-3. In Firebase Console, open **Authentication → Users** and copy that account's Firebase **User UID**.
-4. From the project root, with `.env` configured with the Firebase project ID and server credentials, run:
+1. In Firebase Console, create the Admin account under **Authentication → Users** and copy its **User UID**.
+2. Open **Firestore Database → Data** and create a document in the existing `users` collection using that exact UID as the document ID. Do not create a separate Admin collection.
+3. Add fields `uid`, `displayName`, `email`, `organisation`, and `preferredLanguage`, then set the string field `role` to `admin`.
+4. Have the Admin sign out and sign in. The app reads the role from `users/{uid}.role` and directs them to `/admin`.
 
-   ```sh
-   node --env-file=.env scripts/set-admin-claim.mjs <firebase-user-id> admin
-   ```
-
-   Replace `<firebase-user-id>` with the copied UID (without angle brackets). The script assigns the Firebase Admin custom claim and updates the account profile role. It requires the account to have registered first.
-
-5. Have the new Admin sign out and sign in again to refresh their ID token. They will then be directed to the Admin area.
-
-Use the same command to promote an existing registered account to another staff role:
-
-```sh
-node --env-file=.env scripts/set-admin-claim.mjs <firebase-user-id> contentEditor
-node --env-file=.env scripts/set-admin-claim.mjs <firebase-user-id> marker
-```
-
-Return an account to the Participant role with:
-
-```sh
-node --env-file=.env scripts/set-admin-claim.mjs <firebase-user-id> participant
-```
-
-Do not expose service-account credentials or run role assignment from the public website. Only trusted operators should assign staff roles.
+Only trusted operators should set the Admin role. The app prevents users from changing their own role.
 
 ## Roles and what each person does
 
 | Role | How the account is created | Website workflow |
 | --- | --- | --- |
-| **Admin** | Self-register, then an operator assigns the `admin` role using the command above. | Add bilingual lesson material to course modules; monitor participants, progress, and results; add questions and mark quizzes. |
-| **Content editor** | Self-register, then an operator assigns `contentEditor`. | Add bilingual single-choice, multiple-choice, and true/false quiz questions to modules. |
-| **Marker** | Self-register, then an operator assigns `marker`. | Review participant answers, confirm or adjust the score, and optionally leave feedback. |
+| **Admin** | A trusted operator creates the account in Firebase Authentication and its `users/{uid}` profile with `role: "admin"`. | Create and publish standalone quizzes; add bilingual course questions and lesson material; monitor participants, progress, and results; review and mark quizzes. |
 | **Participant** | Register on the website; every public sign-up starts with this role. | Create a profile, choose English or Sesotho, study modules in sequence, take quizzes, and resume saved progress. |
 
-Staff roles are assigned using Firebase custom claims. Page visibility is not the only protection: staff API requests also verify role claims on the server. A user-editable profile field does not grant staff access.
+The application uses only `admin` and `participant`. Firebase ID tokens verify identity; the app and server read authorization from the matching Firestore `users/{uid}` profile. Firestore rules prevent users from changing their own role. Published standalone quizzes appear on the Participant Quizzes page and are automatically scored on submission.
 
 ## Participant learning flow
 
@@ -85,9 +53,9 @@ Staff roles are assigned using Firebase custom claims. Page visibility is not th
 3. Module 1 is available first. Later modules stay locked until the preceding module quiz is passed.
 4. The participant reads the material and submits the module quiz. The server calculates and saves the score, answers, and progress.
 5. A passing score (70% or more) unlocks the next module. The participant can return later and continue from their saved progress.
-6. A Marker can review the submission, confirm or adjust its score, and add feedback. Admins can monitor overall participation, individual progress, and results.
+6. An Admin can review the submission, confirm or adjust its score, add feedback, and monitor overall participation, individual progress, and results.
 
-The course interface, lessons added by Admins, and questions added by staff support English and Sesotho.
+The course interface, lessons, and questions support English and Sesotho.
 
 ## Run locally
 

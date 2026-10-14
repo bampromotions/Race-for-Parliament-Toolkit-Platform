@@ -7,7 +7,6 @@ import {
   updateProfile,
 } from 'firebase/auth'
 import { doc, serverTimestamp, setDoc } from 'firebase/firestore'
-import { getUserRole } from '../utils/firebase-role'
 
 type RegistrationInput = {
   name: string
@@ -38,11 +37,12 @@ export function useAuth() {
     log('debug', 'Authentication sign-in started', { event: 'auth.sign-in.started' })
     try {
       const { auth } = firebase.requireFirebase()
-      const credential = await signInWithEmailAndPassword(auth, email.trim(), password)
-      const token = await credential.user.getIdTokenResult(true)
+      const credential = await signInWithEmailAndPassword(auth, email.trim(), password.trim())
       await firebase.refreshSession()
+      if (firebase.error.value) throw new Error(firebase.error.value)
+      if (!firebase.session.value) throw new Error('Unable to load your user profile.')
       log('info', 'Authentication sign-in succeeded', { event: 'auth.sign-in.succeeded' })
-      return getUserRole(token.claims)
+      return firebase.session.value.role
     } catch (error) {
       logFailure('sign-in', error)
       throw error

@@ -1,7 +1,7 @@
 import { getApps, initializeApp } from 'firebase/app'
 import { getAnalytics, isSupported } from 'firebase/analytics'
 import { getAuth, onAuthStateChanged, type User } from 'firebase/auth'
-import { getFirestore } from 'firebase/firestore'
+import { doc, getDoc, getFirestore } from 'firebase/firestore'
 import type { FirebaseClient, FirebaseSession } from '../types/firebase'
 import { getUserRole } from '../utils/firebase-role'
 
@@ -66,24 +66,32 @@ export default defineNuxtPlugin(() => {
         return
       }
 
-      const token = await user.getIdTokenResult()
-      const role = getUserRole(token.claims)
+      const profile = await getDoc(doc(db, 'users', user.uid))
+      if (!profile.exists()) {
+        throw new Error(`Firestore document users/${user.uid} was not found. Create it with role set to "admin" for an Admin account, or "participant" for a Participant account.`)
+      }
+      const role = getUserRole(profile.get('role'))
       session.value = {
         uid: user.uid,
         email: user.email,
-        displayName: user.displayName,
+        displayName: user.displayName || profile.get('displayName') || null,
         role,
         isAdmin: role === 'admin',
       }
     } catch (cause) {
       session.value = null
-      error.value = cause instanceof Error ? cause.message : 'Unable to verify the signed-in user.'
+      error.value = cause instanceof Error
+        ? `Unable to load the Firestore user profile: ${cause.message}`
+        : 'Unable to load the Firestore user profile.'
     } finally {
       resolveReady()
     }
   }
 
-  const refreshSession = () => updateSession(auth.currentUser)
+  const refreshSession = async () => {
+    await updateSession(auth.currentUser)
+    if (error.value) throw new Error(error.value)
+  }
   onAuthStateChanged(auth, (user) => {
     void updateSession(user)
   })

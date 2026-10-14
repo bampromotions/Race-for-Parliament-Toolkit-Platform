@@ -2,7 +2,7 @@ import { FieldValue } from 'firebase-admin/firestore'
 import { getFirebaseAdmin, requireRole } from '../../../utils/firebase-admin'
 
 export default defineEventHandler(async (event) => {
-  const marker = await requireRole(event, ['admin', 'marker'])
+  const admin = await requireRole(event, ['admin'])
   const attemptId = getRouterParam(event, 'id')
   if (!attemptId || !/^[A-Za-z0-9_-]{1,128}$/.test(attemptId)) {
     throw createError({ statusCode: 400, statusMessage: 'The quiz attempt ID is invalid.' })
@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: 'The marked score must be a whole number from 0 to 100.' })
   }
   if (body.feedback !== undefined && (typeof body.feedback !== 'string' || body.feedback.length > 1000)) {
-    throw createError({ statusCode: 400, statusMessage: 'Marker feedback must be 1,000 characters or fewer.' })
+    throw createError({ statusCode: 400, statusMessage: 'Admin feedback must be 1,000 characters or fewer.' })
   }
 
   const { db } = getFirebaseAdmin(event)
@@ -66,7 +66,7 @@ export default defineEventHandler(async (event) => {
       score,
       passed,
       reviewStatus: 'reviewed',
-      reviewedBy: marker.uid,
+      reviewedBy: admin.uid,
       reviewedAt: FieldValue.serverTimestamp(),
       reviewerFeedback: typeof body.feedback === 'string' ? body.feedback.trim() : '',
     })

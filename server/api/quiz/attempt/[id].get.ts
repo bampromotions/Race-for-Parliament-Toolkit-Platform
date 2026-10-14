@@ -14,8 +14,11 @@ export default defineEventHandler(async (event) => {
   }
 
   const result = snapshot.data()!
-  if (result.uid !== user.uid && user.admin !== true && user.role !== 'admin') {
-    throw createError({ statusCode: 403, statusMessage: 'You do not have access to this quiz result.' })
+  if (result.uid !== user.uid) {
+    const profile = await db.doc(`users/${user.uid}`).get()
+    if (!profile.exists || profile.get('role') !== 'admin') {
+      throw createError({ statusCode: 403, statusMessage: 'You do not have access to this quiz result.' })
+    }
   }
 
   return { ...result, id: snapshot.id, attempts: result.attemptNumber }

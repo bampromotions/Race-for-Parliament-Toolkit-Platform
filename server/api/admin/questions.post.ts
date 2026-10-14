@@ -14,7 +14,7 @@ function invalidQuestion(): never {
 }
 
 export default defineEventHandler(async (event) => {
-  const user = await requireRole(event, ['admin', 'contentEditor'])
+  const user = await requireRole(event, ['admin'])
   const body = await readBody<unknown>(event)
   if (!isRecord(body)) invalidQuestion()
 

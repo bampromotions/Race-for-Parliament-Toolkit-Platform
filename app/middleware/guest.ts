@@ -6,14 +6,7 @@ export default defineNuxtRouteMiddleware(async () => {
 
   await firebase.ready
   if (firebase.session.value) {
-    const { role } = firebase.session.value
-    const path = role === 'admin'
-      ? '/admin'
-      : role === 'contentEditor'
-        ? '/admin/quizzes'
-        : role === 'marker'
-          ? '/marking'
-          : '/dashboard'
+    const path = firebase.session.value.role === 'admin' ? '/admin' : '/dashboard'
     return navigateTo(useLocalePath()(path))
   }
 })

@@ -3,7 +3,7 @@ import type { FirebaseApp } from 'firebase/app'
 import type { Firestore } from 'firebase/firestore'
 import type { Ref } from 'vue'
 
-export type UserRole = 'admin' | 'contentEditor' | 'marker' | 'participant'
+export type UserRole = 'admin' | 'participant'
 
 export interface FirebaseSession {
   uid: string

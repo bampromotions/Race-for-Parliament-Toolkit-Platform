@@ -1,7 +1,7 @@
 import { getFirebaseAdmin, requireRole } from '../../utils/firebase-admin'
 
 export default defineEventHandler(async (event) => {
-  await requireRole(event, ['admin', 'contentEditor'])
+  await requireRole(event, ['admin'])
   const { db } = getFirebaseAdmin(event)
   const snapshot = await db.collection('quizQuestions')
     .where('courseId', '==', 'race-for-parliament')

@@ -3,7 +3,7 @@ import { getStaticAnswers } from '../../utils/course-quiz'
 import { getFirebaseAdmin, requireRole } from '../../utils/firebase-admin'
 
 export default defineEventHandler(async (event) => {
-  await requireRole(event, ['admin', 'marker'])
+  await requireRole(event, ['admin'])
   const { db } = getFirebaseAdmin(event)
   const snapshot = await db.collection('quizAttempts')
     .where('reviewStatus', '==', 'pending')

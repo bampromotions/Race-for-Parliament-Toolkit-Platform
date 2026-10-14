@@ -1,9 +1,5 @@
 import type { UserRole } from '../types/firebase'
 
-export function getUserRole(claims: Record<string, unknown>): UserRole {
-  if (claims.admin === true) return 'admin'
-  if (claims.role === 'admin' || claims.role === 'contentEditor' || claims.role === 'marker') {
-    return claims.role
-  }
-  return 'participant'
+export function getUserRole(profileRole: unknown): UserRole {
+  return profileRole === 'admin' ? 'admin' : 'participant'
 }

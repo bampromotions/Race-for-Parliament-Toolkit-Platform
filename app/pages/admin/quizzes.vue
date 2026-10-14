@@ -2,8 +2,9 @@
 import { courseModules } from '../../data/course'
 import type { CourseQuestion } from '../../data/course'
 
-definePageMeta({ layout: 'admin', middleware: 'staff', staffRoles: ['admin', 'contentEditor'] })
+definePageMeta({ layout: 'admin', middleware: 'admin' })
 const { t, locale } = useI18n()
+const route = useRoute()
 const api = useFirebaseApi()
 const selectedModule = ref(1)
 const questionType = ref<'single' | 'multiple' | 'truefalse'>('single')
@@ -16,10 +17,13 @@ const options = ref([
   { value: '', labelEn: '', labelSt: '' },
 ])
 const questions = ref<Array<CourseQuestion & { moduleId: number }>>([])
+const standaloneQuizzes = ref<Array<{ id: string; titleEn: string; titleSt: string; questionCount: number; published: boolean }>>([])
 const loading = ref(true)
 const pending = ref(false)
 const errorMessage = ref('')
 const successMessage = ref('')
+const localePath = useLocalePath()
+if (route.query.created === '1') successMessage.value = t('admin.standaloneQuizCreated')
 
 const visibleQuestions = computed(() => questions.value.map((question) => ({
   ...question,
@@ -52,6 +56,15 @@ async function loadQuestions() {
     errorMessage.value = error instanceof Error ? error.message : t('common.unexpectedError')
   } finally {
     loading.value = false
+  }
+}
+
+async function loadStandaloneQuizzes() {
+  try {
+    const response = await api.request<{ quizzes: typeof standaloneQuizzes.value }>('/api/admin/quizzes')
+    standaloneQuizzes.value = response.quizzes
+  } catch (error) {
+    errorMessage.value = error instanceof Error ? error.message : t('common.unexpectedError')
   }
 }
 
@@ -97,7 +110,9 @@ async function addQuestion() {
   }
 }
 
-onMounted(loadQuestions)
+onMounted(async () => {
+  await Promise.all([loadQuestions(), loadStandaloneQuizzes()])
+})
 </script>
 
 <template>
@@ -105,6 +120,9 @@ onMounted(loadQuestions)
     <header>
       <h1 class="text-3xl font-bold tracking-tight text-slate-950">{{ t('navigation.quizzes') }}</h1>
       <p class="mt-2 text-slate-600">{{ t('admin.questionEditorIntro') }}</p>
+      <NuxtLink :to="localePath('/admin/quizzes/create')" class="mt-4 inline-flex rounded-md bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-900">
+        {{ t('admin.createStandaloneQuiz') }}
+      </NuxtLink>
     </header>
     <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-5" @submit.prevent="addQuestion">
       <h2 class="text-lg font-semibold text-slate-950">{{ t('admin.addQuestion') }}</h2>
@@ -173,6 +191,17 @@ onMounted(loadQuestions)
       <p v-if="successMessage" role="status" class="text-sm text-emerald-800">{{ successMessage }}</p>
       <button type="submit" :disabled="pending" class="rounded-md bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white disabled:opacity-50">{{ pending ? t('common.loading') : t('admin.addQuestion') }}</button>
     </form>
+    <section class="space-y-3">
+      <h2 class="text-lg font-semibold text-slate-950">{{ t('admin.publishedQuizzes') }}</h2>
+      <p v-if="successMessage" role="status" class="rounded-lg border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-900">{{ successMessage }}</p>
+      <p v-if="standaloneQuizzes.length === 0" class="rounded-xl border border-slate-200 bg-white p-5 text-sm text-slate-600">{{ t('admin.noPublishedQuizzes') }}</p>
+      <ul v-else class="grid gap-3 sm:grid-cols-2">
+        <li v-for="quiz in standaloneQuizzes" :key="quiz.id" class="rounded-xl border border-slate-200 bg-white p-4">
+          <p class="font-semibold text-slate-950">{{ locale === 'en' ? quiz.titleEn : quiz.titleSt }}</p>
+          <p class="mt-1 text-sm text-slate-600">{{ t('admin.quizQuestionCount', { count: quiz.questionCount }) }}</p>
+        </li>
+      </ul>
+    </section>
     <section class="space-y-3">
       <h2 class="text-lg font-semibold text-slate-950">{{ t('admin.addedQuestions') }}</h2>
       <p v-if="loading" role="status" class="text-sm text-slate-600">{{ t('common.loading') }}</p>

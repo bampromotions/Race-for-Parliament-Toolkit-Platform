@@ -1,5 +1,5 @@
 <script setup lang="ts">
-definePageMeta({ layout: 'admin', middleware: 'staff', staffRoles: ['admin', 'marker'] })
+definePageMeta({ layout: 'admin', middleware: 'staff' })
 
 interface ReviewQuestion {
   id: string

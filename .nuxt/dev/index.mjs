@@ -7,7 +7,7 @@ import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent
 import { escapeHtml } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/@vue/shared/dist/shared.cjs.js';
 import viteNodeEntry_mjs from 'file:///C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs';
 import { viteNodeFetch } from 'file:///C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/@nuxt/vite-builder/dist/vite-node.mjs';
-import { getFirestore, FieldValue } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/.pnpm/firebase-admin@13.10.0_@fir_3a4b2c103a4421ced396da0ef185ee96/node_modules/firebase-admin/lib/esm/firestore/index.js';
+import { getFirestore, FieldValue, FieldPath } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/.pnpm/firebase-admin@13.10.0_@fir_3a4b2c103a4421ced396da0ef185ee96/node_modules/firebase-admin/lib/esm/firestore/index.js';
 import { existsSync, readFileSync, promises } from 'node:fs';
 import { getApps, cert, applicationDefault, initializeApp } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/.pnpm/firebase-admin@13.10.0_@fir_3a4b2c103a4421ced396da0ef185ee96/node_modules/firebase-admin/lib/esm/app/index.js';
 import { getAuth } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/.pnpm/firebase-admin@13.10.0_@fir_3a4b2c103a4421ced396da0ef185ee96/node_modules/firebase-admin/lib/esm/auth/index.js';
@@ -1728,9 +1728,9 @@ async function getLocaleMessagesMerged(locale, loaders = []) {
   return merged;
 }
 
-const locale_en_46json_a1708954 = /* @__PURE__ */ JSON.parse("{\"brand\":{\"name\":\"Race for Parliament Toolkit\",\"tagline\":\"Learn. Participate. Lead.\"},\"navigation\":{\"home\":\"Home\",\"dashboard\":\"Dashboard\",\"course\":\"My Course\",\"progress\":\"Progress\",\"profile\":\"Profile\",\"participants\":\"Participants\",\"courses\":\"Courses\",\"modules\":\"Modules\",\"quizzes\":\"Quizzes\",\"results\":\"Results\",\"marking\":\"Marking queue\",\"admin\":\"Administration\",\"language\":\"Language\",\"signOut\":\"Sign out\",\"openMenu\":\"Open navigation menu\",\"closeMenu\":\"Close navigation menu\"},\"common\":{\"english\":\"English\",\"sesotho\":\"Sesotho\",\"loading\":\"Loading...\",\"save\":\"Save changes\",\"cancel\":\"Cancel\",\"back\":\"Back\",\"previous\":\"Previous\",\"next\":\"Next\",\"continue\":\"Continue\",\"retry\":\"Try again\",\"remove\":\"Remove\",\"notConfigured\":\"Firebase is not configured. Set the public Firebase environment variables to enable sign-in and saved progress.\",\"unexpectedError\":\"Something went wrong. Please try again.\"},\"home\":{\"eyebrow\":\"A civic learning programme\",\"title\":\"Build the knowledge to shape public life.\",\"description\":\"Explore parliament, democratic participation and advocacy through a practical bilingual learning experience.\",\"getStarted\":\"Get started\",\"signIn\":\"Sign in\",\"featuresTitle\":\"A clear path from learning to participation\",\"modules\":\"Guided course modules\",\"languages\":\"English and Sesotho\",\"progress\":\"Progress you can track\"},\"auth\":{\"welcome\":\"Welcome back\",\"createAccount\":\"Create your participant account\",\"email\":\"Email address\",\"password\":\"Password\",\"newPassword\":\"New password\",\"confirmPassword\":\"Confirm password\",\"passwordMismatch\":\"The passwords do not match.\",\"fullName\":\"Full name\",\"organisation\":\"Organisation\",\"preferredLanguage\":\"Preferred language\",\"signIn\":\"Sign in\",\"register\":\"Create account\",\"noAccount\":\"New to the programme?\",\"hasAccount\":\"Already have an account?\",\"forgotPassword\":\"Forgot password?\",\"resetPassword\":\"Send password reset email\",\"passwordResetSent\":\"If an account exists for that address, a password reset email has been sent.\",\"authError\":\"We couldn't complete that request. Check your details and try again.\"},\"dashboard\":{\"welcome\":\"Welcome back, {name}\",\"intro\":\"Continue your learning and keep track of your progress.\",\"overallProgress\":\"Course progress\",\"completedModules\":\"Modules completed\",\"currentModule\":\"Continue learning\",\"recentResult\":\"Latest quiz result\",\"noResult\":\"No quiz results yet. Complete a module quiz to see your result here.\",\"openCourse\":\"Open my course\"},\"course\":{\"title\":\"Race for Parliament Toolkit\",\"description\":\"Build practical knowledge about parliament, elections, policy and public leadership.\",\"modules\":\"Course modules\",\"completed\":\"Completed\",\"inProgress\":\"In progress\",\"available\":\"Available\",\"locked\":\"Locked\",\"courseMaterial\":\"Course Material\",\"startQuiz\":\"Start quiz\",\"submitQuiz\":\"Submit quiz\",\"question\":\"Question {current} of {total}\",\"questionCount\":\"{count} questions\",\"quizConfirm\":\"Submit your answers?\",\"result\":\"Quiz Result\",\"passed\":\"Passed\",\"notPassed\":\"Not passed\",\"passThreshold\":\"You need 70% to pass and unlock the next module.\",\"awaitingReview\":\"Your score is automatic and is waiting for a Marker to review it. Your progress is saved.\",\"markerFeedback\":\"Marker feedback\",\"retryQuiz\":\"Retry quiz\",\"nextModule\":\"Continue to next module\",\"courseComplete\":\"You have completed the course.\",\"noModules\":\"No course modules are available yet.\"},\"progress\":{\"title\":\"Your progress\",\"overall\":\"Overall course progress\",\"moduleProgress\":\"Module completion\",\"quizPerformance\":\"Quiz performance\",\"empty\":\"Your learning progress will appear here when you begin the course.\"},\"profile\":{\"title\":\"Participant profile\",\"phone\":\"Phone number\",\"saved\":\"Your profile has been updated.\",\"saveError\":\"We couldn't save your profile. Please try again.\"},\"admin\":{\"title\":\"Administration\",\"participants\":\"Participants\",\"courses\":\"Courses\",\"results\":\"Quiz results\",\"totalParticipants\":\"Total participants\",\"completed\":\"Completed\",\"inProgress\":\"In progress\",\"notStarted\":\"Not started\",\"averageScore\":\"Average score (latest 500 attempts)\",\"participantStatus\":\"Status\",\"moduleLabel\":\"Module\",\"questionEditorIntro\":\"Add bilingual multiple-choice questions to a course module.\",\"addQuestion\":\"Add question\",\"questionType\":\"Question type\",\"singleChoice\":\"Single choice\",\"multipleChoice\":\"Multiple choice\",\"trueFalse\":\"True or false\",\"promptEnglish\":\"Question in English\",\"promptSesotho\":\"Question in Sesotho\",\"answerOptions\":\"Answer options\",\"optionValue\":\"Answer value\",\"optionEnglish\":\"Option in English\",\"optionSesotho\":\"Option in Sesotho\",\"correctAnswer\":\"Correct\",\"addOption\":\"Add an option\",\"addedQuestions\":\"Added questions\",\"noAddedQuestions\":\"No added questions yet.\",\"questionAdded\":\"The question was added.\",\"addLessonMaterial\":\"Add lesson material\",\"materialTitleEnglish\":\"Lesson title in English\",\"materialTitleSesotho\":\"Lesson title in Sesotho\",\"materialBodyEnglish\":\"Lesson material in English\",\"materialBodySesotho\":\"Lesson material in Sesotho\",\"addedMaterials\":\"Added lesson material\",\"noAddedMaterials\":\"No additional lesson material has been added.\",\"materialAdded\":\"The lesson material was added.\",\"markingTitle\":\"Quiz marking\",\"markingIntro\":\"Review submitted answers and confirm or adjust the automatically calculated score.\",\"noPendingMarking\":\"There are no quiz submissions waiting to be marked.\",\"pendingReview\":\"Awaiting review\",\"automaticScore\":\"Automatic score\",\"participantAnswer\":\"Participant answer\",\"noAnswer\":\"No answer\",\"finalScore\":\"Final score\",\"markerFeedback\":\"Feedback (optional)\",\"saveMark\":\"Save mark\",\"reviewStatus\":\"Review status\",\"reviewed\":\"Marked\",\"pending\":\"Pending\",\"notAvailable\":\"Not reviewable\",\"accessDenied\":\"You do not have administrator access.\",\"empty\":\"No records to display.\"}}");
+const locale_en_46json_a1708954 = /* @__PURE__ */ JSON.parse("{\"brand\":{\"name\":\"Race for Parliament Toolkit\",\"tagline\":\"Learn. Participate. Lead.\"},\"navigation\":{\"home\":\"Home\",\"dashboard\":\"Dashboard\",\"course\":\"My Course\",\"progress\":\"Progress\",\"profile\":\"Profile\",\"participants\":\"Participants\",\"courses\":\"Courses\",\"modules\":\"Modules\",\"quizzes\":\"Quizzes\",\"results\":\"Results\",\"marking\":\"Marking queue\",\"admin\":\"Administration\",\"language\":\"Language\",\"signOut\":\"Sign out\",\"openMenu\":\"Open navigation menu\",\"closeMenu\":\"Close navigation menu\"},\"common\":{\"english\":\"English\",\"sesotho\":\"Sesotho\",\"loading\":\"Loading...\",\"save\":\"Save changes\",\"cancel\":\"Cancel\",\"back\":\"Back\",\"previous\":\"Previous\",\"next\":\"Next\",\"continue\":\"Continue\",\"retry\":\"Try again\",\"remove\":\"Remove\",\"notConfigured\":\"Firebase is not configured. Set the public Firebase environment variables to enable sign-in and saved progress.\",\"unexpectedError\":\"Something went wrong. Please try again.\"},\"home\":{\"eyebrow\":\"A civic learning programme\",\"title\":\"Build the knowledge to shape public life.\",\"description\":\"Explore parliament, democratic participation and advocacy through a practical bilingual learning experience.\",\"getStarted\":\"Get started\",\"signIn\":\"Sign in\",\"featuresTitle\":\"A clear path from learning to participation\",\"modules\":\"Guided course modules\",\"languages\":\"English and Sesotho\",\"progress\":\"Progress you can track\"},\"auth\":{\"welcome\":\"Welcome back\",\"createAccount\":\"Create your participant account\",\"email\":\"Email address\",\"password\":\"Password\",\"newPassword\":\"New password\",\"confirmPassword\":\"Confirm password\",\"passwordMismatch\":\"The passwords do not match.\",\"fullName\":\"Full name\",\"organisation\":\"Organisation\",\"preferredLanguage\":\"Preferred language\",\"signIn\":\"Sign in\",\"register\":\"Create account\",\"noAccount\":\"New to the programme?\",\"hasAccount\":\"Already have an account?\",\"forgotPassword\":\"Forgot password?\",\"resetPassword\":\"Send password reset email\",\"passwordResetSent\":\"If an account exists for that address, a password reset email has been sent.\",\"authError\":\"We couldn't complete that request. Check your details and try again.\"},\"dashboard\":{\"welcome\":\"Welcome back, {name}\",\"intro\":\"Continue your learning and keep track of your progress.\",\"overallProgress\":\"Course progress\",\"completedModules\":\"Modules completed\",\"currentModule\":\"Continue learning\",\"recentResult\":\"Latest quiz result\",\"noResult\":\"No quiz results yet. Complete a module quiz to see your result here.\",\"openCourse\":\"Open my course\"},\"course\":{\"title\":\"Race for Parliament Toolkit\",\"description\":\"Build practical knowledge about parliament, elections, policy and public leadership.\",\"modules\":\"Course modules\",\"completed\":\"Completed\",\"inProgress\":\"In progress\",\"available\":\"Available\",\"locked\":\"Locked\",\"courseMaterial\":\"Course Material\",\"startQuiz\":\"Start quiz\",\"submitQuiz\":\"Submit quiz\",\"question\":\"Question {current} of {total}\",\"questionCount\":\"{count} questions\",\"quizConfirm\":\"Submit your answers?\",\"result\":\"Quiz Result\",\"passed\":\"Passed\",\"notPassed\":\"Not passed\",\"passThreshold\":\"You need 70% to pass and unlock the next module.\",\"awaitingReview\":\"Your score is automatic and is waiting for an Admin to review it. Your progress is saved.\",\"markerFeedback\":\"Admin feedback\",\"retryQuiz\":\"Retry quiz\",\"nextModule\":\"Continue to next module\",\"courseComplete\":\"You have completed the course.\",\"noModules\":\"No course modules are available yet.\"},\"progress\":{\"title\":\"Your progress\",\"overall\":\"Overall course progress\",\"moduleProgress\":\"Module completion\",\"quizPerformance\":\"Quiz performance\",\"empty\":\"Your learning progress will appear here when you begin the course.\"},\"profile\":{\"title\":\"Participant profile\",\"phone\":\"Phone number\",\"saved\":\"Your profile has been updated.\",\"saveError\":\"We couldn't save your profile. Please try again.\"},\"admin\":{\"title\":\"Administration\",\"participants\":\"Participants\",\"courses\":\"Courses\",\"results\":\"Quiz results\",\"totalParticipants\":\"Total participants\",\"completed\":\"Completed\",\"inProgress\":\"In progress\",\"notStarted\":\"Not started\",\"averageScore\":\"Average score (latest 500 attempts)\",\"participantStatus\":\"Status\",\"moduleLabel\":\"Module\",\"questionEditorIntro\":\"Add bilingual multiple-choice questions to a course module.\",\"createStandaloneQuiz\":\"Create a standalone quiz\",\"standaloneQuizTitleEnglish\":\"Quiz title in English\",\"standaloneQuizTitleSesotho\":\"Quiz title in Sesotho\",\"standaloneQuizCreated\":\"The quiz was published and is now available to participants.\",\"addQuestionToQuiz\":\"Add question to this quiz\",\"createQuiz\":\"Create and publish quiz\",\"quizQuestionCount\":\"{count} questions\",\"publishedQuizzes\":\"Published quizzes\",\"noPublishedQuizzes\":\"No standalone quizzes are available yet.\",\"startQuiz\":\"Start quiz\",\"submitStandaloneQuiz\":\"Submit quiz\",\"quizScore\":\"Your score\",\"quizPassed\":\"You passed this quiz.\",\"quizNotPassed\":\"You need 70% to pass this quiz.\",\"allQuestionsRequired\":\"Answer every question before submitting.\",\"addQuestion\":\"Add question\",\"questionType\":\"Question type\",\"singleChoice\":\"Single choice\",\"multipleChoice\":\"Multiple choice\",\"trueFalse\":\"True or false\",\"promptEnglish\":\"Question in English\",\"promptSesotho\":\"Question in Sesotho\",\"answerOptions\":\"Answer options\",\"optionValue\":\"Answer value\",\"optionEnglish\":\"Option in English\",\"optionSesotho\":\"Option in Sesotho\",\"correctAnswer\":\"Correct\",\"addOption\":\"Add an option\",\"addedQuestions\":\"Added questions\",\"noAddedQuestions\":\"No added questions yet.\",\"questionAdded\":\"The question was added.\",\"addLessonMaterial\":\"Add lesson material\",\"materialTitleEnglish\":\"Lesson title in English\",\"materialTitleSesotho\":\"Lesson title in Sesotho\",\"materialBodyEnglish\":\"Lesson material in English\",\"materialBodySesotho\":\"Lesson material in Sesotho\",\"addedMaterials\":\"Added lesson material\",\"noAddedMaterials\":\"No additional lesson material has been added.\",\"materialAdded\":\"The lesson material was added.\",\"markingTitle\":\"Quiz marking\",\"markingIntro\":\"Review submitted answers and confirm or adjust the automatically calculated score.\",\"noPendingMarking\":\"There are no quiz submissions waiting to be marked.\",\"pendingReview\":\"Awaiting review\",\"automaticScore\":\"Automatic score\",\"participantAnswer\":\"Participant answer\",\"noAnswer\":\"No answer\",\"finalScore\":\"Final score\",\"markerFeedback\":\"Feedback (optional)\",\"saveMark\":\"Save mark\",\"reviewStatus\":\"Review status\",\"reviewed\":\"Marked\",\"pending\":\"Pending\",\"notAvailable\":\"Not reviewable\",\"accessDenied\":\"You do not have administrator access.\",\"empty\":\"No records to display.\"}}");
 
-const locale_st_46json_44bb2859 = /* @__PURE__ */ JSON.parse("{\"brand\":{\"name\":\"Race for Parliament Toolkit\",\"tagline\":\"Ithute. Nka karolo. Etella pele.\"},\"navigation\":{\"home\":\"Lehae\",\"dashboard\":\"Kakaretso\",\"course\":\"Thuto ea ka\",\"progress\":\"Tsoelo-pele\",\"profile\":\"Boemo ba ka\",\"participants\":\"Barupeluoa\",\"courses\":\"Lithuto\",\"modules\":\"Likarolo\",\"quizzes\":\"Lipotso\",\"results\":\"Liphetho\",\"marking\":\"Ho tšoaea\",\"admin\":\"Tsamaiso\",\"language\":\"Puo\",\"signOut\":\"Tsoa\",\"openMenu\":\"Bula lenane la ho tsamaea\",\"closeMenu\":\"Koala lenane la ho tsamaea\"},\"common\":{\"english\":\"Senyesemane\",\"sesotho\":\"Sesotho\",\"loading\":\"E a bula...\",\"save\":\"Boloka liphetoho\",\"cancel\":\"Hlakola\",\"back\":\"Morao\",\"previous\":\"E fetileng\",\"next\":\"E latelang\",\"continue\":\"Tsoela pele\",\"retry\":\"Leka hape\",\"notConfigured\":\"Firebase ha e so lokisoe. Kenya litlhophiso tsa Firebase hore ho khonehe ho kena le ho boloka tsoelo-pele.\",\"unexpectedError\":\"Ho bile le bothata. Ka kopo leka hape.\"},\"home\":{\"eyebrow\":\"Lenaneo la thuto ea sechaba\",\"title\":\"Fumana tsebo ea ho bopa bophelo ba sechaba.\",\"description\":\"Ithute ka paramente, demokrasi le boipiletso ka tsela e sebetsang ea lipuo tse peli.\",\"getStarted\":\"Qala\",\"signIn\":\"Kena\",\"featuresTitle\":\"Tsela e hlakileng ea ho ithuta le ho nka karolo\",\"modules\":\"Likarolo tsa thuto\",\"languages\":\"Senyesemane le Sesotho\",\"progress\":\"Tsoelo-pele e bonahalang\"},\"auth\":{\"welcome\":\"Rea u amohela hape\",\"createAccount\":\"Theha ak'haonte ea hau\",\"email\":\"Aterese ea imeile\",\"password\":\"Lekunutu\",\"newPassword\":\"Lekunutu le lecha\",\"confirmPassword\":\"Netefatsa lekunutu\",\"passwordMismatch\":\"Liphasewete ha li tšoane.\",\"fullName\":\"Lebitso ka botlalo\",\"organisation\":\"Mokhatlo\",\"preferredLanguage\":\"Puo eo u e ratang\",\"signIn\":\"Kena\",\"register\":\"Theha ak'haonte\",\"noAccount\":\"Ha u e-so kene lenaneong?\",\"hasAccount\":\"U se u ntse u na le ak'haonte?\",\"forgotPassword\":\"U lebetse lekunutu?\",\"resetPassword\":\"Romela imeile ea ho fetola lekunutu\",\"passwordResetSent\":\"Haeba ak'haonte e le teng atereseng eo, imeile ea ho fetola lekunutu e rometsoe.\",\"authError\":\"Ha rea khona ho phetha kopo eo. Hlahloba lintlha tsa hau ebe u leka hape.\"},\"dashboard\":{\"welcome\":\"Rea u amohela hape, {name}\",\"intro\":\"Tsoela pele ka thuto ea hau 'me u shebe tsoelo-pele.\",\"overallProgress\":\"Tsoelo-pele ea thuto\",\"completedModules\":\"Likarolo tse phethiloeng\",\"currentModule\":\"Tsoela pele ho ithuta\",\"recentResult\":\"Sephetho sa morao-rao\",\"noResult\":\"Ha ho liphetho tsa lipotso. Qeta lipotso tsa karolo ho bona sephetho.\",\"openCourse\":\"Bula thuto ea ka\"},\"course\":{\"title\":\"Race for Parliament Toolkit\",\"description\":\"Ithute ka paramente, likhetho, maano le boetapele ba sechaba.\",\"modules\":\"Likarolo tsa thuto\",\"completed\":\"E phethiloe\",\"inProgress\":\"E ntse e tsoela pele\",\"available\":\"E fumaneha\",\"locked\":\"E notletsoe\",\"courseMaterial\":\"Litaba tsa thuto\",\"startQuiz\":\"Qala lipotso\",\"submitQuiz\":\"Romela likarabo\",\"question\":\"Potso {current} ho tse {total}\",\"questionCount\":\"Lipotso: {count}\",\"quizConfirm\":\"Romela likarabo tsa hau?\",\"result\":\"Sephetho sa lipotso\",\"passed\":\"U atlehile\",\"notPassed\":\"Ha ua atleha\",\"passThreshold\":\"U hloka 70% ho atleha le ho bula karolo e latelang.\",\"awaitingReview\":\"Lintlha tsa hau li baliloe ka boiketsetso 'me li emetse hore Motšoaisi a li hlahlobe. Tsoelo-pele ea hau e bolokiloe.\",\"markerFeedback\":\"Maikutlo a motšoaisi\",\"retryQuiz\":\"Leka lipotso hape\",\"nextModule\":\"Tsoela pele karolong e latelang\",\"courseComplete\":\"U qetile thuto.\",\"noModules\":\"Ha ho likarolo tsa thuto tse fumanehang.\"},\"progress\":{\"title\":\"Tsoelo-pele ea hau\",\"overall\":\"Tsoelo-pele ea thuto ka kakaretso\",\"moduleProgress\":\"Ho phethoa ha likarolo\",\"quizPerformance\":\"Liphetho tsa lipotso\",\"empty\":\"Tsoelo-pele ea hau e tla hlaha mona ha u qala thuto.\"},\"profile\":{\"title\":\"Boemo ba morupeluoa\",\"phone\":\"Nomoro ea mohala\",\"saved\":\"Boemo ba hau bo ntlafalitsoe.\",\"saveError\":\"Ha rea khona ho boloka boemo ba hau. Ka kopo leka hape.\"},\"admin\":{\"title\":\"Tsamaiso\",\"participants\":\"Barupeluoa\",\"courses\":\"Lithuto\",\"results\":\"Liphetho tsa lipotso\",\"totalParticipants\":\"Barupeluoa bohle\",\"completed\":\"Ba phethileng\",\"inProgress\":\"Ba ntseng ba tsoela pele\",\"notStarted\":\"Ba e-so qale\",\"averageScore\":\"Karolelano ea lintlha (liteko tsa morao-rao tse 500)\",\"participantStatus\":\"Boemo\",\"moduleLabel\":\"Karolo\",\"questionEditorIntro\":\"Kenya lipotso tsa boikhethelo ka lipuo tse peli karolong ea thuto.\",\"addQuestion\":\"Kenya potso\",\"questionType\":\"Mofuta oa potso\",\"singleChoice\":\"Karabo e le 'ngoe\",\"multipleChoice\":\"Likarabo tse ngata\",\"trueFalse\":\"Nnete kapa leshano\",\"promptEnglish\":\"Potso ka Senyesemane\",\"promptSesotho\":\"Potso ka Sesotho\",\"answerOptions\":\"Likhetho tsa likarabo\",\"optionValue\":\"Boleng ba karabo\",\"optionEnglish\":\"Khetho ka Senyesemane\",\"optionSesotho\":\"Khetho ka Sesotho\",\"correctAnswer\":\"Karabo e nepahetseng\",\"addOption\":\"Kenya khetho\",\"addedQuestions\":\"Lipotso tse kentsoeng\",\"noAddedQuestions\":\"Ha ho lipotso tse kentsoeng.\",\"questionAdded\":\"Potso e kentsoe.\",\"addLessonMaterial\":\"Kenya litaba tsa thuto\",\"materialTitleEnglish\":\"Sehlooho sa thuto ka Senyesemane\",\"materialTitleSesotho\":\"Sehlooho sa thuto ka Sesotho\",\"materialBodyEnglish\":\"Litaba tsa thuto ka Senyesemane\",\"materialBodySesotho\":\"Litaba tsa thuto ka Sesotho\",\"addedMaterials\":\"Litaba tsa thuto tse kentsoeng\",\"noAddedMaterials\":\"Ha ho litaba tse ling tsa thuto tse kentsoeng.\",\"materialAdded\":\"Litaba tsa thuto li kentsoe.\",\"markingTitle\":\"Ho tšoaea lipotso\",\"markingIntro\":\"Hlahloba likarabo tse rometsoeng 'me u netefatse kapa u fetole lintlha tse baliloeng.\",\"noPendingMarking\":\"Ha ho lipotso tse rometsoeng tse emetseng ho tšoauoa.\",\"pendingReview\":\"E emetse tlhahlobo\",\"automaticScore\":\"Lintlha tse baliloeng\",\"participantAnswer\":\"Karabo ea morupeluoa\",\"noAnswer\":\"Ha ho karabo\",\"finalScore\":\"Lintlha tsa ho qetela\",\"markerFeedback\":\"Maikutlo (ha ho hlokahale)\",\"saveMark\":\"Boloka lintlha\",\"reviewStatus\":\"Boemo ba tlhahlobo\",\"reviewed\":\"E tšoailoe\",\"pending\":\"E emetse\",\"notAvailable\":\"Ha e hlahlojoe\",\"accessDenied\":\"Ha u na tumello ea tsamaiso.\",\"empty\":\"Ha ho lintlha tse teng.\"}}");
+const locale_st_46json_44bb2859 = /* @__PURE__ */ JSON.parse("{\"brand\":{\"name\":\"Race for Parliament Toolkit\",\"tagline\":\"Ithute. Nka karolo. Etella pele.\"},\"navigation\":{\"home\":\"Lehae\",\"dashboard\":\"Kakaretso\",\"course\":\"Thuto ea ka\",\"progress\":\"Tsoelo-pele\",\"profile\":\"Boemo ba ka\",\"participants\":\"Barupeluoa\",\"courses\":\"Lithuto\",\"modules\":\"Likarolo\",\"quizzes\":\"Lipotso\",\"results\":\"Liphetho\",\"marking\":\"Ho tšoaea\",\"admin\":\"Tsamaiso\",\"language\":\"Puo\",\"signOut\":\"Tsoa\",\"openMenu\":\"Bula lenane la ho tsamaea\",\"closeMenu\":\"Koala lenane la ho tsamaea\"},\"common\":{\"english\":\"Senyesemane\",\"sesotho\":\"Sesotho\",\"loading\":\"E a bula...\",\"save\":\"Boloka liphetoho\",\"cancel\":\"Hlakola\",\"back\":\"Morao\",\"previous\":\"E fetileng\",\"next\":\"E latelang\",\"continue\":\"Tsoela pele\",\"retry\":\"Leka hape\",\"notConfigured\":\"Firebase ha e so lokisoe. Kenya litlhophiso tsa Firebase hore ho khonehe ho kena le ho boloka tsoelo-pele.\",\"unexpectedError\":\"Ho bile le bothata. Ka kopo leka hape.\"},\"home\":{\"eyebrow\":\"Lenaneo la thuto ea sechaba\",\"title\":\"Fumana tsebo ea ho bopa bophelo ba sechaba.\",\"description\":\"Ithute ka paramente, demokrasi le boipiletso ka tsela e sebetsang ea lipuo tse peli.\",\"getStarted\":\"Qala\",\"signIn\":\"Kena\",\"featuresTitle\":\"Tsela e hlakileng ea ho ithuta le ho nka karolo\",\"modules\":\"Likarolo tsa thuto\",\"languages\":\"Senyesemane le Sesotho\",\"progress\":\"Tsoelo-pele e bonahalang\"},\"auth\":{\"welcome\":\"Rea u amohela hape\",\"createAccount\":\"Theha ak'haonte ea hau\",\"email\":\"Aterese ea imeile\",\"password\":\"Lekunutu\",\"newPassword\":\"Lekunutu le lecha\",\"confirmPassword\":\"Netefatsa lekunutu\",\"passwordMismatch\":\"Liphasewete ha li tšoane.\",\"fullName\":\"Lebitso ka botlalo\",\"organisation\":\"Mokhatlo\",\"preferredLanguage\":\"Puo eo u e ratang\",\"signIn\":\"Kena\",\"register\":\"Theha ak'haonte\",\"noAccount\":\"Ha u e-so kene lenaneong?\",\"hasAccount\":\"U se u ntse u na le ak'haonte?\",\"forgotPassword\":\"U lebetse lekunutu?\",\"resetPassword\":\"Romela imeile ea ho fetola lekunutu\",\"passwordResetSent\":\"Haeba ak'haonte e le teng atereseng eo, imeile ea ho fetola lekunutu e rometsoe.\",\"authError\":\"Ha rea khona ho phetha kopo eo. Hlahloba lintlha tsa hau ebe u leka hape.\"},\"dashboard\":{\"welcome\":\"Rea u amohela hape, {name}\",\"intro\":\"Tsoela pele ka thuto ea hau 'me u shebe tsoelo-pele.\",\"overallProgress\":\"Tsoelo-pele ea thuto\",\"completedModules\":\"Likarolo tse phethiloeng\",\"currentModule\":\"Tsoela pele ho ithuta\",\"recentResult\":\"Sephetho sa morao-rao\",\"noResult\":\"Ha ho liphetho tsa lipotso. Qeta lipotso tsa karolo ho bona sephetho.\",\"openCourse\":\"Bula thuto ea ka\"},\"course\":{\"title\":\"Race for Parliament Toolkit\",\"description\":\"Ithute ka paramente, likhetho, maano le boetapele ba sechaba.\",\"modules\":\"Likarolo tsa thuto\",\"completed\":\"E phethiloe\",\"inProgress\":\"E ntse e tsoela pele\",\"available\":\"E fumaneha\",\"locked\":\"E notletsoe\",\"courseMaterial\":\"Litaba tsa thuto\",\"startQuiz\":\"Qala lipotso\",\"submitQuiz\":\"Romela likarabo\",\"question\":\"Potso {current} ho tse {total}\",\"questionCount\":\"Lipotso: {count}\",\"quizConfirm\":\"Romela likarabo tsa hau?\",\"result\":\"Sephetho sa lipotso\",\"passed\":\"U atlehile\",\"notPassed\":\"Ha ua atleha\",\"passThreshold\":\"U hloka 70% ho atleha le ho bula karolo e latelang.\",\"awaitingReview\":\"Lintlha tsa hau li baliloe ka boiketsetso 'me li emetse hore Mookameli a li hlahlobe. Tsoelo-pele ea hau e bolokiloe.\",\"markerFeedback\":\"Maikutlo a Mookameli\",\"retryQuiz\":\"Leka lipotso hape\",\"nextModule\":\"Tsoela pele karolong e latelang\",\"courseComplete\":\"U qetile thuto.\",\"noModules\":\"Ha ho likarolo tsa thuto tse fumanehang.\"},\"progress\":{\"title\":\"Tsoelo-pele ea hau\",\"overall\":\"Tsoelo-pele ea thuto ka kakaretso\",\"moduleProgress\":\"Ho phethoa ha likarolo\",\"quizPerformance\":\"Liphetho tsa lipotso\",\"empty\":\"Tsoelo-pele ea hau e tla hlaha mona ha u qala thuto.\"},\"profile\":{\"title\":\"Boemo ba morupeluoa\",\"phone\":\"Nomoro ea mohala\",\"saved\":\"Boemo ba hau bo ntlafalitsoe.\",\"saveError\":\"Ha rea khona ho boloka boemo ba hau. Ka kopo leka hape.\"},\"admin\":{\"title\":\"Tsamaiso\",\"participants\":\"Barupeluoa\",\"courses\":\"Lithuto\",\"results\":\"Liphetho tsa lipotso\",\"totalParticipants\":\"Barupeluoa bohle\",\"completed\":\"Ba phethileng\",\"inProgress\":\"Ba ntseng ba tsoela pele\",\"notStarted\":\"Ba e-so qale\",\"averageScore\":\"Karolelano ea lintlha (liteko tsa morao-rao tse 500)\",\"participantStatus\":\"Boemo\",\"moduleLabel\":\"Karolo\",\"questionEditorIntro\":\"Kenya lipotso tsa boikhethelo ka lipuo tse peli karolong ea thuto.\",\"createStandaloneQuiz\":\"Etsa lipotso tse ncha\",\"standaloneQuizTitleEnglish\":\"Sehlooho sa lipotso ka Senyesemane\",\"standaloneQuizTitleSesotho\":\"Sehlooho sa lipotso ka Sesotho\",\"standaloneQuizCreated\":\"Lipotso li phatlalalitsoe 'me barupeluoa ba ka li araba.\",\"addQuestionToQuiz\":\"Kenya potso lipotsong tsena\",\"createQuiz\":\"Etsa le ho phatlalatsa lipotso\",\"quizQuestionCount\":\"Lipotso tse {count}\",\"publishedQuizzes\":\"Lipotso tse phatlalalitsoeng\",\"noPublishedQuizzes\":\"Ha ho lipotso tse ncha tse fumanehang.\",\"startQuiz\":\"Qala lipotso\",\"submitStandaloneQuiz\":\"Romela lipotso\",\"quizScore\":\"Lintlha tsa hau\",\"quizPassed\":\"U atlehile lipotsong tsena.\",\"quizNotPassed\":\"U hloka 70% hore u atlehe lipotsong tsena.\",\"allQuestionsRequired\":\"Araba lipotso tsohle pele u romela.\",\"addQuestion\":\"Kenya potso\",\"questionType\":\"Mofuta oa potso\",\"singleChoice\":\"Karabo e le 'ngoe\",\"multipleChoice\":\"Likarabo tse ngata\",\"trueFalse\":\"Nnete kapa leshano\",\"promptEnglish\":\"Potso ka Senyesemane\",\"promptSesotho\":\"Potso ka Sesotho\",\"answerOptions\":\"Likhetho tsa likarabo\",\"optionValue\":\"Boleng ba karabo\",\"optionEnglish\":\"Khetho ka Senyesemane\",\"optionSesotho\":\"Khetho ka Sesotho\",\"correctAnswer\":\"Karabo e nepahetseng\",\"addOption\":\"Kenya khetho\",\"addedQuestions\":\"Lipotso tse kentsoeng\",\"noAddedQuestions\":\"Ha ho lipotso tse kentsoeng.\",\"questionAdded\":\"Potso e kentsoe.\",\"addLessonMaterial\":\"Kenya litaba tsa thuto\",\"materialTitleEnglish\":\"Sehlooho sa thuto ka Senyesemane\",\"materialTitleSesotho\":\"Sehlooho sa thuto ka Sesotho\",\"materialBodyEnglish\":\"Litaba tsa thuto ka Senyesemane\",\"materialBodySesotho\":\"Litaba tsa thuto ka Sesotho\",\"addedMaterials\":\"Litaba tsa thuto tse kentsoeng\",\"noAddedMaterials\":\"Ha ho litaba tse ling tsa thuto tse kentsoeng.\",\"materialAdded\":\"Litaba tsa thuto li kentsoe.\",\"markingTitle\":\"Ho tšoaea lipotso\",\"markingIntro\":\"Hlahloba likarabo tse rometsoeng 'me u netefatse kapa u fetole lintlha tse baliloeng.\",\"noPendingMarking\":\"Ha ho lipotso tse rometsoeng tse emetseng ho tšoauoa.\",\"pendingReview\":\"E emetse tlhahlobo\",\"automaticScore\":\"Lintlha tse baliloeng\",\"participantAnswer\":\"Karabo ea morupeluoa\",\"noAnswer\":\"Ha ho karabo\",\"finalScore\":\"Lintlha tsa ho qetela\",\"markerFeedback\":\"Maikutlo (ha ho hlokahale)\",\"saveMark\":\"Boloka lintlha\",\"reviewStatus\":\"Boemo ba tlhahlobo\",\"reviewed\":\"E tšoailoe\",\"pending\":\"E emetse\",\"notAvailable\":\"Ha e hlahlojoe\",\"accessDenied\":\"Ha u na tumello ea tsamaiso.\",\"empty\":\"Ha ho lintlha tse teng.\"}}");
 
 // @ts-nocheck
 const localeCodes =  [
@@ -2013,7 +2013,11 @@ async function requireFirebaseUser(event) {
 }
 async function requireRole(event, allowedRoles) {
   const user = await requireFirebaseUser(event);
-  const role = user.admin === true ? "admin" : user.role === "contentEditor" || user.role === "marker" || user.role === "admin" ? user.role : "participant";
+  const profile = await getFirebaseAdmin(event).db.doc(`users/${user.uid}`).get();
+  if (!profile.exists) {
+    throw createError({ statusCode: 403, statusMessage: "A user profile is required to access this resource." });
+  }
+  const role = profile.get("role") === "admin" ? "admin" : "participant";
   if (!allowedRoles.includes(role)) {
     throw createError({ statusCode: 403, statusMessage: "You do not have permission to perform this action." });
   }
@@ -2021,6 +2025,57 @@ async function requireRole(event, allowedRoles) {
 }
 function requireAdminUser(event) {
   return requireRole(event, ["admin"]);
+}
+
+function isRecord$2(value) {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+function invalidQuiz() {
+  throw createError({ statusCode: 400, statusMessage: "The quiz details or questions are invalid." });
+}
+function requiredText(value, maxLength) {
+  return typeof value === "string" && value.trim().length > 0 && value.length <= maxLength;
+}
+function validateStandaloneQuiz(value) {
+  if (!isRecord$2(value) || !requiredText(value.titleEn, 120) || !requiredText(value.titleSt, 120) || !Array.isArray(value.questions) || value.questions.length < 1 || value.questions.length > 50) {
+    invalidQuiz();
+  }
+  const questions = value.questions.map((item, index) => {
+    if (!isRecord$2(item) || !["single", "multiple", "truefalse"].includes(String(item.type)) || !requiredText(item.promptEn, 500) || !requiredText(item.promptSt, 500) || !Array.isArray(item.options) || item.options.length < 2 || item.options.length > 10 || !Array.isArray(item.correctAnswers) || item.correctAnswers.length === 0) {
+      invalidQuiz();
+    }
+    const options = [];
+    const values = /* @__PURE__ */ new Set();
+    for (const option of item.options) {
+      if (!isRecord$2(option) || typeof option.value !== "string" || !/^[A-Za-z0-9_-]{1,60}$/.test(option.value) || !requiredText(option.labelEn, 200) || !requiredText(option.labelSt, 200) || values.has(option.value)) {
+        invalidQuiz();
+      }
+      values.add(option.value);
+      options.push({
+        value: option.value,
+        labelEn: option.labelEn.trim(),
+        labelSt: option.labelSt.trim()
+      });
+    }
+    const correctAnswers = item.correctAnswers.filter((answer) => typeof answer === "string");
+    const type = item.type;
+    if (correctAnswers.length !== item.correctAnswers.length || correctAnswers.length > options.length || new Set(correctAnswers).size !== correctAnswers.length || correctAnswers.some((answer) => !values.has(answer)) || type !== "multiple" && correctAnswers.length !== 1 || type === "truefalse" && (options.length !== 2 || !values.has("true") || !values.has("false"))) {
+      invalidQuiz();
+    }
+    return {
+      id: `q${index + 1}`,
+      type,
+      promptEn: item.promptEn.trim(),
+      promptSt: item.promptSt.trim(),
+      options,
+      correctAnswers
+    };
+  });
+  return {
+    titleEn: value.titleEn.trim(),
+    titleSt: value.titleSt.trim(),
+    questions
+  };
 }
 
 function useRuntimeI18n(nuxtApp, event) {
@@ -2412,6 +2467,7 @@ const localizedPaths = [
   "/admin/modules",
   "/admin/participants",
   "/admin/quizzes",
+  "/admin/quizzes/create",
   "/admin/results",
   "/auth/forgot-password",
   "/auth/login",
@@ -2421,12 +2477,14 @@ const localizedPaths = [
   "/course/:courseId()/module/:moduleId()/result",
   "/course/:courseId()/module/:moduleId()",
   "/course/:courseId()",
+  "/quizzes/:id()",
   "/admin",
   "/course",
   "/dashboard",
   "/marking",
   "/profile",
   "/progress",
+  "/quizzes",
   "/"
 ];
 const pathToI18nConfig = {};
@@ -3063,16 +3121,16 @@ _Z4Vm0BJMJeyU_KFYzGBgSOBoZ4JOQn4jYmko_KtDwU
 const assets = {
   "/index.mjs": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"3751d-vY9U7ujsK6Rd+j6aqkvKe1jcytU\"",
-    "mtime": "2026-10-14T09:44:32.900Z",
-    "size": 226589,
+    "etag": "\"3790a-E7J2FhBml+tpLiNtiIDqouE51z0\"",
+    "mtime": "2026-10-14T10:56:08.539Z",
+    "size": 227594,
     "path": "index.mjs"
   },
   "/index.mjs.map": {
     "type": "application/json",
-    "etag": "\"c5820-RSAcVCdYgenvRle8qhNmb6XfLLY\"",
-    "mtime": "2026-10-14T09:44:32.902Z",
-    "size": 808992,
+    "etag": "\"c67bb-boNjBqlPkXZld/6RPn+XSB5J3n4\"",
+    "mtime": "2026-10-14T10:56:08.539Z",
+    "size": 812987,
     "path": "index.mjs.map"
   }
 };
@@ -3984,17 +4042,22 @@ const _lazy_nA47Dh = () => Promise.resolve().then(function () { return materials
 const _lazy_SG5KxB = () => Promise.resolve().then(function () { return materials_post$1; });
 const _lazy_bL9hl5 = () => Promise.resolve().then(function () { return overview_get$1; });
 const _lazy_ghsDwI = () => Promise.resolve().then(function () { return participants_get$1; });
-const _lazy_xHwAFH = () => Promise.resolve().then(function () { return _id__get$3; });
+const _lazy_xHwAFH = () => Promise.resolve().then(function () { return _id__get$5; });
 const _lazy_QVbl8L = () => Promise.resolve().then(function () { return questions_get$3; });
 const _lazy_w3ojYi = () => Promise.resolve().then(function () { return questions_post$1; });
+const _lazy_jWP97Y = () => Promise.resolve().then(function () { return quizzes_get$3; });
+const _lazy_svs6UF = () => Promise.resolve().then(function () { return quizzes_post$1; });
 const _lazy_H2QSv0 = () => Promise.resolve().then(function () { return results_get$1; });
 const _lazy_qyQVbN = () => Promise.resolve().then(function () { return materials_get$1; });
 const _lazy_CMRrLQ = () => Promise.resolve().then(function () { return questions_get$1; });
 const _lazy_IishyB = () => Promise.resolve().then(function () { return attempts_get$1; });
 const _lazy_teP23v = () => Promise.resolve().then(function () { return _id__post$1; });
 const _lazy_w_0_Fm = () => Promise.resolve().then(function () { return progress_get$1; });
-const _lazy_oMmV2o = () => Promise.resolve().then(function () { return _id__get$1; });
-const _lazy_EF2XGJ = () => Promise.resolve().then(function () { return submit_post$1; });
+const _lazy_oMmV2o = () => Promise.resolve().then(function () { return _id__get$3; });
+const _lazy_EF2XGJ = () => Promise.resolve().then(function () { return submit_post$3; });
+const _lazy_GisIVP = () => Promise.resolve().then(function () { return quizzes_get$1; });
+const _lazy_oDlP90 = () => Promise.resolve().then(function () { return _id__get$1; });
+const _lazy_DWXYfd = () => Promise.resolve().then(function () { return submit_post$1; });
 const _lazy_te3_Qq = () => Promise.resolve().then(function () { return renderer$1; });
 const _lazy_iXQ1WW = () => Promise.resolve().then(function () { return errorChannel; });
 
@@ -4008,6 +4071,8 @@ const handlers = [
   { route: '/api/admin/participants/:id', handler: _lazy_xHwAFH, lazy: true, middleware: false, method: "get" },
   { route: '/api/admin/questions', handler: _lazy_QVbl8L, lazy: true, middleware: false, method: "get" },
   { route: '/api/admin/questions', handler: _lazy_w3ojYi, lazy: true, middleware: false, method: "post" },
+  { route: '/api/admin/quizzes', handler: _lazy_jWP97Y, lazy: true, middleware: false, method: "get" },
+  { route: '/api/admin/quizzes', handler: _lazy_svs6UF, lazy: true, middleware: false, method: "post" },
   { route: '/api/admin/results', handler: _lazy_H2QSv0, lazy: true, middleware: false, method: "get" },
   { route: '/api/course/:courseId/module/:moduleId/materials', handler: _lazy_qyQVbN, lazy: true, middleware: false, method: "get" },
   { route: '/api/course/:courseId/module/:moduleId/questions', handler: _lazy_CMRrLQ, lazy: true, middleware: false, method: "get" },
@@ -4016,6 +4081,9 @@ const handlers = [
   { route: '/api/progress', handler: _lazy_w_0_Fm, lazy: true, middleware: false, method: "get" },
   { route: '/api/quiz/attempt/:id', handler: _lazy_oMmV2o, lazy: true, middleware: false, method: "get" },
   { route: '/api/quiz/submit', handler: _lazy_EF2XGJ, lazy: true, middleware: false, method: "post" },
+  { route: '/api/quizzes', handler: _lazy_GisIVP, lazy: true, middleware: false, method: "get" },
+  { route: '/api/quizzes/:id', handler: _lazy_oDlP90, lazy: true, middleware: false, method: "get" },
+  { route: '/api/quizzes/:id/submit', handler: _lazy_DWXYfd, lazy: true, middleware: false, method: "post" },
   { route: '/__nuxt_error', handler: _lazy_te3_Qq, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_dev__/error/**', handler: _lazy_iXQ1WW, lazy: true, middleware: false, method: undefined },
   { route: '/api/_nuxt_icon/:collection', handler: _TZuEMO, lazy: false, middleware: false, method: undefined },
@@ -4433,16 +4501,29 @@ const materials_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.definePr
 const overview_get = defineEventHandler(async (event) => {
   await requireAdminUser(event);
   const { db } = getFirebaseAdmin(event);
-  const [participantsCount, progressCount, completedCount, attempts] = await Promise.all([
-    db.collection("users").where("role", "==", "participant").count().get(),
-    db.collectionGroup("courseProgress").count().get(),
-    db.collectionGroup("courseProgress").where("passedModules", "array-contains", 4).count().get(),
-    db.collection("quizAttempts").orderBy("createdAt", "desc").limit(500).get()
-  ]);
+  const usersCollection = db.collection("users");
+  let cursor;
+  let total = 0;
+  let started = 0;
+  let completed = 0;
+  while (true) {
+    let usersQuery = usersCollection.orderBy(FieldPath.documentId()).limit(100);
+    if (cursor) usersQuery = usersQuery.startAfter(cursor);
+    const profiles = await usersQuery.get();
+    const participants = profiles.docs.filter((profile) => profile.get("role") === "participant");
+    total += participants.length;
+    const progressSnapshots = await Promise.all(participants.map((profile) => db.doc(`users/${profile.id}/courseProgress/${courseId}`).get()));
+    for (const progress of progressSnapshots) {
+      if (!progress.exists) continue;
+      started += 1;
+      const passedModules = progress.get("passedModules");
+      if (Array.isArray(passedModules) && passedModules.includes(4)) completed += 1;
+    }
+    if (profiles.size < 100) break;
+    cursor = profiles.docs[profiles.docs.length - 1];
+  }
+  const attempts = await db.collection("quizAttempts").orderBy("createdAt", "desc").limit(500).get();
   const scores = attempts.docs.map((doc) => Number(doc.data().score)).filter(Number.isFinite);
-  const total = participantsCount.data().count;
-  const started = progressCount.data().count;
-  const completed = completedCount.data().count;
   return {
     totalParticipants: total,
     completed,
@@ -4462,23 +4543,33 @@ const participants_get = defineEventHandler(async (event) => {
   await requireAdminUser(event);
   const { db } = getFirebaseAdmin(event);
   const query = getQuery$1(event);
-  const cursor = typeof query.cursor === "string" ? query.cursor : "";
-  let participantsQuery = db.collection("users").where("role", "==", "participant").orderBy("displayName");
-  if (cursor) {
-    if (!/^[A-Za-z0-9_-]{1,128}$/.test(cursor)) {
+  const cursorId = typeof query.cursor === "string" ? query.cursor : "";
+  let cursor;
+  if (cursorId) {
+    if (!/^[A-Za-z0-9_-]{1,128}$/.test(cursorId)) {
       throw createError({ statusCode: 400, statusMessage: "The participant page cursor is invalid." });
     }
-    const cursorSnapshot = await db.doc(`users/${cursor}`).get();
+    const cursorSnapshot = await db.doc(`users/${cursorId}`).get();
     if (!cursorSnapshot.exists) {
       throw createError({ statusCode: 400, statusMessage: "The participant page cursor is no longer available." });
     }
-    participantsQuery = participantsQuery.startAfter(cursorSnapshot);
+    cursor = cursorSnapshot;
   }
-  const snapshot = await participantsQuery.limit(51).get();
-  const page = snapshot.docs.slice(0, 50);
-  const participants = await Promise.all(page.map(async (profile) => {
+  const page = [];
+  while (page.length < 51) {
+    let usersQuery = db.collection("users").orderBy(FieldPath.documentId()).limit(100);
+    if (cursor) usersQuery = usersQuery.startAfter(cursor);
+    const snapshot = await usersQuery.get();
+    if (snapshot.empty) break;
+    page.push(...snapshot.docs.filter((profile) => profile.get("role") === "participant"));
+    cursor = snapshot.docs[snapshot.docs.length - 1];
+    if (snapshot.size < 100) break;
+  }
+  const hasNextPage = page.length > 50;
+  const participantsPage = page.slice(0, 50);
+  const participants = await Promise.all(participantsPage.map(async (profile) => {
     var _a2, _b2, _c, _d;
-    const progress = await db.doc(`users/${profile.id}/courseProgress/race-for-parliament`).get();
+    const progress = await db.doc(`users/${profile.id}/courseProgress/${courseId}`).get();
     const data = progress.data();
     const passedModules = Array.isArray(data == null ? void 0 : data.passedModules) ? data.passedModules : [];
     return {
@@ -4493,7 +4584,7 @@ const participants_get = defineEventHandler(async (event) => {
   }));
   return {
     participants,
-    nextCursor: snapshot.docs.length > 50 ? (_b = (_a = page[page.length - 1]) == null ? void 0 : _a.id) != null ? _b : null : null
+    nextCursor: hasNextPage ? (_b = (_a = participantsPage[participantsPage.length - 1]) == null ? void 0 : _a.id) != null ? _b : null : null
   };
 });
 
@@ -4502,7 +4593,7 @@ const participants_get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.define
   default: participants_get
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const _id__get$2 = defineEventHandler(async (event) => {
+const _id__get$4 = defineEventHandler(async (event) => {
   await requireAdminUser(event);
   const participantId = getRouterParam(event, "id");
   if (!participantId || !/^[A-Za-z0-9_-]{1,128}$/.test(participantId)) {
@@ -4530,13 +4621,13 @@ const _id__get$2 = defineEventHandler(async (event) => {
   };
 });
 
-const _id__get$3 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const _id__get$5 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
-  default: _id__get$2
+  default: _id__get$4
 }, Symbol.toStringTag, { value: 'Module' }));
 
 const questions_get$2 = defineEventHandler(async (event) => {
-  await requireRole(event, ["admin", "contentEditor"]);
+  await requireRole(event, ["admin"]);
   const { db } = getFirebaseAdmin(event);
   const snapshot = await db.collection("quizQuestions").where("courseId", "==", "race-for-parliament").get();
   return {
@@ -4559,16 +4650,16 @@ const questions_get$3 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.definePro
   default: questions_get$2
 }, Symbol.toStringTag, { value: 'Module' }));
 
-function isRecord(value) {
+function isRecord$1(value) {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }
 function invalidQuestion() {
   throw createError({ statusCode: 400, statusMessage: "The quiz question is invalid." });
 }
 const questions_post = defineEventHandler(async (event) => {
-  const user = await requireRole(event, ["admin", "contentEditor"]);
+  const user = await requireRole(event, ["admin"]);
   const body = await readBody(event);
-  if (!isRecord(body)) invalidQuestion();
+  if (!isRecord$1(body)) invalidQuestion();
   const { moduleId, type, promptEn, promptSt, options, correctAnswers } = body;
   if (typeof moduleId !== "number" || !Number.isInteger(moduleId) || !courseModules.some((module) => module.id === moduleId) || !["single", "multiple", "truefalse"].includes(String(type)) || typeof promptEn !== "string" || promptEn.trim().length === 0 || promptEn.length > 500 || typeof promptSt !== "string" || promptSt.trim().length === 0 || promptSt.length > 500 || !Array.isArray(options) || options.length < 2 || options.length > 10 || !Array.isArray(correctAnswers) || correctAnswers.length === 0) {
     invalidQuestion();
@@ -4576,7 +4667,7 @@ const questions_post = defineEventHandler(async (event) => {
   const validatedOptions = [];
   const optionValues = /* @__PURE__ */ new Set();
   for (const option of options) {
-    if (!isRecord(option) || typeof option.value !== "string" || !/^[A-Za-z0-9_-]{1,60}$/.test(option.value) || typeof option.labelEn !== "string" || option.labelEn.trim().length === 0 || option.labelEn.length > 200 || typeof option.labelSt !== "string" || option.labelSt.trim().length === 0 || option.labelSt.length > 200 || optionValues.has(option.value)) {
+    if (!isRecord$1(option) || typeof option.value !== "string" || !/^[A-Za-z0-9_-]{1,60}$/.test(option.value) || typeof option.labelEn !== "string" || option.labelEn.trim().length === 0 || option.labelEn.length > 200 || typeof option.labelSt !== "string" || option.labelSt.trim().length === 0 || option.labelSt.length > 200 || optionValues.has(option.value)) {
       invalidQuestion();
     }
     optionValues.add(option.value);
@@ -4612,23 +4703,75 @@ const questions_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.definePr
   default: questions_post
 }, Symbol.toStringTag, { value: 'Module' }));
 
+const quizzes_get$2 = defineEventHandler(async (event) => {
+  await requireAdminUser(event);
+  const snapshot = await getFirebaseAdmin(event).db.collection("standaloneQuizzes").get();
+  return {
+    quizzes: snapshot.docs.map((document) => {
+      const quiz = document.data();
+      return {
+        id: document.id,
+        titleEn: quiz.titleEn,
+        titleSt: quiz.titleSt,
+        questionCount: Array.isArray(quiz.questions) ? quiz.questions.length : 0,
+        published: quiz.published === true
+      };
+    })
+  };
+});
+
+const quizzes_get$3 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: quizzes_get$2
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const quizzes_post = defineEventHandler(async (event) => {
+  const admin = await requireAdminUser(event);
+  const quiz = validateStandaloneQuiz(await readBody(event));
+  const reference = getFirebaseAdmin(event).db.collection("standaloneQuizzes").doc();
+  await reference.create({
+    ...quiz,
+    published: true,
+    createdBy: admin.uid,
+    createdAt: FieldValue.serverTimestamp()
+  });
+  return { id: reference.id };
+});
+
+const quizzes_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: quizzes_post
+}, Symbol.toStringTag, { value: 'Module' }));
+
 const results_get = defineEventHandler(async (event) => {
   await requireAdminUser(event);
   const { db } = getFirebaseAdmin(event);
-  const snapshot = await db.collection("quizAttempts").orderBy("createdAt", "desc").limit(100).get();
-  const results = await Promise.all(snapshot.docs.map(async (attempt) => {
+  const [courseAttempts, standaloneAttempts] = await Promise.all([
+    db.collection("quizAttempts").orderBy("createdAt", "desc").limit(100).get(),
+    db.collection("standaloneQuizAttempts").orderBy("createdAt", "desc").limit(100).get()
+  ]);
+  const attempts = [
+    ...courseAttempts.docs.map((attempt) => ({ attempt, standalone: false })),
+    ...standaloneAttempts.docs.map((attempt) => ({ attempt, standalone: true }))
+  ];
+  const results = await Promise.all(attempts.map(async ({ attempt, standalone }) => {
     var _a, _b, _c, _d, _e;
     const data = attempt.data();
     const participant = await db.doc(`users/${data.uid}`).get();
     return {
       id: attempt.id,
       ...data,
+      standalone,
       reviewStatus: data.reviewStatus === "reviewed" ? "reviewed" : data.reviewStatus === "pending" ? "pending" : "unavailable",
       createdAt: (_c = (_b = (_a = data.createdAt) == null ? void 0 : _a.toDate) == null ? void 0 : _b.call(_a).toISOString()) != null ? _c : null,
       participantName: (_e = (_d = participant.get("displayName")) != null ? _d : participant.get("email")) != null ? _e : data.uid
     };
   }));
-  return { results };
+  results.sort((left, right) => {
+    var _a, _b;
+    return ((_a = right.createdAt) != null ? _a : "").localeCompare((_b = left.createdAt) != null ? _b : "");
+  });
+  return { results: results.slice(0, 100) };
 });
 
 const results_get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
@@ -4714,7 +4857,7 @@ const questions_get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.definePro
 }, Symbol.toStringTag, { value: 'Module' }));
 
 const attempts_get = defineEventHandler(async (event) => {
-  await requireRole(event, ["admin", "marker"]);
+  await requireRole(event, ["admin"]);
   const { db } = getFirebaseAdmin(event);
   const snapshot = await db.collection("quizAttempts").where("reviewStatus", "==", "pending").orderBy("createdAt", "asc").limit(100).get();
   const moduleIds = [...new Set(snapshot.docs.map((attempt) => attempt.get("moduleId")))].filter((moduleId) => Number.isInteger(moduleId));
@@ -4761,7 +4904,7 @@ const attempts_get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProp
 }, Symbol.toStringTag, { value: 'Module' }));
 
 const _id__post = defineEventHandler(async (event) => {
-  const marker = await requireRole(event, ["admin", "marker"]);
+  const admin = await requireRole(event, ["admin"]);
   const attemptId = getRouterParam(event, "id");
   if (!attemptId || !/^[A-Za-z0-9_-]{1,128}$/.test(attemptId)) {
     throw createError({ statusCode: 400, statusMessage: "The quiz attempt ID is invalid." });
@@ -4774,7 +4917,7 @@ const _id__post = defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: "The marked score must be a whole number from 0 to 100." });
   }
   if (body.feedback !== void 0 && (typeof body.feedback !== "string" || body.feedback.length > 1e3)) {
-    throw createError({ statusCode: 400, statusMessage: "Marker feedback must be 1,000 characters or fewer." });
+    throw createError({ statusCode: 400, statusMessage: "Admin feedback must be 1,000 characters or fewer." });
   }
   const { db } = getFirebaseAdmin(event);
   const score = body.score;
@@ -4814,7 +4957,7 @@ const _id__post = defineEventHandler(async (event) => {
       score,
       passed,
       reviewStatus: "reviewed",
-      reviewedBy: marker.uid,
+      reviewedBy: admin.uid,
       reviewedAt: FieldValue.serverTimestamp(),
       reviewerFeedback: typeof body.feedback === "string" ? body.feedback.trim() : ""
     });
@@ -4852,7 +4995,7 @@ const progress_get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProp
   default: progress_get
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const _id__get = defineEventHandler(async (event) => {
+const _id__get$2 = defineEventHandler(async (event) => {
   const user = await requireFirebaseUser(event);
   const attemptId = getRouterParam(event, "id");
   if (!attemptId || !/^[A-Za-z0-9_-]{1,128}$/.test(attemptId)) {
@@ -4864,21 +5007,24 @@ const _id__get = defineEventHandler(async (event) => {
     throw createError({ statusCode: 404, statusMessage: "Quiz result not found." });
   }
   const result = snapshot.data();
-  if (result.uid !== user.uid && user.admin !== true && user.role !== "admin") {
-    throw createError({ statusCode: 403, statusMessage: "You do not have access to this quiz result." });
+  if (result.uid !== user.uid) {
+    const profile = await db.doc(`users/${user.uid}`).get();
+    if (!profile.exists || profile.get("role") !== "admin") {
+      throw createError({ statusCode: 403, statusMessage: "You do not have access to this quiz result." });
+    }
   }
   return { ...result, id: snapshot.id, attempts: result.attemptNumber };
 });
 
-const _id__get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const _id__get$3 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
-  default: _id__get
+  default: _id__get$2
 }, Symbol.toStringTag, { value: 'Module' }));
 
 function isStringArray(value) {
   return Array.isArray(value) && value.every((item) => typeof item === "string");
 }
-const submit_post = defineEventHandler(async (event) => {
+const submit_post$2 = defineEventHandler(async (event) => {
   const user = await requireRole(event, ["participant"]);
   const body = await readBody(event);
   if (!body || typeof body !== "object") {
@@ -4961,6 +5107,112 @@ const submit_post = defineEventHandler(async (event) => {
     return attemptNumber;
   });
   return { attemptId: attemptRef.id, moduleId, score, passed, attempts };
+});
+
+const submit_post$3 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: submit_post$2
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const quizzes_get = defineEventHandler(async (event) => {
+  await requireRole(event, ["participant"]);
+  const snapshot = await getFirebaseAdmin(event).db.collection("standaloneQuizzes").where("published", "==", true).get();
+  return {
+    quizzes: snapshot.docs.map((document) => {
+      const quiz = document.data();
+      return {
+        id: document.id,
+        titleEn: quiz.titleEn,
+        titleSt: quiz.titleSt,
+        questionCount: Array.isArray(quiz.questions) ? quiz.questions.length : 0
+      };
+    })
+  };
+});
+
+const quizzes_get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: quizzes_get
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const _id__get = defineEventHandler(async (event) => {
+  await requireRole(event, ["participant"]);
+  const quizId = getRouterParam(event, "id");
+  if (!quizId || !/^[A-Za-z0-9_-]{1,128}$/.test(quizId)) {
+    throw createError({ statusCode: 404, statusMessage: "Quiz not found." });
+  }
+  const snapshot = await getFirebaseAdmin(event).db.doc(`standaloneQuizzes/${quizId}`).get();
+  if (!snapshot.exists || snapshot.get("published") !== true) {
+    throw createError({ statusCode: 404, statusMessage: "Quiz not found." });
+  }
+  const quiz = snapshot.data();
+  const questions = Array.isArray(quiz.questions) ? quiz.questions.map(({ correctAnswers: _correctAnswers, ...question }) => question) : [];
+  return {
+    id: snapshot.id,
+    titleEn: quiz.titleEn,
+    titleSt: quiz.titleSt,
+    questions
+  };
+});
+
+const _id__get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: _id__get
+}, Symbol.toStringTag, { value: 'Module' }));
+
+function isRecord(value) {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+const submit_post = defineEventHandler(async (event) => {
+  const participant = await requireRole(event, ["participant"]);
+  const quizId = getRouterParam(event, "id");
+  if (!quizId || !/^[A-Za-z0-9_-]{1,128}$/.test(quizId)) {
+    throw createError({ statusCode: 404, statusMessage: "Quiz not found." });
+  }
+  const body = await readBody(event);
+  if (!isRecord(body) || !isRecord(body.answers)) {
+    throw createError({ statusCode: 400, statusMessage: "Quiz answers are invalid." });
+  }
+  const { db } = getFirebaseAdmin(event);
+  const quizSnapshot = await db.doc(`standaloneQuizzes/${quizId}`).get();
+  if (!quizSnapshot.exists || quizSnapshot.get("published") !== true) {
+    throw createError({ statusCode: 404, statusMessage: "Quiz not found." });
+  }
+  const questions = quizSnapshot.get("questions");
+  if (!Array.isArray(questions) || questions.length === 0) {
+    throw createError({ statusCode: 500, statusMessage: "This quiz has no valid questions." });
+  }
+  const questionIds = new Set(questions.map((question) => question.id));
+  const submittedIds = Object.keys(body.answers);
+  if (submittedIds.length !== questionIds.size || submittedIds.some((id) => !questionIds.has(id))) {
+    throw createError({ statusCode: 400, statusMessage: "Answer every question before submitting." });
+  }
+  let correctCount = 0;
+  const answers = {};
+  for (const question of questions) {
+    const answer = body.answers[question.id];
+    if (!Array.isArray(answer) || answer.length === 0 || answer.length > question.options.length || answer.some((value) => typeof value !== "string") || new Set(answer).size !== answer.length || answer.some((value) => !question.options.some((option) => option.value === value))) {
+      throw createError({ statusCode: 400, statusMessage: "Quiz answers are invalid." });
+    }
+    answers[question.id] = answer;
+    const submitted = [...answer].sort();
+    const expected = [...question.correctAnswers].sort();
+    if (JSON.stringify(submitted) === JSON.stringify(expected)) correctCount += 1;
+  }
+  const score = Math.round(correctCount / questions.length * 100);
+  const attempt = db.collection("standaloneQuizAttempts").doc();
+  await attempt.create({
+    quizId,
+    quizTitleEn: quizSnapshot.get("titleEn"),
+    quizTitleSt: quizSnapshot.get("titleSt"),
+    uid: participant.uid,
+    answers,
+    questionCount: questions.length,
+    score,
+    passed: score >= 70,
+    createdAt: FieldValue.serverTimestamp()
+  });
+  return { score, passed: score >= 70, questionCount: questions.length };
 });
 
 const submit_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({

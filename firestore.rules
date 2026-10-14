@@ -8,11 +8,8 @@ service cloud.firestore {
 
     function isAdmin() {
       return signedIn()
-        && (request.auth.token.admin == true || request.auth.token.role == 'admin');
-    }
-
-    function isContentEditor() {
-      return signedIn() && request.auth.token.role == 'contentEditor';
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
     }
 
     match /users/{userId} {
@@ -62,7 +59,7 @@ service cloud.firestore {
     }
 
     match /courses/{courseId} {
-      allow read: if resource.data.published == true || isAdmin() || isContentEditor();
+      allow read: if resource.data.published == true || isAdmin();
       allow create, update, delete: if isAdmin();
     }
 

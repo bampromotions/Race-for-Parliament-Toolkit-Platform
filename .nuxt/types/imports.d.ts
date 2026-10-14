@@ -41,6 +41,7 @@ declare global {
   const getCurrentInstance: typeof import('../../node_modules/vue').getCurrentInstance
   const getCurrentScope: typeof import('../../node_modules/vue').getCurrentScope
   const getRouteRules: typeof import('../../node_modules/nuxt/dist/app/composables/manifest').getRouteRules
+  const getUserRole: typeof import('../../app/utils/firebase-role').getUserRole
   const h: typeof import('../../node_modules/vue').h
   const hasInjectionContext: typeof import('../../node_modules/vue').hasInjectionContext
   const inject: typeof import('../../node_modules/vue').inject
@@ -242,6 +243,9 @@ declare global {
   // @ts-ignore
   export type { UserRole, FirebaseSession, FirebaseClient } from '../../app/types/firebase'
   import('../../app/types/firebase')
+  // @ts-ignore
+  export type { StandaloneQuizOption, StandaloneQuizQuestion, StandaloneQuizSummary, StandaloneQuiz } from '../../app/types/standalone-quiz'
+  import('../../app/types/standalone-quiz')
 }
 // for vue template auto import
 import { UnwrapRef } from 'vue'
@@ -287,6 +291,7 @@ declare module 'vue' {
     readonly getCurrentInstance: UnwrapRef<typeof import('../../node_modules/vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('../../node_modules/vue')['getCurrentScope']>
     readonly getRouteRules: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/manifest')['getRouteRules']>
+    readonly getUserRole: UnwrapRef<typeof import('../../app/utils/firebase-role')['getUserRole']>
     readonly h: UnwrapRef<typeof import('../../node_modules/vue')['h']>
     readonly hasInjectionContext: UnwrapRef<typeof import('../../node_modules/vue')['hasInjectionContext']>
     readonly inject: UnwrapRef<typeof import('../../node_modules/vue')['inject']>

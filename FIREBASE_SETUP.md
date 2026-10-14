@@ -10,16 +10,8 @@
    firebase deploy --only firestore:rules,firestore:indexes
    ```
 
-6. Users self-register as Participants. Accounts created directly in Firebase Authentication also start without staff access. Assign staff roles only to trusted CSO staff from a secured operator environment; the script creates a missing Firestore user profile when assigning a role:
-
-   ```sh
-   node --env-file=.env scripts/set-admin-claim.mjs <firebase-user-id> admin
-   node --env-file=.env scripts/set-admin-claim.mjs <firebase-user-id> contentEditor
-   node --env-file=.env scripts/set-admin-claim.mjs <firebase-user-id> marker
-   ```
-
-   To return an account to the Participant role, use `node --env-file=.env scripts/set-admin-claim.mjs <firebase-user-id> participant`. The user must refresh their Firebase ID token after a role change. Admin access continues to accept the existing `admin: true` claim for compatibility; a user profile field cannot grant staff access.
+6. Public registration creates Participants. To create an Admin, a trusted operator creates the account in Firebase Authentication, then creates `users/{uid}` in Firestore using the exact Authentication UID as its document ID. Add profile fields `uid`, `displayName`, `email`, `organisation`, and `preferredLanguage`, and set the string field `role` to `admin`. The Admin must sign out and sign in again after the profile is created. The application uses only `admin` and `participant` roles.
 
 The application stores participant profiles in `users/{uid}`, server-validated course progress in `users/{uid}/courseProgress/{courseId}`, and server-managed quiz attempts in `quizAttempts/{attemptId}`. Client writes to progress and quiz results are denied by `firestore.rules`; quiz grading and progression updates run through the authenticated Nuxt server API.
 
-The original course and lesson materials are bundled with the application. Admins can add bilingual lesson material to existing modules; it is stored in the server-only `courseMaterials` collection. New bilingual quiz questions are stored in `courseQuestions` and can be added by Admins and Content editors. Quiz attempts retain submitted answers for Marker review; Markers can confirm or override the automatic score. Staff permissions are checked on both pages and every staff API, using Firebase custom claims.
+The original course and lesson materials are bundled with the application. Admins can add bilingual lesson material to existing modules; it is stored in the server-only `courseMaterials` collection. New bilingual quiz questions are stored in `courseQuestions` and can be added by Admins. Quiz attempts retain submitted answers for Admin review; Admins can confirm or override the automatic score. Admin permissions are checked by pages, Firestore rules, and server APIs using the protected `users/{uid}.role` field.
