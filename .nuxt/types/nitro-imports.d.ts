@@ -50,7 +50,6 @@ declare global {
   const fromWebHandler: typeof import('../../node_modules/h3/dist/index').fromWebHandler
   const getCookie: typeof import('../../node_modules/h3/dist/index').getCookie
   const getCookieLocale: typeof import('../../node_modules/@intlify/utils/dist/h3').getCookieLocale
-  const getFirebaseAdmin: typeof import('../../server/utils/firebase-admin').getFirebaseAdmin
   const getHeader: typeof import('../../node_modules/h3/dist/index').getHeader
   const getHeaderLanguage: typeof import('../../node_modules/@intlify/utils/dist/h3').getHeaderLanguage
   const getHeaderLanguages: typeof import('../../node_modules/@intlify/utils/dist/h3').getHeaderLanguages
@@ -79,7 +78,6 @@ declare global {
   const getRouterParam: typeof import('../../node_modules/h3/dist/index').getRouterParam
   const getRouterParams: typeof import('../../node_modules/h3/dist/index').getRouterParams
   const getSession: typeof import('../../node_modules/h3/dist/index').getSession
-  const getStaticAnswers: typeof import('../../server/utils/course-quiz').getStaticAnswers
   const getValidatedQuery: typeof import('../../node_modules/h3/dist/index').getValidatedQuery
   const getValidatedRouterParams: typeof import('../../node_modules/h3/dist/index').getValidatedRouterParams
   const handleCacheHeaders: typeof import('../../node_modules/h3/dist/index').handleCacheHeaders
@@ -103,9 +101,6 @@ declare global {
   const readRawBody: typeof import('../../node_modules/h3/dist/index').readRawBody
   const readValidatedBody: typeof import('../../node_modules/h3/dist/index').readValidatedBody
   const removeResponseHeader: typeof import('../../node_modules/h3/dist/index').removeResponseHeader
-  const requireAdminUser: typeof import('../../server/utils/firebase-admin').requireAdminUser
-  const requireFirebaseUser: typeof import('../../server/utils/firebase-admin').requireFirebaseUser
-  const requireRole: typeof import('../../server/utils/firebase-admin').requireRole
   const runTask: typeof import('../../node_modules/nitropack/dist/runtime/internal/task').runTask
   const sanitizeStatusCode: typeof import('../../node_modules/h3/dist/index').sanitizeStatusCode
   const sanitizeStatusMessage: typeof import('../../node_modules/h3/dist/index').sanitizeStatusMessage
@@ -127,7 +122,6 @@ declare global {
   const setResponseHeaders: typeof import('../../node_modules/h3/dist/index').setResponseHeaders
   const setResponseStatus: typeof import('../../node_modules/h3/dist/index').setResponseStatus
   const splitCookiesString: typeof import('../../node_modules/h3/dist/index').splitCookiesString
-  const staticAnswerKeys: typeof import('../../server/utils/course-quiz').staticAnswerKeys
   const toEventHandler: typeof import('../../node_modules/h3/dist/index').toEventHandler
   const toNodeListener: typeof import('../../node_modules/h3/dist/index').toNodeListener
   const toPlainHandler: typeof import('../../node_modules/h3/dist/index').toPlainHandler
@@ -148,7 +142,6 @@ declare global {
   const useSession: typeof import('../../node_modules/h3/dist/index').useSession
   const useStorage: typeof import('../../node_modules/nitropack/dist/runtime/internal/storage').useStorage
   const useTranslation: typeof import('../../node_modules/@intlify/h3').useTranslation
-  const validateStandaloneQuiz: typeof import('../../server/utils/standalone-quiz').validateStandaloneQuiz
   const writeEarlyHints: typeof import('../../node_modules/h3/dist/index').writeEarlyHints
 }
 // for type re-export
@@ -156,9 +149,6 @@ declare global {
   // @ts-ignore
   export type { EventHandler, EventHandlerRequest, EventHandlerResponse, EventHandlerObject, H3EventContext } from '../../node_modules/h3/dist/index'
   import('../../node_modules/h3/dist/index')
-  // @ts-ignore
-  export type { StandaloneQuizQuestionInput, StandaloneQuizInput } from '../../server/utils/standalone-quiz'
-  import('../../server/utils/standalone-quiz')
 }
 export { H3Event, H3Error, appendCorsHeaders, appendCorsPreflightHeaders, appendHeader, appendHeaders, appendResponseHeader, appendResponseHeaders, assertMethod, callNodeListener, clearResponseHeaders, clearSession, createApp, createAppEventHandler, createError, createEvent, createEventStream, createRouter, defaultContentType, defineEventHandler, defineLazyEventHandler, defineNodeListener, defineNodeMiddleware, defineRequestMiddleware, defineResponseMiddleware, defineWebSocket, defineWebSocketHandler, deleteCookie, dynamicEventHandler, eventHandler, fetchWithEvent, fromNodeMiddleware, fromPlainHandler, fromWebHandler, getCookie, getHeader, getHeaders, getMethod, getProxyRequestHeaders, getQuery, getRequestFingerprint, getRequestHeader, getRequestHeaders, getRequestHost, getRequestIP, getRequestPath, getRequestProtocol, getRequestURL, getRequestWebStream, getResponseHeader, getResponseHeaders, getResponseStatus, getResponseStatusText, getRouterParam, getRouterParams, getSession, getValidatedQuery, getValidatedRouterParams, handleCacheHeaders, handleCors, isCorsOriginAllowed, isError, isEvent, isEventHandler, isMethod, isPreflightRequest, isStream, isWebResponse, lazyEventHandler, parseCookies, promisifyNodeListener, proxyRequest, readBody, readFormData, readMultipartFormData, readRawBody, readValidatedBody, removeResponseHeader, sanitizeStatusCode, sanitizeStatusMessage, sealSession, send, sendError, sendIterable, sendNoContent, sendProxy, sendRedirect, sendStream, sendWebResponse, serveStatic, setCookie, setHeader, setHeaders, setResponseHeader, setResponseHeaders, setResponseStatus, splitCookiesString, toEventHandler, toNodeListener, toPlainHandler, toWebHandler, toWebRequest, unsealSession, updateSession, useBase, useSession, writeEarlyHints } from 'h3';
 export { useNitroApp } from 'nitropack/runtime/internal/app';
@@ -179,6 +169,3 @@ export { defineI18nLocale, defineI18nConfig } from 'C:/Users/USER/Documents/shel
 export { defineI18nLocaleDetector } from 'C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/@nuxtjs/i18n/dist/runtime/composables/server';
 export { useTranslation } from '@intlify/h3';
 export { getCookieLocale, getHeaderLanguage, getHeaderLanguages, getHeaderLocale, getHeaderLocales, getPathLocale, getQueryLocale, setCookieLocale, tryCookieLocale, tryHeaderLocale, tryHeaderLocales, tryPathLocale, tryQueryLocale } from '@intlify/utils/h3';
-export { staticAnswerKeys, getStaticAnswers } from 'C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/server/utils/course-quiz';
-export { getFirebaseAdmin, requireFirebaseUser, requireRole, requireAdminUser } from 'C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/server/utils/firebase-admin';
-export { validateStandaloneQuiz } from 'C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/server/utils/standalone-quiz';

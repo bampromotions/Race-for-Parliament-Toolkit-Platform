@@ -12,8 +12,6 @@ import { RuntimeConfig as UserRuntimeConfig, PublicRuntimeConfig as UserPublicRu
       cdnURL: string,
    },
 
-   firebaseServiceAccountJson: string,
-
    icon: {
       serverKnownCssClasses: Array<any>,
    },

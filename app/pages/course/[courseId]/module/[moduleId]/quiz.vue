@@ -13,13 +13,10 @@ const module = courseModules.find((item) => item.id === moduleId)
 if (!module) throw createError({ statusCode: 404, statusMessage: 'Module not found.' })
 
 const { t, locale } = useI18n()
-const localePath = useLocalePath()
-const api = createCourseProgressRepository(useFirebaseApi().request)
-const firebaseApi = useFirebaseApi()
+const api = createCourseProgressRepository(useFirebase())
 const answers = reactive<Record<string, string[]>>({})
-const questions = ref<CourseQuestion[]>([])
+const questions = ref<CourseQuestion[]>(module.quiz)
 const loading = ref(true)
-const pending = ref(false)
 const errorMessage = ref('')
 
 onMounted(async () => {
@@ -29,10 +26,6 @@ onMounted(async () => {
       await navigateTo(localePath(`/course/${courseId}`), { replace: true })
       return
     }
-    const response = await firebaseApi.request<{ questions: CourseQuestion[] }>(
-      `/api/course/${courseId}/module/${moduleId}/questions`,
-    )
-    questions.value = response.questions
   } catch (error) {
     errorMessage.value = error instanceof Error ? error.message : t('common.unexpectedError')
   } finally {
@@ -47,23 +40,6 @@ function toggleAnswer(questionId: string, value: string, multiple: boolean) {
     : [value]
 }
 
-async function submit() {
-  if (!window.confirm(t('course.quizConfirm'))) return
-
-  pending.value = true
-  errorMessage.value = ''
-  try {
-    const result = await api.submitQuiz(moduleId, answers)
-    await navigateTo({
-      path: localePath(`/course/${courseId}/module/${moduleId}/result`),
-      query: { attemptId: result.attemptId },
-    })
-  } catch (error) {
-    errorMessage.value = error instanceof Error ? error.message : t('common.unexpectedError')
-  } finally {
-    pending.value = false
-  }
-}
 </script>
 
 <template>
@@ -76,7 +52,8 @@ async function submit() {
     </header>
     <p v-if="loading" role="status" class="text-sm text-slate-600">{{ t('common.loading') }}</p>
     <p v-if="errorMessage" role="alert" class="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-800">{{ errorMessage }}</p>
-    <form v-if="!loading" class="space-y-5" @submit.prevent="submit">
+    <p role="status" class="rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">{{ t('course.quizSubmissionUnavailable') }}</p>
+    <form v-if="!loading" class="space-y-5">
       <fieldset v-for="(question, index) in questions" :key="question.id" class="rounded-xl border border-slate-200 bg-white p-5 sm:p-6">
         <legend class="max-w-full px-1 text-sm font-semibold text-slate-950">
           <span class="mr-1 text-slate-500">{{ t('course.question', { current: index + 1, total: questions.length }) }}.</span>
@@ -95,8 +72,8 @@ async function submit() {
           </label>
         </div>
       </fieldset>
-      <button type="submit" :disabled="loading || pending" class="rounded-md bg-emerald-800 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-900 disabled:cursor-not-allowed disabled:opacity-50">
-        {{ pending ? t('common.loading') : t('course.submitQuiz') }}
+      <button type="button" disabled class="rounded-md bg-emerald-800 px-5 py-3 text-sm font-semibold text-white opacity-50">
+        {{ t('course.submitQuiz') }}
       </button>
     </form>
   </div>

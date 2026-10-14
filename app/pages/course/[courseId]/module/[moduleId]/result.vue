@@ -14,7 +14,7 @@ if (!Number.isInteger(moduleId) || !courseModules.some((item) => item.id === mod
 
 const { t } = useI18n()
 const localePath = useLocalePath()
-const api = createCourseProgressRepository(useFirebaseApi().request)
+const api = createCourseProgressRepository(useFirebase())
 const result = ref<QuizAttemptResult | null>(null)
 const loading = ref(true)
 const errorMessage = ref('')
