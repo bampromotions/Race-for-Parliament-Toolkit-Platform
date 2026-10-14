@@ -2,15 +2,8 @@ import { getApps, initializeApp } from 'firebase/app'
 import { getAnalytics, isSupported } from 'firebase/analytics'
 import { getAuth, onAuthStateChanged, type User } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
-import type { FirebaseClient, FirebaseSession, UserRole } from '../types/firebase'
-
-function getUserRole(claims: Record<string, unknown>): UserRole {
-  if (claims.admin === true) return 'admin'
-  if (claims.role === 'admin' || claims.role === 'contentEditor' || claims.role === 'marker') {
-    return claims.role
-  }
-  return 'participant'
-}
+import type { FirebaseClient, FirebaseSession } from '../types/firebase'
+import { getUserRole } from '../utils/firebase-role'
 
 export default defineNuxtPlugin(() => {
   

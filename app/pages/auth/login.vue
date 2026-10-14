@@ -26,8 +26,7 @@ async function submit() {
   errorMessage.value = ''
   pending.value = true
   try {
-    const credential = await auth.signIn(email.value, password.value)
-    const role = firebase.session.value?.role
+    const role = await auth.signIn(email.value, password.value)
     const rolePath = role === 'admin'
       ? '/admin'
       : role === 'contentEditor'
@@ -35,7 +34,9 @@ async function submit() {
         : role === 'marker'
           ? '/marking'
           : '/dashboard'
-    const target = safeRedirect(route.query.redirect) || localePath(rolePath)
+    const target = role === 'participant'
+      ? safeRedirect(route.query.redirect) || localePath(rolePath)
+      : localePath(rolePath)
     await navigateTo(target, { replace: true })
   } catch {
     errorMessage.value = t('auth.authError')
