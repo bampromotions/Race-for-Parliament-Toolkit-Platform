@@ -39,6 +39,7 @@ export { useAuth } from '../app/composables/useAuth';
 export { useFirebase } from '../app/composables/useFirebase';
 export { useFirebaseApi } from '../app/composables/useFirebaseApi';
 export { useLogger } from '../app/composables/useLogger';
+export { getUserRole } from '../app/utils/firebase-role';
 export { UserRole, FirebaseSession, FirebaseClient } from '../app/types/firebase';
 export { defineLocale, extendLocale } from '../node_modules/.pnpm/@nuxt+ui@4.11.3_90c7a248b45f3956138b5594e74397bd/node_modules/@nuxt/ui/dist/runtime/composables/defineLocale';
 export { defineShortcuts, extractShortcuts } from '../node_modules/.pnpm/@nuxt+ui@4.11.3_90c7a248b45f3956138b5594e74397bd/node_modules/@nuxt/ui/dist/runtime/composables/defineShortcuts';
