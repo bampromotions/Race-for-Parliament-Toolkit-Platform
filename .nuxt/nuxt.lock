@@ -3,5 +3,8 @@
   "startedAt": 1791966092989,
   "interactive": true,
   "command": "dev",
-  "cwd": "C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development"
+  "cwd": "C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development",
+  "port": 3000,
+  "hostname": "0.0.0.0",
+  "url": "http://0.0.0.0:3000"
 }
