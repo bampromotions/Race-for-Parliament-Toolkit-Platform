@@ -1,20 +1,16 @@
 # Race for Parliament Toolkit Platform
 
-A bilingual (English and Sesotho) learning website for the Race for Parliament Toolkit. Participants create profiles, work through course modules in order, complete quizzes, and save their learning progress. Staff roles support course administration, question authoring, and quiz marking.
+A bilingual (English and Sesotho) learning website for the Race for Parliament Toolkit. Participants create profiles, work through course modules in order, complete quizzes, and save their learning progress. Admins manage course materials, questions, participant results, and quiz marking.
 
 ## User flow
 
 ```text
-Admin registers an account
+Trusted operator creates the Admin in Firebase Authentication
+and sets users/{uid}.role to "admin" in Firestore
         |
         v
-Operator assigns the Admin role in Firebase
-        |
-        v
-Admin signs in and adds bilingual lesson material
-        |
-        v
-Content editor adds bilingual questions
+Admin signs in and manages content, questions, results,
+and quiz marking
         |
         v
 Participant registers and signs in
@@ -25,58 +21,38 @@ Participant reads Module 1 and submits its quiz
         v
 Progress is saved; passing unlocks the next module
         |
-        v
-Marker reviews the submission and confirms or adjusts the score
-        |
-        v
 Participant continues through the ordered modules;
-staff monitor progress and quiz results
+Admin monitors progress and quiz results
 ```
 
 ## Create the first Admin
 
-There is no public Admin sign-up. New accounts always register as Participants; a trusted operator promotes the first staff account from a secured environment.
+There is no public Admin sign-up. Public registration always creates a Participant. A trusted operator creates the Admin account in Firebase Authentication and adds its profile to Firestore.
 
 For the complete website access, credential, and role-management walkthrough, see [ADMIN_ACCESS_GUIDE.md](./ADMIN_ACCESS_GUIDE.md).
 
-1. Finish the Firebase setup below and start the website.
-2. Open the registration page and create an account for the person who will be the first Admin.
-3. In Firebase Console, open **Authentication → Users** and copy that account's Firebase **User UID**.
-4. From the project root, with `.env` configured with the Firebase project ID and server credentials, run:
+1. Finish the Firebase setup below.
+2. In Firebase Console, create the Admin account under **Authentication → Users**. Copy its **User UID**.
+3. In **Firestore Database → Data**, create a document in the `users` collection whose document ID is exactly that UID.
+4. Add these profile fields to the document:
+   - `uid` (string): the Firebase Authentication UID
+   - `displayName` (string): the Admin's name
+   - `email` (string): the same email as the Authentication account
+   - `organisation` (string): an organisation name, or an empty string
+   - `preferredLanguage` (string): `en` or `st`
+   - `role` (string): `admin`
+5. Have the Admin sign out and sign back in. The app reads the role from `users/{uid}.role` and opens `/admin`.
 
-   ```sh
-   node --env-file=.env scripts/set-admin-claim.mjs <firebase-user-id> admin
-   ```
-
-   Replace `<firebase-user-id>` with the copied UID (without angle brackets). The script assigns the Firebase Admin custom claim and updates the account profile role. It requires the account to have registered first.
-
-5. Have the new Admin sign out and sign in again to refresh their ID token. They will then be directed to the Admin area.
-
-Use the same command to promote an existing registered account to another staff role:
-
-```sh
-node --env-file=.env scripts/set-admin-claim.mjs <firebase-user-id> contentEditor
-node --env-file=.env scripts/set-admin-claim.mjs <firebase-user-id> marker
-```
-
-Return an account to the Participant role with:
-
-```sh
-node --env-file=.env scripts/set-admin-claim.mjs <firebase-user-id> participant
-```
-
-Do not expose service-account credentials or run role assignment from the public website. Only trusted operators should assign staff roles.
+The Admin profile must be in the existing `users` collection, not a separate `admins` collection. Only trusted operators should assign `role: "admin"`; users cannot change their own role through the app.
 
 ## Roles and what each person does
 
 | Role | How the account is created | Website workflow |
 | --- | --- | --- |
-| **Admin** | Self-register, then an operator assigns the `admin` role using the command above. | Add bilingual lesson material to course modules; monitor participants, progress, and results; add questions and mark quizzes. |
-| **Content editor** | Self-register, then an operator assigns `contentEditor`. | Add bilingual single-choice, multiple-choice, and true/false quiz questions to modules. |
-| **Marker** | Self-register, then an operator assigns `marker`. | Review participant answers, confirm or adjust the score, and optionally leave feedback. |
+| **Admin** | A trusted operator creates the Firebase Authentication account and its `users/{uid}` Firestore profile with `role: "admin"`. | Add bilingual lesson material and questions; monitor participants, progress, and results; review and mark quizzes. |
 | **Participant** | Register on the website; every public sign-up starts with this role. | Create a profile, choose English or Sesotho, study modules in sequence, take quizzes, and resume saved progress. |
 
-Staff roles are assigned using Firebase custom claims. Page visibility is not the only protection: staff API requests also verify role claims on the server. A user-editable profile field does not grant staff access.
+The app uses only the `admin` and `participant` roles. The signed-in Firebase UID is verified, then the app and server read the role from `users/{uid}`. Firestore rules prevent a user from editing their own role; staff API requests independently check the profile on the server.
 
 ## Participant learning flow
 
@@ -85,7 +61,7 @@ Staff roles are assigned using Firebase custom claims. Page visibility is not th
 3. Module 1 is available first. Later modules stay locked until the preceding module quiz is passed.
 4. The participant reads the material and submits the module quiz. The server calculates and saves the score, answers, and progress.
 5. A passing score (70% or more) unlocks the next module. The participant can return later and continue from their saved progress.
-6. A Marker can review the submission, confirm or adjust its score, and add feedback. Admins can monitor overall participation, individual progress, and results.
+6. An Admin can review the submission, confirm or adjust its score, and add feedback, and can monitor overall participation, individual progress, and results.
 
 The course interface, lessons added by Admins, and questions added by staff support English and Sesotho.
 
@@ -125,4 +101,4 @@ For additional Firebase configuration detail, see [FIREBASE_SETUP.md](./FIREBASE
 - Staff-authored quiz questions: `quizQuestions/{questionId}`
 - Admin-authored lesson material: `courseMaterials/{materialId}`
 
-Client writes to course progress and quiz attempts are denied by Firestore rules. Authenticated server APIs validate quiz submissions, save progress, and apply Marker decisions.
+Client writes to course progress and quiz attempts are denied by Firestore rules. Authenticated server APIs validate quiz submissions, save progress, and apply Admin marking decisions.

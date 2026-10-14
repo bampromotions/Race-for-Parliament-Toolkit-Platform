@@ -27,13 +27,7 @@ async function submit() {
   pending.value = true
   try {
     const role = await auth.signIn(email.value, password.value)
-    const rolePath = role === 'admin'
-      ? '/admin'
-      : role === 'contentEditor'
-        ? '/admin/quizzes'
-        : role === 'marker'
-          ? '/marking'
-          : '/dashboard'
+    const rolePath = role === 'admin' ? '/admin' : '/dashboard'
     const target = role === 'participant'
       ? safeRedirect(route.query.redirect) || localePath(rolePath)
       : localePath(rolePath)

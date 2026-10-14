@@ -2,7 +2,7 @@
 import { courseModules } from '../../data/course'
 import type { CourseQuestion } from '../../data/course'
 
-definePageMeta({ layout: 'admin', middleware: 'staff', staffRoles: ['admin', 'contentEditor'] })
+definePageMeta({ layout: 'admin', middleware: 'staff' })
 const { t, locale } = useI18n()
 const api = useFirebaseApi()
 const selectedModule = ref(1)

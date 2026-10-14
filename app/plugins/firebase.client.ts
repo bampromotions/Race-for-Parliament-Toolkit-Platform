@@ -1,7 +1,7 @@
 import { getApps, initializeApp } from 'firebase/app'
 import { getAnalytics, isSupported } from 'firebase/analytics'
 import { getAuth, onAuthStateChanged, type User } from 'firebase/auth'
-import { getFirestore } from 'firebase/firestore'
+import { doc, getDoc, getFirestore } from 'firebase/firestore'
 import type { FirebaseClient, FirebaseSession } from '../types/firebase'
 import { getUserRole } from '../utils/firebase-role'
 
@@ -66,12 +66,15 @@ export default defineNuxtPlugin(() => {
         return
       }
 
-      const token = await user.getIdTokenResult()
-      const role = getUserRole(token.claims)
+      const profile = await getDoc(doc(db, 'users', user.uid))
+      if (!profile.exists()) {
+        throw new Error('Your account profile is missing. Contact an administrator to finish setting up your account.')
+      }
+      const role = getUserRole(profile.data().role)
       session.value = {
         uid: user.uid,
         email: user.email,
-        displayName: user.displayName,
+        displayName: user.displayName || profile.get('displayName') || null,
         role,
         isAdmin: role === 'admin',
       }

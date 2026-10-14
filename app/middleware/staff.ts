@@ -1,6 +1,4 @@
-import type { UserRole } from '../types/firebase'
-
-export default defineNuxtRouteMiddleware(async (to) => {
+export default defineNuxtRouteMiddleware(async () => {
   if (import.meta.server) return
 
   const firebase = useFirebase()
@@ -20,8 +18,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
     return navigateTo(useLocalePath()('/auth/login'), { replace: true })
   }
 
-  const allowedRoles = (to.meta.staffRoles as UserRole[] | undefined) ?? ['admin']
-  if (!allowedRoles.includes(firebase.session.value.role)) {
+  if (firebase.session.value.role !== 'admin') {
     return navigateTo(useLocalePath()('/dashboard'), { replace: true })
   }
 })

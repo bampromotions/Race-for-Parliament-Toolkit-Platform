@@ -17,13 +17,6 @@ onMounted(() => {
 
 const navigation = computed(() => {
   if (props.area === 'staff') {
-    const role = firebase.session.value?.role
-    if (role === 'contentEditor') {
-      return [{ label: 'navigation.quizzes', path: '/admin/quizzes' }]
-    }
-    if (role === 'marker') {
-      return [{ label: 'navigation.marking', path: '/marking' }]
-    }
     return [
       { label: 'navigation.dashboard', path: '/admin' },
       { label: 'navigation.participants', path: '/admin/participants' },

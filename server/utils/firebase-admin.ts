@@ -90,11 +90,11 @@ export async function requireFirebaseUser(event: H3Event) {
 
 export async function requireRole(event: H3Event, allowedRoles: UserRole[]) {
   const user = await requireFirebaseUser(event)
-  const role: UserRole = user.admin === true
-    ? 'admin'
-    : user.role === 'contentEditor' || user.role === 'marker' || user.role === 'admin'
-      ? user.role
-      : 'participant'
+  const profile = await getFirebaseAdmin(event).db.doc(`users/${user.uid}`).get()
+  if (!profile.exists) {
+    throw createError({ statusCode: 403, statusMessage: 'A user profile is required to access this resource.' })
+  }
+  const role: UserRole = profile.get('role') === 'admin' ? 'admin' : 'participant'
   if (!allowedRoles.includes(role)) {
     throw createError({ statusCode: 403, statusMessage: 'You do not have permission to perform this action.' })
   }
