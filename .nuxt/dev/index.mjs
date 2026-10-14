@@ -3060,7 +3060,22 @@ dev_errors_default,
 _Z4Vm0BJMJeyU_KFYzGBgSOBoZ4JOQn4jYmko_KtDwU
 ];
 
-const assets = {};
+const assets = {
+  "/index.mjs": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"3751d-vY9U7ujsK6Rd+j6aqkvKe1jcytU\"",
+    "mtime": "2026-10-14T09:44:32.900Z",
+    "size": 226589,
+    "path": "index.mjs"
+  },
+  "/index.mjs.map": {
+    "type": "application/json",
+    "etag": "\"c5820-RSAcVCdYgenvRle8qhNmb6XfLLY\"",
+    "mtime": "2026-10-14T09:44:32.902Z",
+    "size": 808992,
+    "path": "index.mjs.map"
+  }
+};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
