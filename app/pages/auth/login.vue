@@ -32,8 +32,11 @@ async function submit() {
       ? safeRedirect(route.query.redirect) || localePath(rolePath)
       : localePath(rolePath)
     await navigateTo(target, { replace: true })
-  } catch {
-    errorMessage.value = t('auth.authError')
+  } catch (error) {
+    const message = error instanceof Error ? error.message : ''
+    errorMessage.value = message.includes('user profile')
+      ? message
+      : t('auth.authError')
   } finally {
     pending.value = false
   }

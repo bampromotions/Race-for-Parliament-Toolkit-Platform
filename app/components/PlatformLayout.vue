@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { courseId } from '../data/course'
-
 const props = defineProps<{ area: 'participant' | 'staff' }>()
 const { t } = useI18n()
 const localePath = useLocalePath()
@@ -31,7 +29,7 @@ const navigation = computed(() => {
       { label: 'navigation.dashboard', path: '/dashboard' },
       { label: 'navigation.course', path: '/course' },
       { label: 'navigation.progress', path: '/progress' },
-      { label: 'navigation.quizzes', path: `/course/${courseId}/module/1/quiz` },
+      { label: 'navigation.quizzes', path: '/quizzes' },
       { label: 'navigation.profile', path: '/profile' },
     ]
 })

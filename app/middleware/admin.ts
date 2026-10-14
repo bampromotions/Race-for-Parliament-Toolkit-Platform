@@ -9,7 +9,7 @@ export default defineNuxtRouteMiddleware(async () => {
   await firebase.ready
   if (firebase.error.value) {
     throw createError({
-      statusCode: 503,
+      statusCode: 403,
       statusMessage: `Unable to verify administrator access: ${firebase.error.value}`,
     })
   }

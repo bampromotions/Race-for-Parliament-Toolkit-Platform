@@ -37,11 +37,11 @@ export function useAuth() {
     log('debug', 'Authentication sign-in started', { event: 'auth.sign-in.started' })
     try {
       const { auth } = firebase.requireFirebase()
-      const credential = await signInWithEmailAndPassword(auth, email.trim(), password)
+      const credential = await signInWithEmailAndPassword(auth, email.trim(), password.trim())
       await firebase.refreshSession()
-      log('info', 'Authentication sign-in succeeded', { event: 'auth.sign-in.succeeded' })
       if (firebase.error.value) throw new Error(firebase.error.value)
-      if (!firebase.session.value) throw new Error('Unable to load the signed-in user profile.')
+      if (!firebase.session.value) throw new Error('Unable to load your user profile.')
+      log('info', 'Authentication sign-in succeeded', { event: 'auth.sign-in.succeeded' })
       return firebase.session.value.role
     } catch (error) {
       logFailure('sign-in', error)

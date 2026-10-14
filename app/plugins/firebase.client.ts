@@ -68,9 +68,9 @@ export default defineNuxtPlugin(() => {
 
       const profile = await getDoc(doc(db, 'users', user.uid))
       if (!profile.exists()) {
-        throw new Error('Your account profile is missing. Contact an administrator to finish setting up your account.')
+        throw new Error(`Firestore document users/${user.uid} was not found. Create it with role set to "admin" for an Admin account, or "participant" for a Participant account.`)
       }
-      const role = getUserRole(profile.data().role)
+      const role = getUserRole(profile.get('role'))
       session.value = {
         uid: user.uid,
         email: user.email,
@@ -80,13 +80,18 @@ export default defineNuxtPlugin(() => {
       }
     } catch (cause) {
       session.value = null
-      error.value = cause instanceof Error ? cause.message : 'Unable to verify the signed-in user.'
+      error.value = cause instanceof Error
+        ? `Unable to load the Firestore user profile: ${cause.message}`
+        : 'Unable to load the Firestore user profile.'
     } finally {
       resolveReady()
     }
   }
 
-  const refreshSession = () => updateSession(auth.currentUser)
+  const refreshSession = async () => {
+    await updateSession(auth.currentUser)
+    if (error.value) throw new Error(error.value)
+  }
   onAuthStateChanged(auth, (user) => {
     void updateSession(user)
   })

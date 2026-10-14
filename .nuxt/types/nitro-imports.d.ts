@@ -148,6 +148,7 @@ declare global {
   const useSession: typeof import('../../node_modules/h3/dist/index').useSession
   const useStorage: typeof import('../../node_modules/nitropack/dist/runtime/internal/storage').useStorage
   const useTranslation: typeof import('../../node_modules/@intlify/h3').useTranslation
+  const validateStandaloneQuiz: typeof import('../../server/utils/standalone-quiz').validateStandaloneQuiz
   const writeEarlyHints: typeof import('../../node_modules/h3/dist/index').writeEarlyHints
 }
 // for type re-export
@@ -155,6 +156,9 @@ declare global {
   // @ts-ignore
   export type { EventHandler, EventHandlerRequest, EventHandlerResponse, EventHandlerObject, H3EventContext } from '../../node_modules/h3/dist/index'
   import('../../node_modules/h3/dist/index')
+  // @ts-ignore
+  export type { StandaloneQuizQuestionInput, StandaloneQuizInput } from '../../server/utils/standalone-quiz'
+  import('../../server/utils/standalone-quiz')
 }
 export { H3Event, H3Error, appendCorsHeaders, appendCorsPreflightHeaders, appendHeader, appendHeaders, appendResponseHeader, appendResponseHeaders, assertMethod, callNodeListener, clearResponseHeaders, clearSession, createApp, createAppEventHandler, createError, createEvent, createEventStream, createRouter, defaultContentType, defineEventHandler, defineLazyEventHandler, defineNodeListener, defineNodeMiddleware, defineRequestMiddleware, defineResponseMiddleware, defineWebSocket, defineWebSocketHandler, deleteCookie, dynamicEventHandler, eventHandler, fetchWithEvent, fromNodeMiddleware, fromPlainHandler, fromWebHandler, getCookie, getHeader, getHeaders, getMethod, getProxyRequestHeaders, getQuery, getRequestFingerprint, getRequestHeader, getRequestHeaders, getRequestHost, getRequestIP, getRequestPath, getRequestProtocol, getRequestURL, getRequestWebStream, getResponseHeader, getResponseHeaders, getResponseStatus, getResponseStatusText, getRouterParam, getRouterParams, getSession, getValidatedQuery, getValidatedRouterParams, handleCacheHeaders, handleCors, isCorsOriginAllowed, isError, isEvent, isEventHandler, isMethod, isPreflightRequest, isStream, isWebResponse, lazyEventHandler, parseCookies, promisifyNodeListener, proxyRequest, readBody, readFormData, readMultipartFormData, readRawBody, readValidatedBody, removeResponseHeader, sanitizeStatusCode, sanitizeStatusMessage, sealSession, send, sendError, sendIterable, sendNoContent, sendProxy, sendRedirect, sendStream, sendWebResponse, serveStatic, setCookie, setHeader, setHeaders, setResponseHeader, setResponseHeaders, setResponseStatus, splitCookiesString, toEventHandler, toNodeListener, toPlainHandler, toWebHandler, toWebRequest, unsealSession, updateSession, useBase, useSession, writeEarlyHints } from 'h3';
 export { useNitroApp } from 'nitropack/runtime/internal/app';
@@ -177,3 +181,4 @@ export { useTranslation } from '@intlify/h3';
 export { getCookieLocale, getHeaderLanguage, getHeaderLanguages, getHeaderLocale, getHeaderLocales, getPathLocale, getQueryLocale, setCookieLocale, tryCookieLocale, tryHeaderLocale, tryHeaderLocales, tryPathLocale, tryQueryLocale } from '@intlify/utils/h3';
 export { staticAnswerKeys, getStaticAnswers } from 'C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/server/utils/course-quiz';
 export { getFirebaseAdmin, requireFirebaseUser, requireRole, requireAdminUser } from 'C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/server/utils/firebase-admin';
+export { validateStandaloneQuiz } from 'C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/server/utils/standalone-quiz';

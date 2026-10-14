@@ -6,6 +6,7 @@ export const localizedPaths = [
   "/admin/modules",
   "/admin/participants",
   "/admin/quizzes",
+  "/admin/quizzes/create",
   "/admin/results",
   "/auth/forgot-password",
   "/auth/login",
@@ -15,12 +16,14 @@ export const localizedPaths = [
   "/course/:courseId()/module/:moduleId()/result",
   "/course/:courseId()/module/:moduleId()",
   "/course/:courseId()",
+  "/quizzes/:id()",
   "/admin",
   "/course",
   "/dashboard",
   "/marking",
   "/profile",
   "/progress",
+  "/quizzes",
   "/"
 ];
 export const pathToI18nConfig = {};

@@ -20,6 +20,10 @@ declare module "nitropack/types" {
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/questions.get').default>>>>
       'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/questions.post').default>>>>
     }
+    '/api/admin/quizzes': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/quizzes.get').default>>>>
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/quizzes.post').default>>>>
+    }
     '/api/admin/results': {
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/results.get').default>>>>
     }
@@ -43,6 +47,15 @@ declare module "nitropack/types" {
     }
     '/api/quiz/submit': {
       'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/quiz/submit.post').default>>>>
+    }
+    '/api/quizzes': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/quizzes.get').default>>>>
+    }
+    '/api/quizzes/:id': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/quizzes/[id].get').default>>>>
+    }
+    '/api/quizzes/:id/submit': {
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/quizzes/[id]/submit.post').default>>>>
     }
     '/__nuxt_error': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxt/nitro-server/dist/runtime/handlers/renderer').default>>>>

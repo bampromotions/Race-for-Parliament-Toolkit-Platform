@@ -243,6 +243,9 @@ declare global {
   // @ts-ignore
   export type { UserRole, FirebaseSession, FirebaseClient } from '../../app/types/firebase'
   import('../../app/types/firebase')
+  // @ts-ignore
+  export type { StandaloneQuizOption, StandaloneQuizQuestion, StandaloneQuizSummary, StandaloneQuiz } from '../../app/types/standalone-quiz'
+  import('../../app/types/standalone-quiz')
 }
 // for vue template auto import
 import { UnwrapRef } from 'vue'
