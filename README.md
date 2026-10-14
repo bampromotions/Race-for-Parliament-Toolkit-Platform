@@ -37,6 +37,8 @@ staff monitor progress and quiz results
 
 There is no public Admin sign-up. New accounts always register as Participants; a trusted operator promotes the first staff account from a secured environment.
 
+For the complete website access, credential, and role-management walkthrough, see [ADMIN_ACCESS_GUIDE.md](./ADMIN_ACCESS_GUIDE.md).
+
 1. Finish the Firebase setup below and start the website.
 2. Open the registration page and create an account for the person who will be the first Admin.
 3. In Firebase Console, open **Authentication → Users** and copy that account's Firebase **User UID**.

@@ -10,7 +10,7 @@
    firebase deploy --only firestore:rules,firestore:indexes
    ```
 
-6. Users self-register as Participants. Assign staff roles only to trusted CSO staff from a secured operator environment:
+6. Users self-register as Participants. Accounts created directly in Firebase Authentication also start without staff access. Assign staff roles only to trusted CSO staff from a secured operator environment; the script creates a missing Firestore user profile when assigning a role:
 
    ```sh
    node --env-file=.env scripts/set-admin-claim.mjs <firebase-user-id> admin

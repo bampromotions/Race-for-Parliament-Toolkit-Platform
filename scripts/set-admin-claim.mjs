@@ -1,7 +1,10 @@
+import { existsSync, readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
 import { applicationDefault, cert, getApps, initializeApp } from 'firebase-admin/app'
 import { getAuth } from 'firebase-admin/auth'
-import { getFirestore } from 'firebase-admin/firestore'
+import { FieldValue, getFirestore } from 'firebase-admin/firestore'
 
+const serviceAccountPath = resolve(process.cwd(), 'raceforpalament-39d8d-firebase-adminsdk-fbsvc-bcfdae06a5.json')
 const [uid, requestedRole = 'admin'] = process.argv.slice(2)
 const roles = ['admin', 'contentEditor', 'marker', 'participant']
 const role = requestedRole === 'grant'
@@ -17,15 +20,19 @@ if (!uid || !/^[A-Za-z0-9_-]{1,128}$/.test(uid) || !roles.includes(role)) {
   if (!projectId) throw new Error('Set NUXT_PUBLIC_FIREBASE_PROJECT_ID before running this command.')
 
   const serviceAccountJson = process.env.NUXT_FIREBASE_SERVICE_ACCOUNT_JSON
-  const credential = serviceAccountJson
-    ? cert(JSON.parse(serviceAccountJson))
-    : applicationDefault()
+  let credential
+  if (serviceAccountJson) {
+    credential = cert(JSON.parse(serviceAccountJson))
+  } else if (existsSync(serviceAccountPath)) {
+    credential = cert(JSON.parse(readFileSync(serviceAccountPath, 'utf8')))
+  } else {
+    credential = applicationDefault()
+  }
   const app = getApps()[0] ?? initializeApp({ credential, projectId })
   const auth = getAuth(app)
   const user = await auth.getUser(uid)
   const profileRef = getFirestore(app).doc(`users/${uid}`)
   const profile = await profileRef.get()
-  if (!profile.exists) throw new Error(`No registered profile exists for ${uid}.`)
   const claims = { ...user.customClaims }
 
   delete claims.admin
@@ -33,7 +40,20 @@ if (!uid || !/^[A-Za-z0-9_-]{1,128}$/.test(uid) || !roles.includes(role)) {
   if (role !== 'participant') claims.role = role
   else delete claims.role
 
+  if (profile.exists) {
+    await profileRef.update({ role, updatedAt: FieldValue.serverTimestamp() })
+  } else {
+    await profileRef.set({
+      uid: user.uid,
+      displayName: user.displayName?.trim() || user.email?.split('@')[0] || user.uid,
+      email: user.email ?? '',
+      organisation: '',
+      preferredLanguage: 'en',
+      role,
+      createdAt: FieldValue.serverTimestamp(),
+      updatedAt: FieldValue.serverTimestamp(),
+    })
+  }
   await auth.setCustomUserClaims(uid, claims)
-  await profileRef.update({ role })
-  console.log(`Role ${role} assigned to ${uid}. The user must refresh their ID token.`)
+  console.log(`Role ${role} assigned to ${uid}${profile.exists ? '' : ' and a Firestore profile was created'}. The user must refresh their ID token.`)
 }
