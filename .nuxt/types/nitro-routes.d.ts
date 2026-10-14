@@ -3,6 +3,10 @@ import type { Serialize, Simplify } from "nitropack/types";
 declare module "nitropack/types" {
   type Awaited<T> = T extends PromiseLike<infer U> ? Awaited<U> : T
   interface InternalApi {
+    '/api/admin/materials': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/materials.get').default>>>>
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/materials.post').default>>>>
+    }
     '/api/admin/overview': {
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/overview.get').default>>>>
     }
@@ -12,8 +16,24 @@ declare module "nitropack/types" {
     '/api/admin/participants/:id': {
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/participants/[id].get').default>>>>
     }
+    '/api/admin/questions': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/questions.get').default>>>>
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/questions.post').default>>>>
+    }
     '/api/admin/results': {
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/admin/results.get').default>>>>
+    }
+    '/api/course/:courseId/module/:moduleId/materials': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/course/[courseId]/module/[moduleId]/materials.get').default>>>>
+    }
+    '/api/course/:courseId/module/:moduleId/questions': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/course/[courseId]/module/[moduleId]/questions.get').default>>>>
+    }
+    '/api/marker/attempts': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/marker/attempts.get').default>>>>
+    }
+    '/api/marker/attempts/:id': {
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/marker/attempts/[id].post').default>>>>
     }
     '/api/progress': {
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/progress.get').default>>>>

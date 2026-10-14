@@ -4,6 +4,7 @@ import { applicationDefault, cert, getApps, initializeApp } from 'firebase-admin
 import { getAuth } from 'firebase-admin/auth'
 import { getFirestore } from 'firebase-admin/firestore'
 import { useLogger } from '../../app/composables/useLogger'
+import type { UserRole } from '../../app/types/firebase'
 import type { H3Event } from 'h3'
 
 function getAdminApp(event: H3Event) {
@@ -87,10 +88,19 @@ export async function requireFirebaseUser(event: H3Event) {
   }
 }
 
-export async function requireAdminUser(event: H3Event) {
+export async function requireRole(event: H3Event, allowedRoles: UserRole[]) {
   const user = await requireFirebaseUser(event)
-  if (user.admin !== true) {
-    throw createError({ statusCode: 403, statusMessage: 'Administrator access is required.' })
+  const role: UserRole = user.admin === true
+    ? 'admin'
+    : user.role === 'contentEditor' || user.role === 'marker' || user.role === 'admin'
+      ? user.role
+      : 'participant'
+  if (!allowedRoles.includes(role)) {
+    throw createError({ statusCode: 403, statusMessage: 'You do not have permission to perform this action.' })
   }
-  return user
+  return { ...user, role }
+}
+
+export function requireAdminUser(event: H3Event) {
+  return requireRole(event, ['admin'])
 }

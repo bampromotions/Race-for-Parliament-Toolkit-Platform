@@ -40,9 +40,8 @@ import { getContext } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt
 import { captureRawStackTrace, parseRawStackTrace } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/errx/dist/index.mjs';
 import { isRef, toValue, isVNode } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/vue/index.mjs';
 import _UgJGBQudbbQ8iJzVSV3CKgA1siSZ88YGJS8KylWo4 from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/@nuxt/cli/runtime/dev-close-sockets.mjs';
-import dc from 'node:diagnostics_channel';
-import { formatWithOptions } from 'node:util';
 import { createRouterMatcher } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/vue-router/vue-router.node.mjs';
+import { formatWithOptions } from 'node:util';
 import _Z4Vm0BJMJeyU_KFYzGBgSOBoZ4JOQn4jYmko_KtDwU from 'file:///C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/@nuxt/vite-builder/dist/ssr-sourcemap.mjs';
 import { fileURLToPath } from 'node:url';
 import { dirname as dirname$1, resolve as resolve$1 } from 'file://C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/pathe/dist/index.mjs';
@@ -62,18 +61,18 @@ for (const asset of serverAssets) {
   assets$1.mount(asset.baseName, unstorage_47drivers_47fs({ base: asset.dir, ignore: (asset?.ignore || []) }));
 }
 
-const storage$2 = createStorage({});
+const storage$1 = createStorage({});
 
-storage$2.mount('/assets', assets$1);
+storage$1.mount('/assets', assets$1);
 
-storage$2.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development","ignore":["**/node_modules","**/*.stories.js","**/*.stories.cts","**/*.stories.mts","**/*.stories.ts","**/*.stories.jsx","**/*.stories.tsx","**/*.spec.js","**/*.spec.cts","**/*.spec.mts","**/*.spec.ts","**/*.spec.jsx","**/*.spec.tsx","**/*.test.js","**/*.test.cts","**/*.test.mts","**/*.test.ts","**/*.test.jsx","**/*.test.tsx","**/*.d.cts","**/*.d.mts","**/*.d.ts","**/*.d.vue.cts","**/*.d.vue.mts","**/*.d.vue.ts","**/.pnpm-store","**/.vercel","**/.netlify","**/.output","**/.git","**/.cache","**/.data","**/.direnv","C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/vendor","**/node-compile-cache","**/test-results","**/*.sock","C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/.nuxt/analyze","**/.nuxt","**/-*.*"]}));
-storage$2.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/server","ignore":["**/node_modules","**/*.stories.js","**/*.stories.cts","**/*.stories.mts","**/*.stories.ts","**/*.stories.jsx","**/*.stories.tsx","**/*.spec.js","**/*.spec.cts","**/*.spec.mts","**/*.spec.ts","**/*.spec.jsx","**/*.spec.tsx","**/*.test.js","**/*.test.cts","**/*.test.mts","**/*.test.ts","**/*.test.jsx","**/*.test.tsx","**/*.d.cts","**/*.d.mts","**/*.d.ts","**/*.d.vue.cts","**/*.d.vue.mts","**/*.d.vue.ts","**/.pnpm-store","**/.vercel","**/.netlify","**/.output","**/.git","**/.cache","**/.data","**/.direnv","**/node-compile-cache","**/test-results","**/*.sock","**/-*.*"]}));
-storage$2.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/.nuxt"}));
-storage$2.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/.nuxt/cache"}));
-storage$2.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/.data/kv"}));
+storage$1.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development","ignore":["**/node_modules","**/*.stories.js","**/*.stories.cts","**/*.stories.mts","**/*.stories.ts","**/*.stories.jsx","**/*.stories.tsx","**/*.spec.js","**/*.spec.cts","**/*.spec.mts","**/*.spec.ts","**/*.spec.jsx","**/*.spec.tsx","**/*.test.js","**/*.test.cts","**/*.test.mts","**/*.test.ts","**/*.test.jsx","**/*.test.tsx","**/*.d.cts","**/*.d.mts","**/*.d.ts","**/*.d.vue.cts","**/*.d.vue.mts","**/*.d.vue.ts","**/.pnpm-store","**/.vercel","**/.netlify","**/.output","**/.git","**/.cache","**/.data","**/.direnv","C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/vendor","**/node-compile-cache","**/test-results","**/*.sock","C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/.nuxt/analyze","**/.nuxt","**/-*.*"]}));
+storage$1.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/server","ignore":["**/node_modules","**/*.stories.js","**/*.stories.cts","**/*.stories.mts","**/*.stories.ts","**/*.stories.jsx","**/*.stories.tsx","**/*.spec.js","**/*.spec.cts","**/*.spec.mts","**/*.spec.ts","**/*.spec.jsx","**/*.spec.tsx","**/*.test.js","**/*.test.cts","**/*.test.mts","**/*.test.ts","**/*.test.jsx","**/*.test.tsx","**/*.d.cts","**/*.d.mts","**/*.d.ts","**/*.d.vue.cts","**/*.d.vue.mts","**/*.d.vue.ts","**/.pnpm-store","**/.vercel","**/.netlify","**/.output","**/.git","**/.cache","**/.data","**/.direnv","**/node-compile-cache","**/test-results","**/*.sock","**/-*.*"]}));
+storage$1.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/.nuxt"}));
+storage$1.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/.nuxt/cache"}));
+storage$1.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/.data/kv"}));
 
 function useStorage(base = "") {
-  return base ? prefixStorage(storage$2, base) : storage$2;
+  return base ? prefixStorage(storage$1, base) : storage$1;
 }
 
 const Hasher = /* @__PURE__ */ (() => {
@@ -1163,7 +1162,7 @@ const renderSSRHeadOptions = {"omitLineBreaks":true};
 
 const NUXT_PRERENDER_NO_SSR_ROUTES = ["/index.html","/200.html","/404.html"];
 const NUXT_NO_SCRIPTS_PATTERNS = [];
-const NUXT_PAGE_PATTERNS = ["/admin/courses/:id","/st/admin/courses/:id","/admin/participants/:id","/st/admin/participants/:id","/admin/courses","/st/admin/courses","/admin/modules","/st/admin/modules","/admin/participants","/st/admin/participants","/admin/quizzes","/st/admin/quizzes","/admin/results","/st/admin/results","/auth/forgot-password","/st/auth/forgot-password","/auth/login","/st/auth/login","/auth/register","/st/auth/register","/auth/reset-password","/st/auth/reset-password","/course/:courseId/module/:moduleId/quiz","/st/course/:courseId/module/:moduleId/quiz","/course/:courseId/module/:moduleId/result","/st/course/:courseId/module/:moduleId/result","/course/:courseId/module/:moduleId","/st/course/:courseId/module/:moduleId","/course/:courseId","/st/course/:courseId","/admin","/st/admin","/course","/st/course","/dashboard","/st/dashboard","/profile","/st/profile","/progress","/st/progress","/","/st"];
+const NUXT_PAGE_PATTERNS = ["/admin/courses/:id","/st/admin/courses/:id","/admin/participants/:id","/st/admin/participants/:id","/admin/courses","/st/admin/courses","/admin/modules","/st/admin/modules","/admin/participants","/st/admin/participants","/admin/quizzes","/st/admin/quizzes","/admin/results","/st/admin/results","/auth/forgot-password","/st/auth/forgot-password","/auth/login","/st/auth/login","/auth/register","/st/auth/register","/auth/reset-password","/st/auth/reset-password","/course/:courseId/module/:moduleId/quiz","/st/course/:courseId/module/:moduleId/quiz","/course/:courseId/module/:moduleId/result","/st/course/:courseId/module/:moduleId/result","/course/:courseId/module/:moduleId","/st/course/:courseId/module/:moduleId","/course/:courseId","/st/course/:courseId","/admin","/st/admin","/course","/st/course","/dashboard","/st/dashboard","/marking","/st/marking","/profile","/st/profile","/progress","/st/progress","/","/st"];
 const NUXT_PAYLOAD_INLINE = false;
 const NUXT_SSR_STREAMING = false;
 const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"description","content":"A bilingual civic learning platform for parliament, democracy and public participation."}],"link":[],"style":[],"script":[],"noscript":[],"title":"Race for Parliament Toolkit"};
@@ -1582,313 +1581,6 @@ function onConsoleLog(callback) {
 	consola$1.wrapConsole();
 }
 
-/**
- * Attribute the app's logs, and the spans it publishes on `diagnostics_channel`,
- * to the request that caused them.
- *
- * Nitro runs the app in a worker thread, so the CLI's own request context cannot
- * reach it: `AsyncLocalStorage` does not cross threads, and neither `globalThis`
- * nor `process` is the same object either side. This runs on the app's side of
- * that boundary, opening its own context around the handler and reporting from
- * inside it. Only the request identity crosses, as a header, and only the
- * finished log or span comes back, on a `BroadcastChannel`.
- *
- * Everything here is best-effort: a dev server must never fail because a log
- * could not be attributed.
- */
-const CHANNEL = 'nuxt:dev:log';
-const SPAN_CHANNEL = 'nuxt:dev:span';
-/** Left on the request: Nuxt reads it to attribute the error reports it publishes. */
-const HEADER = 'x-nuxt-dev-request-id';
-const LABEL_HEADER = 'x-nuxt-dev-request-label';
-
-const storage$1 = new AsyncLocalStorage();
-
-let spanChannel;
-
-function _fehKHjADywh4a0kZeibhFh7U1fg6T6YAqcJqIEivPg (nitroApp) {
-  try {
-    trackRequests(nitroApp);
-    reportLogs();
-    trackHooks(nitroApp);
-    subscribeSpans();
-  }
-  catch {}
-}
-
-function now() {
-  return performance.timeOrigin + performance.now()
-}
-
-function postSpan(request, kind, name, start, extra) {
-  try {
-    if (!spanChannel) {
-      spanChannel = new BroadcastChannel(SPAN_CHANNEL);
-      spanChannel.unref?.();
-    }
-    spanChannel.postMessage({ requestId: request.id, kind, name, start, duration: now() - start, ...extra });
-  }
-  catch {}
-}
-
-/** A module path as a reader would name it: from its package, or from the project. */
-function shortenPath(path) {
-  if (!path) {
-    return undefined
-  }
-  const file = String(path).replace(/^@(?=\/)/, '');
-  const packaged = file.lastIndexOf('/node_modules/');
-  if (packaged !== -1) {
-    return file.slice(packaged + '/node_modules/'.length)
-  }
-  const root = `${process$1.cwd()}/`;
-  return file.startsWith(root) ? file.slice(root.length) : file
-}
-
-function pathOf(url) {
-  try {
-    const { pathname, search } = new URL(url, 'http://localhost');
-    return `${pathname}${search}`
-  }
-  catch {
-    return String(url ?? '/')
-  }
-}
-
-/**
- * `TracingChannel`s published by Nuxt, h3 and Nitro, and how each span is shown.
- * All of them are published with `tracePromise`, so a span ends on `asyncEnd`
- * or `error`.
- */
-const TRACING_CHANNELS = {
-  'nuxt.plugin': context => ['plugin', context.plugin?.name || 'anonymous'],
-  'nuxt.data': context => ['data', context.functionName ? `${context.functionName}(${context.key})` : String(context.key)],
-  'nuxt.render': context => ['render', context.streaming ? 'stream' : 'renderToString'],
-  'nuxt.island': context => ['island', context.islandContext?.name || 'island'],
-  'nuxt.hook': context => ['hook', String(context.name ?? context.hook?.name)],
-  'nuxt.middleware': context => ['middleware', context.middleware?.name || shortenPath(context.middleware?.path) || 'anonymous'],
-  'h3.request': (context) => {
-    const request = context.event?.req ?? context.event?.node?.req;
-    const label = `${request?.method || 'GET'} ${pathOf(request?.url)}`;
-    return [context.type === 'middleware' ? 'middleware' : 'route', label]
-  },
-};
-
-/** Undici's fetch lifecycle, published as plain channels rather than a `TracingChannel`. */
-const UNDICI_CHANNELS = ['undici:request:create', 'undici:request:headers', 'undici:request:trailers', 'undici:request:error'];
-
-const SUBSCRIPTION = Symbol.for('nuxt:dev:span:subscription');
-const STARTED = Symbol('nuxt:dev:span:started');
-
-/**
- * Report spans published while serving a request, against that request.
- *
- * Subscriptions are process-wide, so any left by an earlier copy of this module
- * are dropped first.
- */
-function subscribeSpans() {
-  globalThis[SUBSCRIPTION]?.();
-  const unsubscribers = [];
-
-  for (const [name, describe] of Object.entries(TRACING_CHANNELS)) {
-    const handlers = {
-      start(context) {
-        const request = storage$1.getStore();
-        if (request) {
-          context[STARTED] = { request, start: now() };
-        }
-      },
-      asyncEnd: context => finishTraced(context, describe),
-      error: context => finishTraced(context, describe, true),
-    };
-    const channel = dc.tracingChannel(name);
-    channel.subscribe(handlers);
-    unsubscribers.push(() => channel.unsubscribe(handlers));
-  }
-
-  const fetches = new WeakMap();
-  const onFetch = {
-    'undici:request:create': ({ request }) => {
-      const inflight = storage$1.getStore();
-      if (inflight) {
-        fetches.set(request, { request: inflight, start: now() });
-      }
-    },
-    'undici:request:headers': ({ request, response }) => {
-      const started = fetches.get(request);
-      if (started) {
-        started.status = response?.statusCode;
-      }
-    },
-    'undici:request:trailers': ({ request }) => finishFetch(fetches, request),
-    'undici:request:error': ({ request }) => finishFetch(fetches, request, true),
-  };
-  for (const name of UNDICI_CHANNELS) {
-    const listener = (message) => {
-      try {
-        onFetch[name](message);
-      }
-      catch {}
-    };
-    dc.subscribe(name, listener);
-    unsubscribers.push(() => dc.unsubscribe(name, listener));
-  }
-
-  globalThis[SUBSCRIPTION] = () => {
-    for (const unsubscribe of unsubscribers) {
-      unsubscribe();
-    }
-  };
-}
-
-function finishTraced(context, describe, error) {
-  const started = context[STARTED];
-  if (!started) {
-    return
-  }
-  context[STARTED] = undefined;
-  try {
-    const [kind, name] = describe(context);
-    const status = context.event?.res?.status ?? context.event?.node?.res?.statusCode;
-    postSpan(started.request, kind, name, started.start, {
-      ...kind === 'route' && typeof status === 'number' ? { status } : {},
-      ...error ? { error: true } : {},
-    });
-  }
-  catch {}
-}
-
-function finishFetch(fetches, request, error) {
-  const started = fetches.get(request);
-  if (!started) {
-    return
-  }
-  fetches.delete(request);
-  const url = `${request.origin ?? ''}${request.path ?? ''}`;
-  postSpan(started.request, 'fetch', `${request.method || 'GET'} ${url}`, started.start, {
-    ...typeof started.status === 'number' ? { status: started.status } : {},
-    ...error ? { error: true } : {},
-  });
-}
-
-/**
- * Time the Nitro hooks the app has listeners for. Nitro publishes no channel for
- * its hooks, so these are timed through hookable directly.
- */
-function trackHooks(nitroApp) {
-  const hooks = nitroApp?.hooks;
-  if (typeof hooks?.beforeEach !== 'function' || typeof hooks?.afterEach !== 'function') {
-    return
-  }
-  hooks.beforeEach((event) => {
-    const request = storage$1.getStore();
-    if (request && event.context && hooks._hooks?.[event.name]?.length) {
-      event.context[STARTED] = { request, start: now() };
-    }
-  });
-  hooks.afterEach((event) => {
-    const started = event.context?.[STARTED];
-    if (started) {
-      postSpan(started.request, 'hook', event.name, started.start);
-    }
-  });
-}
-
-function parseRequest(id, label) {
-  if (!id) {
-    return undefined
-  }
-  let decoded = label || '';
-  try {
-    decoded = decodeURIComponent(decoded);
-  }
-  catch {}
-  return { id, label: decoded }
-}
-
-function withRequest(read, remove, serve) {
-  let request;
-  try {
-    request = parseRequest(read(HEADER), read(LABEL_HEADER));
-    if (request) {
-      remove(LABEL_HEADER);
-    }
-  }
-  catch {}
-  return request ? storage$1.run(request, serve) : serve()
-}
-
-function trackRequests(nitroApp) {
-  const h3App = nitroApp?.h3App;
-  if (typeof h3App?.handler === 'function') {
-    const handler = h3App.handler;
-    h3App.handler = Object.assign(function (event) {
-      const headers = event?.node?.req?.headers;
-      return withRequest(name => headers?.[name], name => delete headers[name], () => handler.call(this, event))
-    }, handler);
-    return
-  }
-
-  // Every nitro v3 entry, dev and deployed, serves through `nitroApp.fetch`.
-  if (typeof nitroApp?.fetch === 'function') {
-    const fetch = nitroApp.fetch.bind(nitroApp);
-    nitroApp.fetch = (req, ...args) => withRequest(name => req?.headers?.get?.(name), name => req.headers.delete(name), () => fetch(req, ...args));
-  }
-}
-
-/** `console` methods worth reporting, and the consola level each maps to. */
-const CONSOLE_LEVELS = { error: 0, warn: 1, log: 3, info: 3, debug: 4, trace: 5 };
-
-function reportLogs() {
-  const channel = new BroadcastChannel(CHANNEL);
-  channel.unref();
-
-  const post = (level, logType, tag, args) => {
-    try {
-      const request = storage$1.getStore();
-      channel.postMessage({
-        level,
-        logType,
-        tag: tag || undefined,
-        message: formatWithOptions({ colors: false }, ...args),
-        origin: request ? 'runtime' : 'build',
-        request: request?.label,
-        requestId: request?.id,
-      });
-    }
-    catch {}
-  };
-
-  consola$1.addReporter({
-    log(logObj) {
-      post(logObj.level, logObj.type, logObj.tag, logObj.args);
-    },
-  });
-
-  // `consola.wrapConsole()` replaces each console method with `raw` off the
-  // instance that wrapped it, so this says whether the app logs through the
-  // instance above. When it does not, the app's logs never reach the reporter
-  // and `console` is the only way to see them.
-  // eslint-disable-next-line no-console
-  if (console.log !== consola$1.log?.raw) {
-    wrapConsole(post);
-  }
-}
-
-/* eslint-disable no-console */
-function wrapConsole(post) {
-  for (const [type, level] of Object.entries(CONSOLE_LEVELS)) {
-    const original = console[type];
-    if (typeof original !== 'function') {
-      continue
-    }
-    console[type] = function (...args) {
-      post(level, type, undefined, args);
-      return original.apply(this, args)
-    };
-  }
-}
-
 const script = "\"use strict\";(()=>{const o=window,e=document.documentElement,c=[\"dark\",\"light\"],s=getStorageValue(\"localStorage\",\"nuxt-color-mode\")||\"system\";let r=s===\"system\"?f():s;const l=e.getAttribute(\"data-color-mode-forced\");l&&(r=l),i(r),o[\"__NUXT_COLOR_MODE__\"]={preference:s,value:r,getColorScheme:f,addColorScheme:i,removeColorScheme:d};function i(t){const a=\"\"+t+\"\",n=\"\";e.classList?e.classList.add(a):e.className+=\" \"+a,n&&e.setAttribute(\"data-\"+n,t)}function d(t){const a=\"\"+t+\"\",n=\"\";e.classList?e.classList.remove(a):e.className=e.className.replace(new RegExp(a,\"g\"),\"\"),n&&e.removeAttribute(\"data-\"+n)}function u(t){return o.matchMedia(\"(prefers-color-scheme\"+t+\")\")}function f(){if(o.matchMedia&&u(\"\").media!==\"not all\"){for(const t of c)if(u(\":\"+t).matches)return t}return\"light\"}})();function getStorageValue(o,e){switch(o){case\"localStorage\":try{return window.localStorage.getItem(e)}catch{return null}case\"sessionStorage\":try{return window.sessionStorage.getItem(e)}catch{return null}case\"cookie\":try{return getCookie(e)}catch{return null}default:return null}}function getCookie(o){const c=(\"; \"+window.document.cookie).split(\"; \"+o+\"=\");if(c.length===2){const s=c.pop();return s?s.split(\";\").shift():null}}";
 
 const _9AULvJaw85vUwQhXe4hyvmF1JhnEyBw53IAVpHwwKU = (function(nitro) {
@@ -2036,9 +1728,9 @@ async function getLocaleMessagesMerged(locale, loaders = []) {
   return merged;
 }
 
-const locale_en_46json_a1708954 = /* @__PURE__ */ JSON.parse("{\"brand\":{\"name\":\"Race for Parliament Toolkit\",\"tagline\":\"Learn. Participate. Lead.\"},\"navigation\":{\"home\":\"Home\",\"dashboard\":\"Dashboard\",\"course\":\"My Course\",\"progress\":\"Progress\",\"profile\":\"Profile\",\"participants\":\"Participants\",\"courses\":\"Courses\",\"modules\":\"Modules\",\"quizzes\":\"Quizzes\",\"results\":\"Results\",\"admin\":\"Administration\",\"language\":\"Language\",\"signOut\":\"Sign out\",\"openMenu\":\"Open navigation menu\",\"closeMenu\":\"Close navigation menu\"},\"common\":{\"english\":\"English\",\"sesotho\":\"Sesotho\",\"loading\":\"Loading...\",\"save\":\"Save changes\",\"cancel\":\"Cancel\",\"back\":\"Back\",\"previous\":\"Previous\",\"next\":\"Next\",\"continue\":\"Continue\",\"retry\":\"Try again\",\"notConfigured\":\"Firebase is not configured. Set the public Firebase environment variables to enable sign-in and saved progress.\",\"unexpectedError\":\"Something went wrong. Please try again.\"},\"home\":{\"eyebrow\":\"A civic learning programme\",\"title\":\"Build the knowledge to shape public life.\",\"description\":\"Explore parliament, democratic participation and advocacy through a practical bilingual learning experience.\",\"getStarted\":\"Get started\",\"signIn\":\"Sign in\",\"featuresTitle\":\"A clear path from learning to participation\",\"modules\":\"Guided course modules\",\"languages\":\"English and Sesotho\",\"progress\":\"Progress you can track\"},\"auth\":{\"welcome\":\"Welcome back\",\"createAccount\":\"Create your participant account\",\"email\":\"Email address\",\"password\":\"Password\",\"newPassword\":\"New password\",\"confirmPassword\":\"Confirm password\",\"passwordMismatch\":\"The passwords do not match.\",\"fullName\":\"Full name\",\"organisation\":\"Organisation\",\"preferredLanguage\":\"Preferred language\",\"signIn\":\"Sign in\",\"register\":\"Create account\",\"noAccount\":\"New to the programme?\",\"hasAccount\":\"Already have an account?\",\"forgotPassword\":\"Forgot password?\",\"resetPassword\":\"Send password reset email\",\"passwordResetSent\":\"If an account exists for that address, a password reset email has been sent.\",\"authError\":\"We couldn't complete that request. Check your details and try again.\"},\"dashboard\":{\"welcome\":\"Welcome back, {name}\",\"intro\":\"Continue your learning and keep track of your progress.\",\"overallProgress\":\"Course progress\",\"completedModules\":\"Modules completed\",\"currentModule\":\"Continue learning\",\"recentResult\":\"Latest quiz result\",\"noResult\":\"No quiz results yet. Complete a module quiz to see your result here.\",\"openCourse\":\"Open my course\"},\"course\":{\"title\":\"Race for Parliament Toolkit\",\"description\":\"Build practical knowledge about parliament, elections, policy and public leadership.\",\"modules\":\"Course modules\",\"completed\":\"Completed\",\"inProgress\":\"In progress\",\"available\":\"Available\",\"locked\":\"Locked\",\"courseMaterial\":\"Course Material\",\"startQuiz\":\"Start quiz\",\"submitQuiz\":\"Submit quiz\",\"question\":\"Question {current} of {total}\",\"questionCount\":\"{count} questions\",\"quizConfirm\":\"Submit your answers?\",\"result\":\"Quiz Result\",\"passed\":\"Passed\",\"notPassed\":\"Not passed\",\"passThreshold\":\"You need 70% to pass and unlock the next module.\",\"retryQuiz\":\"Retry quiz\",\"nextModule\":\"Continue to next module\",\"courseComplete\":\"You have completed the course.\",\"noModules\":\"No course modules are available yet.\"},\"progress\":{\"title\":\"Your progress\",\"overall\":\"Overall course progress\",\"moduleProgress\":\"Module completion\",\"quizPerformance\":\"Quiz performance\",\"empty\":\"Your learning progress will appear here when you begin the course.\"},\"profile\":{\"title\":\"Participant profile\",\"phone\":\"Phone number\",\"saved\":\"Your profile has been updated.\",\"saveError\":\"We couldn't save your profile. Please try again.\"},\"admin\":{\"title\":\"Administration\",\"participants\":\"Participants\",\"courses\":\"Courses\",\"results\":\"Quiz results\",\"totalParticipants\":\"Total participants\",\"completed\":\"Completed\",\"inProgress\":\"In progress\",\"notStarted\":\"Not started\",\"averageScore\":\"Average score (latest 500 attempts)\",\"participantStatus\":\"Status\",\"moduleLabel\":\"Module\",\"accessDenied\":\"You do not have administrator access.\",\"empty\":\"No records to display.\"}}");
+const locale_en_46json_a1708954 = /* @__PURE__ */ JSON.parse("{\"brand\":{\"name\":\"Race for Parliament Toolkit\",\"tagline\":\"Learn. Participate. Lead.\"},\"navigation\":{\"home\":\"Home\",\"dashboard\":\"Dashboard\",\"course\":\"My Course\",\"progress\":\"Progress\",\"profile\":\"Profile\",\"participants\":\"Participants\",\"courses\":\"Courses\",\"modules\":\"Modules\",\"quizzes\":\"Quizzes\",\"results\":\"Results\",\"marking\":\"Marking queue\",\"admin\":\"Administration\",\"language\":\"Language\",\"signOut\":\"Sign out\",\"openMenu\":\"Open navigation menu\",\"closeMenu\":\"Close navigation menu\"},\"common\":{\"english\":\"English\",\"sesotho\":\"Sesotho\",\"loading\":\"Loading...\",\"save\":\"Save changes\",\"cancel\":\"Cancel\",\"back\":\"Back\",\"previous\":\"Previous\",\"next\":\"Next\",\"continue\":\"Continue\",\"retry\":\"Try again\",\"remove\":\"Remove\",\"notConfigured\":\"Firebase is not configured. Set the public Firebase environment variables to enable sign-in and saved progress.\",\"unexpectedError\":\"Something went wrong. Please try again.\"},\"home\":{\"eyebrow\":\"A civic learning programme\",\"title\":\"Build the knowledge to shape public life.\",\"description\":\"Explore parliament, democratic participation and advocacy through a practical bilingual learning experience.\",\"getStarted\":\"Get started\",\"signIn\":\"Sign in\",\"featuresTitle\":\"A clear path from learning to participation\",\"modules\":\"Guided course modules\",\"languages\":\"English and Sesotho\",\"progress\":\"Progress you can track\"},\"auth\":{\"welcome\":\"Welcome back\",\"createAccount\":\"Create your participant account\",\"email\":\"Email address\",\"password\":\"Password\",\"newPassword\":\"New password\",\"confirmPassword\":\"Confirm password\",\"passwordMismatch\":\"The passwords do not match.\",\"fullName\":\"Full name\",\"organisation\":\"Organisation\",\"preferredLanguage\":\"Preferred language\",\"signIn\":\"Sign in\",\"register\":\"Create account\",\"noAccount\":\"New to the programme?\",\"hasAccount\":\"Already have an account?\",\"forgotPassword\":\"Forgot password?\",\"resetPassword\":\"Send password reset email\",\"passwordResetSent\":\"If an account exists for that address, a password reset email has been sent.\",\"authError\":\"We couldn't complete that request. Check your details and try again.\"},\"dashboard\":{\"welcome\":\"Welcome back, {name}\",\"intro\":\"Continue your learning and keep track of your progress.\",\"overallProgress\":\"Course progress\",\"completedModules\":\"Modules completed\",\"currentModule\":\"Continue learning\",\"recentResult\":\"Latest quiz result\",\"noResult\":\"No quiz results yet. Complete a module quiz to see your result here.\",\"openCourse\":\"Open my course\"},\"course\":{\"title\":\"Race for Parliament Toolkit\",\"description\":\"Build practical knowledge about parliament, elections, policy and public leadership.\",\"modules\":\"Course modules\",\"completed\":\"Completed\",\"inProgress\":\"In progress\",\"available\":\"Available\",\"locked\":\"Locked\",\"courseMaterial\":\"Course Material\",\"startQuiz\":\"Start quiz\",\"submitQuiz\":\"Submit quiz\",\"question\":\"Question {current} of {total}\",\"questionCount\":\"{count} questions\",\"quizConfirm\":\"Submit your answers?\",\"result\":\"Quiz Result\",\"passed\":\"Passed\",\"notPassed\":\"Not passed\",\"passThreshold\":\"You need 70% to pass and unlock the next module.\",\"awaitingReview\":\"Your score is automatic and is waiting for a Marker to review it. Your progress is saved.\",\"markerFeedback\":\"Marker feedback\",\"retryQuiz\":\"Retry quiz\",\"nextModule\":\"Continue to next module\",\"courseComplete\":\"You have completed the course.\",\"noModules\":\"No course modules are available yet.\"},\"progress\":{\"title\":\"Your progress\",\"overall\":\"Overall course progress\",\"moduleProgress\":\"Module completion\",\"quizPerformance\":\"Quiz performance\",\"empty\":\"Your learning progress will appear here when you begin the course.\"},\"profile\":{\"title\":\"Participant profile\",\"phone\":\"Phone number\",\"saved\":\"Your profile has been updated.\",\"saveError\":\"We couldn't save your profile. Please try again.\"},\"admin\":{\"title\":\"Administration\",\"participants\":\"Participants\",\"courses\":\"Courses\",\"results\":\"Quiz results\",\"totalParticipants\":\"Total participants\",\"completed\":\"Completed\",\"inProgress\":\"In progress\",\"notStarted\":\"Not started\",\"averageScore\":\"Average score (latest 500 attempts)\",\"participantStatus\":\"Status\",\"moduleLabel\":\"Module\",\"questionEditorIntro\":\"Add bilingual multiple-choice questions to a course module.\",\"addQuestion\":\"Add question\",\"questionType\":\"Question type\",\"singleChoice\":\"Single choice\",\"multipleChoice\":\"Multiple choice\",\"trueFalse\":\"True or false\",\"promptEnglish\":\"Question in English\",\"promptSesotho\":\"Question in Sesotho\",\"answerOptions\":\"Answer options\",\"optionValue\":\"Answer value\",\"optionEnglish\":\"Option in English\",\"optionSesotho\":\"Option in Sesotho\",\"correctAnswer\":\"Correct\",\"addOption\":\"Add an option\",\"addedQuestions\":\"Added questions\",\"noAddedQuestions\":\"No added questions yet.\",\"questionAdded\":\"The question was added.\",\"addLessonMaterial\":\"Add lesson material\",\"materialTitleEnglish\":\"Lesson title in English\",\"materialTitleSesotho\":\"Lesson title in Sesotho\",\"materialBodyEnglish\":\"Lesson material in English\",\"materialBodySesotho\":\"Lesson material in Sesotho\",\"addedMaterials\":\"Added lesson material\",\"noAddedMaterials\":\"No additional lesson material has been added.\",\"materialAdded\":\"The lesson material was added.\",\"markingTitle\":\"Quiz marking\",\"markingIntro\":\"Review submitted answers and confirm or adjust the automatically calculated score.\",\"noPendingMarking\":\"There are no quiz submissions waiting to be marked.\",\"pendingReview\":\"Awaiting review\",\"automaticScore\":\"Automatic score\",\"participantAnswer\":\"Participant answer\",\"noAnswer\":\"No answer\",\"finalScore\":\"Final score\",\"markerFeedback\":\"Feedback (optional)\",\"saveMark\":\"Save mark\",\"reviewStatus\":\"Review status\",\"reviewed\":\"Marked\",\"pending\":\"Pending\",\"notAvailable\":\"Not reviewable\",\"accessDenied\":\"You do not have administrator access.\",\"empty\":\"No records to display.\"}}");
 
-const locale_st_46json_44bb2859 = /* @__PURE__ */ JSON.parse("{\"brand\":{\"name\":\"Race for Parliament Toolkit\",\"tagline\":\"Ithute. Nka karolo. Etella pele.\"},\"navigation\":{\"home\":\"Lehae\",\"dashboard\":\"Kakaretso\",\"course\":\"Thuto ea ka\",\"progress\":\"Tsoelo-pele\",\"profile\":\"Boemo ba ka\",\"participants\":\"Barupeluoa\",\"courses\":\"Lithuto\",\"modules\":\"Likarolo\",\"quizzes\":\"Lipotso\",\"results\":\"Liphetho\",\"admin\":\"Tsamaiso\",\"language\":\"Puo\",\"signOut\":\"Tsoa\",\"openMenu\":\"Bula lenane la ho tsamaea\",\"closeMenu\":\"Koala lenane la ho tsamaea\"},\"common\":{\"english\":\"Senyesemane\",\"sesotho\":\"Sesotho\",\"loading\":\"E a bula...\",\"save\":\"Boloka liphetoho\",\"cancel\":\"Hlakola\",\"back\":\"Morao\",\"previous\":\"E fetileng\",\"next\":\"E latelang\",\"continue\":\"Tsoela pele\",\"retry\":\"Leka hape\",\"notConfigured\":\"Firebase ha e so lokisoe. Kenya litlhophiso tsa Firebase hore ho khonehe ho kena le ho boloka tsoelo-pele.\",\"unexpectedError\":\"Ho bile le bothata. Ka kopo leka hape.\"},\"home\":{\"eyebrow\":\"Lenaneo la thuto ea sechaba\",\"title\":\"Fumana tsebo ea ho bopa bophelo ba sechaba.\",\"description\":\"Ithute ka paramente, demokrasi le boipiletso ka tsela e sebetsang ea lipuo tse peli.\",\"getStarted\":\"Qala\",\"signIn\":\"Kena\",\"featuresTitle\":\"Tsela e hlakileng ea ho ithuta le ho nka karolo\",\"modules\":\"Likarolo tsa thuto\",\"languages\":\"Senyesemane le Sesotho\",\"progress\":\"Tsoelo-pele e bonahalang\"},\"auth\":{\"welcome\":\"Rea u amohela hape\",\"createAccount\":\"Theha ak'haonte ea hau\",\"email\":\"Aterese ea imeile\",\"password\":\"Lekunutu\",\"newPassword\":\"Lekunutu le lecha\",\"confirmPassword\":\"Netefatsa lekunutu\",\"passwordMismatch\":\"Liphasewete ha li tšoane.\",\"fullName\":\"Lebitso ka botlalo\",\"organisation\":\"Mokhatlo\",\"preferredLanguage\":\"Puo eo u e ratang\",\"signIn\":\"Kena\",\"register\":\"Theha ak'haonte\",\"noAccount\":\"Ha u e-so kene lenaneong?\",\"hasAccount\":\"U se u ntse u na le ak'haonte?\",\"forgotPassword\":\"U lebetse lekunutu?\",\"resetPassword\":\"Romela imeile ea ho fetola lekunutu\",\"passwordResetSent\":\"Haeba ak'haonte e le teng atereseng eo, imeile ea ho fetola lekunutu e rometsoe.\",\"authError\":\"Ha rea khona ho phetha kopo eo. Hlahloba lintlha tsa hau ebe u leka hape.\"},\"dashboard\":{\"welcome\":\"Rea u amohela hape, {name}\",\"intro\":\"Tsoela pele ka thuto ea hau 'me u shebe tsoelo-pele.\",\"overallProgress\":\"Tsoelo-pele ea thuto\",\"completedModules\":\"Likarolo tse phethiloeng\",\"currentModule\":\"Tsoela pele ho ithuta\",\"recentResult\":\"Sephetho sa morao-rao\",\"noResult\":\"Ha ho liphetho tsa lipotso. Qeta lipotso tsa karolo ho bona sephetho.\",\"openCourse\":\"Bula thuto ea ka\"},\"course\":{\"title\":\"Race for Parliament Toolkit\",\"description\":\"Ithute ka paramente, likhetho, maano le boetapele ba sechaba.\",\"modules\":\"Likarolo tsa thuto\",\"completed\":\"E phethiloe\",\"inProgress\":\"E ntse e tsoela pele\",\"available\":\"E fumaneha\",\"locked\":\"E notletsoe\",\"courseMaterial\":\"Litaba tsa thuto\",\"startQuiz\":\"Qala lipotso\",\"submitQuiz\":\"Romela likarabo\",\"question\":\"Potso {current} ho tse {total}\",\"questionCount\":\"Lipotso: {count}\",\"quizConfirm\":\"Romela likarabo tsa hau?\",\"result\":\"Sephetho sa lipotso\",\"passed\":\"U atlehile\",\"notPassed\":\"Ha ua atleha\",\"passThreshold\":\"U hloka 70% ho atleha le ho bula karolo e latelang.\",\"retryQuiz\":\"Leka lipotso hape\",\"nextModule\":\"Tsoela pele karolong e latelang\",\"courseComplete\":\"U qetile thuto.\",\"noModules\":\"Ha ho likarolo tsa thuto tse fumanehang.\"},\"progress\":{\"title\":\"Tsoelo-pele ea hau\",\"overall\":\"Tsoelo-pele ea thuto ka kakaretso\",\"moduleProgress\":\"Ho phethoa ha likarolo\",\"quizPerformance\":\"Liphetho tsa lipotso\",\"empty\":\"Tsoelo-pele ea hau e tla hlaha mona ha u qala thuto.\"},\"profile\":{\"title\":\"Boemo ba morupeluoa\",\"phone\":\"Nomoro ea mohala\",\"saved\":\"Boemo ba hau bo ntlafalitsoe.\",\"saveError\":\"Ha rea khona ho boloka boemo ba hau. Ka kopo leka hape.\"},\"admin\":{\"title\":\"Tsamaiso\",\"participants\":\"Barupeluoa\",\"courses\":\"Lithuto\",\"results\":\"Liphetho tsa lipotso\",\"totalParticipants\":\"Barupeluoa bohle\",\"completed\":\"Ba phethileng\",\"inProgress\":\"Ba ntseng ba tsoela pele\",\"notStarted\":\"Ba e-so qale\",\"averageScore\":\"Karolelano ea lintlha (liteko tsa morao-rao tse 500)\",\"participantStatus\":\"Boemo\",\"moduleLabel\":\"Karolo\",\"accessDenied\":\"Ha u na tumello ea tsamaiso.\",\"empty\":\"Ha ho lintlha tse teng.\"}}");
+const locale_st_46json_44bb2859 = /* @__PURE__ */ JSON.parse("{\"brand\":{\"name\":\"Race for Parliament Toolkit\",\"tagline\":\"Ithute. Nka karolo. Etella pele.\"},\"navigation\":{\"home\":\"Lehae\",\"dashboard\":\"Kakaretso\",\"course\":\"Thuto ea ka\",\"progress\":\"Tsoelo-pele\",\"profile\":\"Boemo ba ka\",\"participants\":\"Barupeluoa\",\"courses\":\"Lithuto\",\"modules\":\"Likarolo\",\"quizzes\":\"Lipotso\",\"results\":\"Liphetho\",\"marking\":\"Ho tšoaea\",\"admin\":\"Tsamaiso\",\"language\":\"Puo\",\"signOut\":\"Tsoa\",\"openMenu\":\"Bula lenane la ho tsamaea\",\"closeMenu\":\"Koala lenane la ho tsamaea\"},\"common\":{\"english\":\"Senyesemane\",\"sesotho\":\"Sesotho\",\"loading\":\"E a bula...\",\"save\":\"Boloka liphetoho\",\"cancel\":\"Hlakola\",\"back\":\"Morao\",\"previous\":\"E fetileng\",\"next\":\"E latelang\",\"continue\":\"Tsoela pele\",\"retry\":\"Leka hape\",\"notConfigured\":\"Firebase ha e so lokisoe. Kenya litlhophiso tsa Firebase hore ho khonehe ho kena le ho boloka tsoelo-pele.\",\"unexpectedError\":\"Ho bile le bothata. Ka kopo leka hape.\"},\"home\":{\"eyebrow\":\"Lenaneo la thuto ea sechaba\",\"title\":\"Fumana tsebo ea ho bopa bophelo ba sechaba.\",\"description\":\"Ithute ka paramente, demokrasi le boipiletso ka tsela e sebetsang ea lipuo tse peli.\",\"getStarted\":\"Qala\",\"signIn\":\"Kena\",\"featuresTitle\":\"Tsela e hlakileng ea ho ithuta le ho nka karolo\",\"modules\":\"Likarolo tsa thuto\",\"languages\":\"Senyesemane le Sesotho\",\"progress\":\"Tsoelo-pele e bonahalang\"},\"auth\":{\"welcome\":\"Rea u amohela hape\",\"createAccount\":\"Theha ak'haonte ea hau\",\"email\":\"Aterese ea imeile\",\"password\":\"Lekunutu\",\"newPassword\":\"Lekunutu le lecha\",\"confirmPassword\":\"Netefatsa lekunutu\",\"passwordMismatch\":\"Liphasewete ha li tšoane.\",\"fullName\":\"Lebitso ka botlalo\",\"organisation\":\"Mokhatlo\",\"preferredLanguage\":\"Puo eo u e ratang\",\"signIn\":\"Kena\",\"register\":\"Theha ak'haonte\",\"noAccount\":\"Ha u e-so kene lenaneong?\",\"hasAccount\":\"U se u ntse u na le ak'haonte?\",\"forgotPassword\":\"U lebetse lekunutu?\",\"resetPassword\":\"Romela imeile ea ho fetola lekunutu\",\"passwordResetSent\":\"Haeba ak'haonte e le teng atereseng eo, imeile ea ho fetola lekunutu e rometsoe.\",\"authError\":\"Ha rea khona ho phetha kopo eo. Hlahloba lintlha tsa hau ebe u leka hape.\"},\"dashboard\":{\"welcome\":\"Rea u amohela hape, {name}\",\"intro\":\"Tsoela pele ka thuto ea hau 'me u shebe tsoelo-pele.\",\"overallProgress\":\"Tsoelo-pele ea thuto\",\"completedModules\":\"Likarolo tse phethiloeng\",\"currentModule\":\"Tsoela pele ho ithuta\",\"recentResult\":\"Sephetho sa morao-rao\",\"noResult\":\"Ha ho liphetho tsa lipotso. Qeta lipotso tsa karolo ho bona sephetho.\",\"openCourse\":\"Bula thuto ea ka\"},\"course\":{\"title\":\"Race for Parliament Toolkit\",\"description\":\"Ithute ka paramente, likhetho, maano le boetapele ba sechaba.\",\"modules\":\"Likarolo tsa thuto\",\"completed\":\"E phethiloe\",\"inProgress\":\"E ntse e tsoela pele\",\"available\":\"E fumaneha\",\"locked\":\"E notletsoe\",\"courseMaterial\":\"Litaba tsa thuto\",\"startQuiz\":\"Qala lipotso\",\"submitQuiz\":\"Romela likarabo\",\"question\":\"Potso {current} ho tse {total}\",\"questionCount\":\"Lipotso: {count}\",\"quizConfirm\":\"Romela likarabo tsa hau?\",\"result\":\"Sephetho sa lipotso\",\"passed\":\"U atlehile\",\"notPassed\":\"Ha ua atleha\",\"passThreshold\":\"U hloka 70% ho atleha le ho bula karolo e latelang.\",\"awaitingReview\":\"Lintlha tsa hau li baliloe ka boiketsetso 'me li emetse hore Motšoaisi a li hlahlobe. Tsoelo-pele ea hau e bolokiloe.\",\"markerFeedback\":\"Maikutlo a motšoaisi\",\"retryQuiz\":\"Leka lipotso hape\",\"nextModule\":\"Tsoela pele karolong e latelang\",\"courseComplete\":\"U qetile thuto.\",\"noModules\":\"Ha ho likarolo tsa thuto tse fumanehang.\"},\"progress\":{\"title\":\"Tsoelo-pele ea hau\",\"overall\":\"Tsoelo-pele ea thuto ka kakaretso\",\"moduleProgress\":\"Ho phethoa ha likarolo\",\"quizPerformance\":\"Liphetho tsa lipotso\",\"empty\":\"Tsoelo-pele ea hau e tla hlaha mona ha u qala thuto.\"},\"profile\":{\"title\":\"Boemo ba morupeluoa\",\"phone\":\"Nomoro ea mohala\",\"saved\":\"Boemo ba hau bo ntlafalitsoe.\",\"saveError\":\"Ha rea khona ho boloka boemo ba hau. Ka kopo leka hape.\"},\"admin\":{\"title\":\"Tsamaiso\",\"participants\":\"Barupeluoa\",\"courses\":\"Lithuto\",\"results\":\"Liphetho tsa lipotso\",\"totalParticipants\":\"Barupeluoa bohle\",\"completed\":\"Ba phethileng\",\"inProgress\":\"Ba ntseng ba tsoela pele\",\"notStarted\":\"Ba e-so qale\",\"averageScore\":\"Karolelano ea lintlha (liteko tsa morao-rao tse 500)\",\"participantStatus\":\"Boemo\",\"moduleLabel\":\"Karolo\",\"questionEditorIntro\":\"Kenya lipotso tsa boikhethelo ka lipuo tse peli karolong ea thuto.\",\"addQuestion\":\"Kenya potso\",\"questionType\":\"Mofuta oa potso\",\"singleChoice\":\"Karabo e le 'ngoe\",\"multipleChoice\":\"Likarabo tse ngata\",\"trueFalse\":\"Nnete kapa leshano\",\"promptEnglish\":\"Potso ka Senyesemane\",\"promptSesotho\":\"Potso ka Sesotho\",\"answerOptions\":\"Likhetho tsa likarabo\",\"optionValue\":\"Boleng ba karabo\",\"optionEnglish\":\"Khetho ka Senyesemane\",\"optionSesotho\":\"Khetho ka Sesotho\",\"correctAnswer\":\"Karabo e nepahetseng\",\"addOption\":\"Kenya khetho\",\"addedQuestions\":\"Lipotso tse kentsoeng\",\"noAddedQuestions\":\"Ha ho lipotso tse kentsoeng.\",\"questionAdded\":\"Potso e kentsoe.\",\"addLessonMaterial\":\"Kenya litaba tsa thuto\",\"materialTitleEnglish\":\"Sehlooho sa thuto ka Senyesemane\",\"materialTitleSesotho\":\"Sehlooho sa thuto ka Sesotho\",\"materialBodyEnglish\":\"Litaba tsa thuto ka Senyesemane\",\"materialBodySesotho\":\"Litaba tsa thuto ka Sesotho\",\"addedMaterials\":\"Litaba tsa thuto tse kentsoeng\",\"noAddedMaterials\":\"Ha ho litaba tse ling tsa thuto tse kentsoeng.\",\"materialAdded\":\"Litaba tsa thuto li kentsoe.\",\"markingTitle\":\"Ho tšoaea lipotso\",\"markingIntro\":\"Hlahloba likarabo tse rometsoeng 'me u netefatse kapa u fetole lintlha tse baliloeng.\",\"noPendingMarking\":\"Ha ho lipotso tse rometsoeng tse emetseng ho tšoauoa.\",\"pendingReview\":\"E emetse tlhahlobo\",\"automaticScore\":\"Lintlha tse baliloeng\",\"participantAnswer\":\"Karabo ea morupeluoa\",\"noAnswer\":\"Ha ho karabo\",\"finalScore\":\"Lintlha tsa ho qetela\",\"markerFeedback\":\"Maikutlo (ha ho hlokahale)\",\"saveMark\":\"Boloka lintlha\",\"reviewStatus\":\"Boemo ba tlhahlobo\",\"reviewed\":\"E tšoailoe\",\"pending\":\"E emetse\",\"notAvailable\":\"Ha e hlahlojoe\",\"accessDenied\":\"Ha u na tumello ea tsamaiso.\",\"empty\":\"Ha ho lintlha tse teng.\"}}");
 
 // @ts-nocheck
 const localeCodes =  [
@@ -2202,6 +1894,17 @@ function createPathIndexLanguageParser(index = 0) {
   };
 }
 
+const staticAnswerKeys = {
+  1: { m1q1: ["a"], m1q2: ["true"], m1q3: ["respect-law", "vote"] },
+  2: { m2q1: ["be-registered"], m2q2: ["true"] },
+  3: { m3q1: ["evidence"], m3q2: ["consultation", "petition"] },
+  4: { m4q1: ["transparency"], m4q2: ["true"] }
+};
+function getStaticAnswers(moduleId) {
+  var _a;
+  return (_a = staticAnswerKeys[moduleId]) != null ? _a : {};
+}
+
 const isDevelopment = true;
 const environment = "development" ;
 const logger$1 = pino({
@@ -2308,12 +2011,16 @@ async function requireFirebaseUser(event) {
     throw createError({ statusCode: 401, statusMessage: "The authentication token is invalid or expired." });
   }
 }
-async function requireAdminUser(event) {
+async function requireRole(event, allowedRoles) {
   const user = await requireFirebaseUser(event);
-  if (user.admin !== true) {
-    throw createError({ statusCode: 403, statusMessage: "Administrator access is required." });
+  const role = user.admin === true ? "admin" : user.role === "contentEditor" || user.role === "marker" || user.role === "admin" ? user.role : "participant";
+  if (!allowedRoles.includes(role)) {
+    throw createError({ statusCode: 403, statusMessage: "You do not have permission to perform this action." });
   }
-  return user;
+  return { ...user, role };
+}
+function requireAdminUser(event) {
+  return requireRole(event, ["admin"]);
 }
 
 function useRuntimeI18n(nuxtApp, event) {
@@ -2717,6 +2424,7 @@ const localizedPaths = [
   "/admin",
   "/course",
   "/dashboard",
+  "/marking",
   "/profile",
   "/progress",
   "/"
@@ -3346,14 +3054,28 @@ const plugins = [
   _wjGcSR4VD_S6fdgksyiYvbeA9B2aTV09duvc49V9K0,
 dev_server_logs_default,
 _UgJGBQudbbQ8iJzVSV3CKgA1siSZ88YGJS8KylWo4,
-_fehKHjADywh4a0kZeibhFh7U1fg6T6YAqcJqIEivPg,
 _9AULvJaw85vUwQhXe4hyvmF1JhnEyBw53IAVpHwwKU,
 _gtDdjcQqFSva_K_6weR35jIUvFlb6q7chRmKX04KY,
 dev_errors_default,
 _Z4Vm0BJMJeyU_KFYzGBgSOBoZ4JOQn4jYmko_KtDwU
 ];
 
-const assets = {};
+const assets = {
+  "/index.mjs": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"3751d-upK8WLQEbMxJP5/wLT/hxBtYh88\"",
+    "mtime": "2026-10-13T10:56:08.069Z",
+    "size": 226589,
+    "path": "index.mjs"
+  },
+  "/index.mjs.map": {
+    "type": "application/json",
+    "etag": "\"c5820-RSAcVCdYgenvRle8qhNmb6XfLLY\"",
+    "mtime": "2026-10-13T10:56:08.069Z",
+    "size": 808992,
+    "path": "index.mjs.map"
+  }
+};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
@@ -3655,22 +3377,6 @@ function exceedsMaxDepth(raw, maxDepth = 64) {
 /** @internal */
 function exceedsMaxBytes(raw, maxBytes = MAX_ISLAND_BODY_BYTES) {
 	return Buffer.byteLength(raw, "utf8") > maxBytes;
-}
-
-//#region ../nuxt/src/app/internal/tracing.ts
-let _channels$1;
-function getChannel$1(name) {
-	_channels$1 ??= {};
-	if (name in _channels$1) return _channels$1[name];
-	const dc = globalThis.process?.getBuiltinModule?.("node:diagnostics_channel");
-	const channel = dc?.tracingChannel ? dc.tracingChannel(name) : null;
-	_channels$1[name] = channel;
-	return channel;
-}
-function traceAsync$1(name, context, fn) {
-	const channel = getChannel$1(name);
-	if (!channel || channel.hasSubscribers === false) return fn();
-	return channel.tracePromise(() => Promise.resolve(fn()), context);
 }
 
 //#region src/runtime/utils/response.ts
@@ -4105,11 +3811,7 @@ async function renderIsland(event) {
 		url: islandContext.url
 	};
 	const renderer = await rendererInstance.getSSRRenderer();
-	const renderResult = await (traceAsync$1("nuxt.island", {
-		event,
-		ssrContext,
-		islandContext
-	}, () => renderer.renderToString(ssrContext)) ).catch(async (err) => {
+	const renderResult = await (renderer.renderToString(ssrContext)).catch(async (err) => {
 		if (ssrContext["~renderResponse"] && err?.message === "skipping render") return {};
 		await ssrContext.nuxt?.hooks.callHook("app:error", err);
 		throw err;
@@ -4278,10 +3980,18 @@ async function getIslandContext(event) {
 	};
 }
 
+const _lazy_nA47Dh = () => Promise.resolve().then(function () { return materials_get$3; });
+const _lazy_SG5KxB = () => Promise.resolve().then(function () { return materials_post$1; });
 const _lazy_bL9hl5 = () => Promise.resolve().then(function () { return overview_get$1; });
 const _lazy_ghsDwI = () => Promise.resolve().then(function () { return participants_get$1; });
 const _lazy_xHwAFH = () => Promise.resolve().then(function () { return _id__get$3; });
+const _lazy_QVbl8L = () => Promise.resolve().then(function () { return questions_get$3; });
+const _lazy_w3ojYi = () => Promise.resolve().then(function () { return questions_post$1; });
 const _lazy_H2QSv0 = () => Promise.resolve().then(function () { return results_get$1; });
+const _lazy_qyQVbN = () => Promise.resolve().then(function () { return materials_get$1; });
+const _lazy_CMRrLQ = () => Promise.resolve().then(function () { return questions_get$1; });
+const _lazy_IishyB = () => Promise.resolve().then(function () { return attempts_get$1; });
+const _lazy_teP23v = () => Promise.resolve().then(function () { return _id__post$1; });
 const _lazy_w_0_Fm = () => Promise.resolve().then(function () { return progress_get$1; });
 const _lazy_oMmV2o = () => Promise.resolve().then(function () { return _id__get$1; });
 const _lazy_EF2XGJ = () => Promise.resolve().then(function () { return submit_post$1; });
@@ -4291,10 +4001,18 @@ const _lazy_iXQ1WW = () => Promise.resolve().then(function () { return errorChan
 const handlers = [
   { route: '', handler: _sdI24c, lazy: false, middleware: true, method: undefined },
   { route: '', handler: _CjyNY4, lazy: false, middleware: true, method: undefined },
+  { route: '/api/admin/materials', handler: _lazy_nA47Dh, lazy: true, middleware: false, method: "get" },
+  { route: '/api/admin/materials', handler: _lazy_SG5KxB, lazy: true, middleware: false, method: "post" },
   { route: '/api/admin/overview', handler: _lazy_bL9hl5, lazy: true, middleware: false, method: "get" },
   { route: '/api/admin/participants', handler: _lazy_ghsDwI, lazy: true, middleware: false, method: "get" },
   { route: '/api/admin/participants/:id', handler: _lazy_xHwAFH, lazy: true, middleware: false, method: "get" },
+  { route: '/api/admin/questions', handler: _lazy_QVbl8L, lazy: true, middleware: false, method: "get" },
+  { route: '/api/admin/questions', handler: _lazy_w3ojYi, lazy: true, middleware: false, method: "post" },
   { route: '/api/admin/results', handler: _lazy_H2QSv0, lazy: true, middleware: false, method: "get" },
+  { route: '/api/course/:courseId/module/:moduleId/materials', handler: _lazy_qyQVbN, lazy: true, middleware: false, method: "get" },
+  { route: '/api/course/:courseId/module/:moduleId/questions', handler: _lazy_CMRrLQ, lazy: true, middleware: false, method: "get" },
+  { route: '/api/marker/attempts', handler: _lazy_IishyB, lazy: true, middleware: false, method: "get" },
+  { route: '/api/marker/attempts/:id', handler: _lazy_teP23v, lazy: true, middleware: false, method: "post" },
   { route: '/api/progress', handler: _lazy_w_0_Fm, lazy: true, middleware: false, method: "get" },
   { route: '/api/quiz/attempt/:id', handler: _lazy_oMmV2o, lazy: true, middleware: false, method: "get" },
   { route: '/api/quiz/submit', handler: _lazy_EF2XGJ, lazy: true, middleware: false, method: "post" },
@@ -4592,11 +4310,131 @@ const styles$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   inlinedCSS: inlinedCSS
 }, Symbol.toStringTag, { value: 'Module' }));
 
+const courseId = "race-for-parliament";
+const courseModules = [
+  {
+    id: 1,
+    titleEn: "Civic Participation",
+    titleSt: "Ho kenya letsoho seterekeng",
+    descriptionEn: "Understand the democratic process, rights and responsibilities of citizens.",
+    descriptionSt: "Utloisisa tshebetso ya demokrasi, ditokelo le maikarabelo a baahi.",
+    material: [
+      { titleEn: "What is democratic participation?", titleSt: "Ho kenya letsoho demokrasi ke eng?", bodyEn: "Civic participation is the active involvement of citizens in decisions, elections, policy processes and community development.", bodySt: "Ho kenya letsoho seterekeng ke ho nka karolo ka mafolofolo ho dipuisano, dikgethong, dipolotiking le ntshetsopele ya setjhaba." },
+      { titleEn: "Rights and responsibilities", titleSt: "Ditokelo le maikarabelo", bodyEn: "Citizens have the right to vote, speak, organise and access information, while also carrying responsibilities to respect the law and participate responsibly.", bodySt: "Baahi ba na le tokelo ya ho khetha, ho bua, ho hlophisa le ho fumana tlhahisoleseding, mme hape ba na le maikarabelo a ho hlompha molao le ho nka karolo ka boikarabelo." }
+    ],
+    quiz: [
+      { id: "m1q1", type: "single", promptEn: "Which basic action shows active citizenship?", promptSt: "Ke ketso efe ya motheo e bontshang botho ba setjhaba?", options: [{ value: "a", labelEn: "Voting in elections", labelSt: "Ho vouta dikgethong" }, { value: "b", labelEn: "Ignoring community issues", labelSt: "Ho hlokomoloha mathata a setjhaba" }, { value: "c", labelEn: "Avoiding public discussion", labelSt: "Ho qoba dipuisano tsa setjhaba" }] },
+      { id: "m1q2", type: "truefalse", promptEn: "Citizens can participate by attending public consultations.", promptSt: "Baahi ba ka nka karolo ka ho ea lipuisanong tsa setjhaba.", options: [{ value: "true", labelEn: "True", labelSt: "Nnete" }, { value: "false", labelEn: "False", labelSt: "Nnete ha e joalo" }] },
+      { id: "m1q3", type: "multiple", promptEn: "Choose the responsibilities of a citizen.", promptSt: "Kgetha maikarabelo a moahi.", options: [{ value: "respect-law", labelEn: "Respect the law", labelSt: "Ho hlompha molao" }, { value: "spread-hate", labelEn: "Spread hate speech", labelSt: "Ho jala puo ya lehloeo" }, { value: "vote", labelEn: "Vote when eligible", labelSt: "Ho vouta ha a loketse" }] }
+    ]
+  },
+  {
+    id: 2,
+    titleEn: "Election Awareness",
+    titleSt: "Tsebo ka dikgetho",
+    descriptionEn: "Learn how elections work, voter rights, and accountability in local democracy.",
+    descriptionSt: "Ithute hore dikgetho di sebetsa joang, ditokelo tsa bakhethi le boikarabelo demokrasi ya lehae.",
+    material: [
+      { titleEn: "Voter registration", titleSt: "Ho ingodisa ho khetha", bodyEn: "Voters must be registered and remain informed about election procedures and deadlines.", bodySt: "Bakhethi ba tlameha ho ingodisa mme ba be ba tsebe mekhoa le linako tsa dikgetho." },
+      { titleEn: "Why accountability matters", titleSt: "Hobaneng boikarabelo bo le bohlokoa", bodyEn: "Elected leaders are accountable to citizens through regular reporting, public oversight and elections.", bodySt: "Baetapele ba khethiloeng ba ikarabella ho baahi ka tlaleho, tekolo ya setjhaba le dikgetho." }
+    ],
+    quiz: [
+      { id: "m2q1", type: "single", promptEn: "What is one key requirement for voting?", promptSt: "Ke eng e leng tlhokahalo e le nngwe bakeng sa ho vouta?", options: [{ value: "be-registered", labelEn: "Be registered", labelSt: "Ho ingodisa" }, { value: "skip-education", labelEn: "Skip civic education", labelSt: "Ho tlolela thuto ya setjhaba" }, { value: "ignore-law", labelEn: "Ignore the law", labelSt: "Ho hlokomoloha molao" }] },
+      { id: "m2q2", type: "truefalse", promptEn: "Elected officials are expected to be accountable to the public.", promptSt: "Baetapele ba khethiloeng ba lebelletsoe ho ikarabella ho setjhaba.", options: [{ value: "true", labelEn: "True", labelSt: "Nnete" }, { value: "false", labelEn: "False", labelSt: "Nnete ha e joal" }] }
+    ]
+  },
+  {
+    id: 3,
+    titleEn: "Policy and Advocacy",
+    titleSt: "Leano le boipiletso",
+    descriptionEn: "Explore policy issues, advocacy tools and how citizens can influence decision making.",
+    descriptionSt: "Hlahloba mathata a maano, disebediswa tsa boipiletso le kamoo baahi ba ka susumetsang ho etswa diqeto.",
+    material: [
+      { titleEn: "Forming a policy view", titleSt: "Ho theha pono ya leano", bodyEn: "Strong policy advocacy relies on evidence, data, lived experience and respectful communication.", bodySt: "Boipiletso ba maano bo it\u0161etlehile ka bopaki, datha, boiphihlelo le puisano e hlomphehang." },
+      { titleEn: "Engaging stakeholders", titleSt: "Ho kenya letsoho ho ba amehang", bodyEn: "Citizens can build coalitions, participate in consultations, and present recommendations to leaders.", bodySt: "Baahi ba ka theha linthano, ba nka karolo dipuisanong le ho nehelana ka dikgololo ho baetapele." }
+    ],
+    quiz: [
+      { id: "m3q1", type: "single", promptEn: "Which item strengthens advocacy?", promptSt: "Ke eng e matlafatsang boipiletso?", options: [{ value: "evidence", labelEn: "Evidence and facts", labelSt: "Bopaki le dintlha" }, { value: "silence", labelEn: "Silence", labelSt: "Khutsitseng" }, { value: "rumour", labelEn: "Rumours and fear", labelSt: "Metswalle e t\u0161osang" }] },
+      { id: "m3q2", type: "multiple", promptEn: "Select effective advocacy actions.", promptSt: "Kgetha diketso tse sebetsang tsa boipiletso.", options: [{ value: "consultation", labelEn: "Attend consultations", labelSt: "Ho ea lipuisanong" }, { value: "petition", labelEn: "Submit a petition", labelSt: "Ho isa petishene" }, { value: "ignore", labelEn: "Ignore the issue", labelSt: "Ho hlokomoloha bothata" }] }
+    ]
+  },
+  {
+    id: 4,
+    titleEn: "Leadership and Governance",
+    titleSt: "Boetapele le puso",
+    descriptionEn: "Understand how good governance supports fairness, service delivery and public trust.",
+    descriptionSt: "Utloisisa hore puso e ntle e tshehetsa ho lekana, ho fana ka ditshebeletso le tumelo ya setjhaba.",
+    material: [
+      { titleEn: "Principles of good governance", titleSt: "Melao ya puso e ntle", bodyEn: "Good governance means transparency, accountability, participation, inclusion and rule-based decision making.", bodySt: "Puso e ntle e bolela ho hlaka, boikarabelo, ho nka karolo, ho kenyeletsa batho bohle le ho etsa diqeto ho latela molao." },
+      { titleEn: "Public trust and service delivery", titleSt: "Tumelo ya setjhaba le ho fana ka ditshebeletso", bodyEn: "When institutions are transparent and responsive, citizens trust them and participate more meaningfully.", bodySt: "Ha ditheo di hlakile le di arabela, baahi ba di tshepa mme ba nka karolo ka mokhoa o tebileng." }
+    ],
+    quiz: [
+      { id: "m4q1", type: "single", promptEn: "What is a governance principle?", promptSt: "Ke molawana ofe wa puso?", options: [{ value: "transparency", labelEn: "Transparency", labelSt: "Ho hlaka" }, { value: "silence", labelEn: "Silence", labelSt: "Khutsitseng" }, { value: "exclusion", labelEn: "Exclusion", labelSt: "Ho qheleha ka thoko" }] },
+      { id: "m4q2", type: "truefalse", promptEn: "Public trust grows when institutions are open and responsive.", promptSt: "Tumelo ya setjhaba e hola ha ditheo di bulehile ebile di arabela.", options: [{ value: "true", labelEn: "True", labelSt: "Nnete" }, { value: "false", labelEn: "False", labelSt: "Nnete ha e joal" }] }
+    ]
+  }
+];
+
+const materials_get$2 = defineEventHandler(async (event) => {
+  await requireAdminUser(event);
+  const { db } = getFirebaseAdmin(event);
+  const snapshot = await db.collection("courseMaterials").where("courseId", "==", courseId).get();
+  return {
+    materials: snapshot.docs.map((document) => {
+      const material = document.data();
+      return {
+        id: document.id,
+        moduleId: material.moduleId,
+        titleEn: material.titleEn,
+        titleSt: material.titleSt,
+        bodyEn: material.bodyEn,
+        bodySt: material.bodySt
+      };
+    })
+  };
+});
+
+const materials_get$3 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: materials_get$2
+}, Symbol.toStringTag, { value: 'Module' }));
+
+function invalidMaterial() {
+  throw createError({ statusCode: 400, statusMessage: "The course material is invalid." });
+}
+const materials_post = defineEventHandler(async (event) => {
+  const user = await requireAdminUser(event);
+  const body = await readBody(event);
+  if (!body || typeof body !== "object") invalidMaterial();
+  const { moduleId, titleEn, titleSt, bodyEn, bodySt } = body;
+  if (typeof moduleId !== "number" || !Number.isInteger(moduleId) || !courseModules.some((module) => module.id === moduleId) || typeof titleEn !== "string" || titleEn.trim().length === 0 || titleEn.length > 200 || typeof titleSt !== "string" || titleSt.trim().length === 0 || titleSt.length > 200 || typeof bodyEn !== "string" || bodyEn.trim().length === 0 || bodyEn.length > 8e3 || typeof bodySt !== "string" || bodySt.trim().length === 0 || bodySt.length > 8e3) {
+    invalidMaterial();
+  }
+  const { db } = getFirebaseAdmin(event);
+  const materialRef = db.collection("courseMaterials").doc();
+  await materialRef.create({
+    courseId,
+    moduleId,
+    titleEn: titleEn.trim(),
+    titleSt: titleSt.trim(),
+    bodyEn: bodyEn.trim(),
+    bodySt: bodySt.trim(),
+    createdBy: user.uid,
+    createdAt: FieldValue.serverTimestamp()
+  });
+  return { id: materialRef.id };
+});
+
+const materials_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: materials_post
+}, Symbol.toStringTag, { value: 'Module' }));
+
 const overview_get = defineEventHandler(async (event) => {
   await requireAdminUser(event);
   const { db } = getFirebaseAdmin(event);
   const [participantsCount, progressCount, completedCount, attempts] = await Promise.all([
-    db.collection("users").count().get(),
+    db.collection("users").where("role", "==", "participant").count().get(),
     db.collectionGroup("courseProgress").count().get(),
     db.collectionGroup("courseProgress").where("passedModules", "array-contains", 4).count().get(),
     db.collection("quizAttempts").orderBy("createdAt", "desc").limit(500).get()
@@ -4625,7 +4463,7 @@ const participants_get = defineEventHandler(async (event) => {
   const { db } = getFirebaseAdmin(event);
   const query = getQuery$1(event);
   const cursor = typeof query.cursor === "string" ? query.cursor : "";
-  let participantsQuery = db.collection("users").orderBy("displayName");
+  let participantsQuery = db.collection("users").where("role", "==", "participant").orderBy("displayName");
   if (cursor) {
     if (!/^[A-Za-z0-9_-]{1,128}$/.test(cursor)) {
       throw createError({ statusCode: 400, statusMessage: "The participant page cursor is invalid." });
@@ -4677,7 +4515,9 @@ const _id__get$2 = defineEventHandler(async (event) => {
     db.doc(`users/${participantId}/courseProgress/race-for-parliament`).get(),
     db.collection("quizAttempts").where("uid", "==", participantId).orderBy("createdAt", "desc").limit(100).get()
   ]);
-  if (!profile.exists) throw createError({ statusCode: 404, statusMessage: "Participant not found." });
+  if (!profile.exists || profile.get("role") !== "participant") {
+    throw createError({ statusCode: 404, statusMessage: "Participant not found." });
+  }
   return {
     profile: profile.data(),
     progress: progress.exists ? progress.data() : null,
@@ -4695,6 +4535,83 @@ const _id__get$3 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty
   default: _id__get$2
 }, Symbol.toStringTag, { value: 'Module' }));
 
+const questions_get$2 = defineEventHandler(async (event) => {
+  await requireRole(event, ["admin", "contentEditor"]);
+  const { db } = getFirebaseAdmin(event);
+  const snapshot = await db.collection("quizQuestions").where("courseId", "==", "race-for-parliament").get();
+  return {
+    questions: snapshot.docs.map((document) => {
+      const question = document.data();
+      return {
+        id: document.id,
+        moduleId: question.moduleId,
+        type: question.type,
+        promptEn: question.promptEn,
+        promptSt: question.promptSt,
+        options: question.options
+      };
+    })
+  };
+});
+
+const questions_get$3 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: questions_get$2
+}, Symbol.toStringTag, { value: 'Module' }));
+
+function isRecord(value) {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+function invalidQuestion() {
+  throw createError({ statusCode: 400, statusMessage: "The quiz question is invalid." });
+}
+const questions_post = defineEventHandler(async (event) => {
+  const user = await requireRole(event, ["admin", "contentEditor"]);
+  const body = await readBody(event);
+  if (!isRecord(body)) invalidQuestion();
+  const { moduleId, type, promptEn, promptSt, options, correctAnswers } = body;
+  if (typeof moduleId !== "number" || !Number.isInteger(moduleId) || !courseModules.some((module) => module.id === moduleId) || !["single", "multiple", "truefalse"].includes(String(type)) || typeof promptEn !== "string" || promptEn.trim().length === 0 || promptEn.length > 500 || typeof promptSt !== "string" || promptSt.trim().length === 0 || promptSt.length > 500 || !Array.isArray(options) || options.length < 2 || options.length > 10 || !Array.isArray(correctAnswers) || correctAnswers.length === 0) {
+    invalidQuestion();
+  }
+  const validatedOptions = [];
+  const optionValues = /* @__PURE__ */ new Set();
+  for (const option of options) {
+    if (!isRecord(option) || typeof option.value !== "string" || !/^[A-Za-z0-9_-]{1,60}$/.test(option.value) || typeof option.labelEn !== "string" || option.labelEn.trim().length === 0 || option.labelEn.length > 200 || typeof option.labelSt !== "string" || option.labelSt.trim().length === 0 || option.labelSt.length > 200 || optionValues.has(option.value)) {
+      invalidQuestion();
+    }
+    optionValues.add(option.value);
+    validatedOptions.push({
+      value: option.value,
+      labelEn: option.labelEn.trim(),
+      labelSt: option.labelSt.trim()
+    });
+  }
+  const validType = type;
+  const validAnswers = correctAnswers.filter((answer) => typeof answer === "string");
+  if (validAnswers.length !== correctAnswers.length || validAnswers.length > validatedOptions.length || new Set(validAnswers).size !== validAnswers.length || validAnswers.some((answer) => !optionValues.has(answer)) || validType !== "multiple" && validAnswers.length !== 1 || validType === "truefalse" && (validatedOptions.length !== 2 || !optionValues.has("true") || !optionValues.has("false"))) {
+    invalidQuestion();
+  }
+  const { db } = getFirebaseAdmin(event);
+  const questionRef = db.collection("quizQuestions").doc();
+  await questionRef.create({
+    courseId: "race-for-parliament",
+    moduleId,
+    type: validType,
+    promptEn: promptEn.trim(),
+    promptSt: promptSt.trim(),
+    options: validatedOptions,
+    correctAnswers: validAnswers,
+    createdBy: user.uid,
+    createdAt: FieldValue.serverTimestamp()
+  });
+  return { id: questionRef.id };
+});
+
+const questions_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: questions_post
+}, Symbol.toStringTag, { value: 'Module' }));
+
 const results_get = defineEventHandler(async (event) => {
   await requireAdminUser(event);
   const { db } = getFirebaseAdmin(event);
@@ -4706,6 +4623,7 @@ const results_get = defineEventHandler(async (event) => {
     return {
       id: attempt.id,
       ...data,
+      reviewStatus: data.reviewStatus === "reviewed" ? "reviewed" : data.reviewStatus === "pending" ? "pending" : "unavailable",
       createdAt: (_c = (_b = (_a = data.createdAt) == null ? void 0 : _a.toDate) == null ? void 0 : _b.call(_a).toISOString()) != null ? _c : null,
       participantName: (_e = (_d = participant.get("displayName")) != null ? _d : participant.get("email")) != null ? _e : data.uid
     };
@@ -4716,6 +4634,198 @@ const results_get = defineEventHandler(async (event) => {
 const results_get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: results_get
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const materials_get = defineEventHandler(async (event) => {
+  var _a;
+  const user = await requireRole(event, ["participant"]);
+  const requestedCourseId = getRouterParam(event, "courseId");
+  const moduleId = Number(getRouterParam(event, "moduleId"));
+  if (requestedCourseId !== courseId || !Number.isInteger(moduleId)) {
+    throw createError({ statusCode: 404, statusMessage: "Course module not found." });
+  }
+  if (!courseModules.some((module) => module.id === moduleId)) {
+    throw createError({ statusCode: 404, statusMessage: "Course module not found." });
+  }
+  const { db } = getFirebaseAdmin(event);
+  if (moduleId > 1) {
+    const progress = await db.doc(`users/${user.uid}/courseProgress/${courseId}`).get();
+    const passedModules = (_a = progress.data()) == null ? void 0 : _a.passedModules;
+    if (!Array.isArray(passedModules) || !passedModules.includes(moduleId - 1)) {
+      throw createError({ statusCode: 403, statusMessage: "Complete the previous module quiz before opening this module." });
+    }
+  }
+  const snapshot = await db.collection("courseMaterials").where("courseId", "==", courseId).where("moduleId", "==", moduleId).get();
+  return {
+    materials: snapshot.docs.map((document) => {
+      const material = document.data();
+      return {
+        id: document.id,
+        titleEn: material.titleEn,
+        titleSt: material.titleSt,
+        bodyEn: material.bodyEn,
+        bodySt: material.bodySt
+      };
+    })
+  };
+});
+
+const materials_get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: materials_get
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const questions_get = defineEventHandler(async (event) => {
+  var _a;
+  const user = await requireFirebaseUser(event);
+  const requestedCourseId = getRouterParam(event, "courseId");
+  const moduleId = Number(getRouterParam(event, "moduleId"));
+  if (requestedCourseId !== courseId || !Number.isInteger(moduleId)) {
+    throw createError({ statusCode: 404, statusMessage: "Course module not found." });
+  }
+  const courseModule = courseModules.find((module) => module.id === moduleId);
+  if (!courseModule) throw createError({ statusCode: 404, statusMessage: "Course module not found." });
+  const { db } = getFirebaseAdmin(event);
+  if (moduleId > 1) {
+    const progress = await db.doc(`users/${user.uid}/courseProgress/${courseId}`).get();
+    const passedModules = (_a = progress.data()) == null ? void 0 : _a.passedModules;
+    if (!Array.isArray(passedModules) || !passedModules.includes(moduleId - 1)) {
+      throw createError({ statusCode: 403, statusMessage: "Complete the previous module quiz before opening this module." });
+    }
+  }
+  const snapshot = await db.collection("quizQuestions").where("courseId", "==", courseId).where("moduleId", "==", moduleId).get();
+  const addedQuestions = snapshot.docs.map((document) => {
+    const question = document.data();
+    return {
+      id: document.id,
+      moduleId: question.moduleId,
+      type: question.type,
+      promptEn: question.promptEn,
+      promptSt: question.promptSt,
+      options: question.options
+    };
+  });
+  return { questions: [...courseModule.quiz, ...addedQuestions] };
+});
+
+const questions_get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: questions_get
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const attempts_get = defineEventHandler(async (event) => {
+  await requireRole(event, ["admin", "marker"]);
+  const { db } = getFirebaseAdmin(event);
+  const snapshot = await db.collection("quizAttempts").where("reviewStatus", "==", "pending").orderBy("createdAt", "asc").limit(100).get();
+  const moduleIds = [...new Set(snapshot.docs.map((attempt) => attempt.get("moduleId")))].filter((moduleId) => Number.isInteger(moduleId));
+  const questionSnapshots = await Promise.all(moduleIds.map((moduleId) => db.collection("quizQuestions").where("courseId", "==", courseId).where("moduleId", "==", moduleId).get()));
+  const questionsByModule = new Map(moduleIds.map((moduleId, index) => [
+    moduleId,
+    questionSnapshots[index].docs
+  ]));
+  const attempts = await Promise.all(snapshot.docs.map(async (attempt) => {
+    var _a, _b, _c, _d, _e, _f;
+    const data = attempt.data();
+    const module = courseModules.find((item) => item.id === data.moduleId);
+    if (!module || data.courseId !== courseId) return null;
+    const participant = await db.doc(`users/${data.uid}`).get();
+    const questionDetails = [
+      ...module.quiz.map((question) => {
+        var _a2;
+        return {
+          ...question,
+          correctAnswers: (_a2 = getStaticAnswers(data.moduleId)[question.id]) != null ? _a2 : []
+        };
+      }),
+      ...((_a = questionsByModule.get(data.moduleId)) != null ? _a : []).map((document) => ({
+        ...document.data(),
+        id: document.id
+      }))
+    ];
+    return {
+      id: attempt.id,
+      ...data,
+      createdAt: (_d = (_c = (_b = data.createdAt) == null ? void 0 : _b.toDate) == null ? void 0 : _c.call(_b).toISOString()) != null ? _d : null,
+      participantName: (_f = (_e = participant.get("displayName")) != null ? _e : participant.get("email")) != null ? _f : data.uid,
+      moduleTitleEn: module.titleEn,
+      moduleTitleSt: module.titleSt,
+      questions: questionDetails
+    };
+  }));
+  return { attempts: attempts.filter((attempt) => attempt !== null) };
+});
+
+const attempts_get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: attempts_get
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const _id__post = defineEventHandler(async (event) => {
+  const marker = await requireRole(event, ["admin", "marker"]);
+  const attemptId = getRouterParam(event, "id");
+  if (!attemptId || !/^[A-Za-z0-9_-]{1,128}$/.test(attemptId)) {
+    throw createError({ statusCode: 400, statusMessage: "The quiz attempt ID is invalid." });
+  }
+  const body = await readBody(event);
+  if (!body || typeof body !== "object") {
+    throw createError({ statusCode: 400, statusMessage: "The marking submission is invalid." });
+  }
+  if (!Number.isInteger(body == null ? void 0 : body.score) || body.score < 0 || body.score > 100) {
+    throw createError({ statusCode: 400, statusMessage: "The marked score must be a whole number from 0 to 100." });
+  }
+  if (body.feedback !== void 0 && (typeof body.feedback !== "string" || body.feedback.length > 1e3)) {
+    throw createError({ statusCode: 400, statusMessage: "Marker feedback must be 1,000 characters or fewer." });
+  }
+  const { db } = getFirebaseAdmin(event);
+  const score = body.score;
+  const passed = score >= 70;
+  const attemptRef = db.doc(`quizAttempts/${attemptId}`);
+  await db.runTransaction(async (transaction) => {
+    var _a, _b;
+    const attemptSnapshot = await transaction.get(attemptRef);
+    if (!attemptSnapshot.exists) {
+      throw createError({ statusCode: 404, statusMessage: "Quiz attempt not found." });
+    }
+    const attempt = attemptSnapshot.data();
+    if (attempt.reviewStatus !== "pending") {
+      throw createError({ statusCode: 409, statusMessage: "This quiz attempt is not waiting to be marked." });
+    }
+    if (typeof attempt.uid !== "string" || typeof attempt.moduleId !== "number" || typeof attempt.courseId !== "string") {
+      throw createError({ statusCode: 500, statusMessage: "The quiz attempt data is invalid." });
+    }
+    const moduleAttempts = await transaction.get(
+      db.collection("quizAttempts").where("uid", "==", attempt.uid).where("moduleId", "==", attempt.moduleId)
+    );
+    const progressRef = db.doc(`users/${attempt.uid}/courseProgress/${attempt.courseId}`);
+    const progressSnapshot = await transaction.get(progressRef);
+    const progress = (_a = progressSnapshot.data()) != null ? _a : {};
+    const anotherPassingAttempt = moduleAttempts.docs.some((document) => document.id !== attemptId && document.get("courseId") === attempt.courseId && document.get("passed") === true);
+    const modulePassed = passed || anotherPassingAttempt;
+    const passedModules = Array.isArray(progress.passedModules) ? progress.passedModules.filter((value) => Number.isInteger(value)) : [];
+    const nextPassedModules = modulePassed ? [.../* @__PURE__ */ new Set([...passedModules, attempt.moduleId])].sort((a, b) => a - b) : passedModules.filter((moduleId) => moduleId < attempt.moduleId);
+    const progressUpdate = {
+      passedModules: nextPassedModules,
+      updatedAt: FieldValue.serverTimestamp()
+    };
+    if (progress.latestAttemptId === attemptId) {
+      progressUpdate.scores = { ...(_b = progress.scores) != null ? _b : {}, [String(attempt.moduleId)]: score };
+    }
+    transaction.update(attemptRef, {
+      score,
+      passed,
+      reviewStatus: "reviewed",
+      reviewedBy: marker.uid,
+      reviewedAt: FieldValue.serverTimestamp(),
+      reviewerFeedback: typeof body.feedback === "string" ? body.feedback.trim() : ""
+    });
+    transaction.set(progressRef, progressUpdate, { merge: true });
+  });
+  return { id: attemptId, score, passed, reviewStatus: "reviewed" };
+});
+
+const _id__post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: _id__post
 }, Symbol.toStringTag, { value: 'Module' }));
 
 const progress_get = defineEventHandler(async (event) => {
@@ -4754,7 +4864,7 @@ const _id__get = defineEventHandler(async (event) => {
     throw createError({ statusCode: 404, statusMessage: "Quiz result not found." });
   }
   const result = snapshot.data();
-  if (result.uid !== user.uid && user.admin !== true) {
+  if (result.uid !== user.uid && user.admin !== true && user.role !== "admin") {
     throw createError({ statusCode: 403, statusMessage: "You do not have access to this quiz result." });
   }
   return { ...result, id: snapshot.id, attempts: result.attemptNumber };
@@ -4765,36 +4875,58 @@ const _id__get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty
   default: _id__get
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const answerKeys = {
-  1: { m1q1: ["a"], m1q2: ["true"], m1q3: ["respect-law", "vote"] },
-  2: { m2q1: ["be-registered"], m2q2: ["true"] },
-  3: { m3q1: ["evidence"], m3q2: ["consultation", "petition"] },
-  4: { m4q1: ["transparency"], m4q2: ["true"] }
-};
 function isStringArray(value) {
   return Array.isArray(value) && value.every((item) => typeof item === "string");
 }
 const submit_post = defineEventHandler(async (event) => {
-  const user = await requireFirebaseUser(event);
+  const user = await requireRole(event, ["participant"]);
   const body = await readBody(event);
+  if (!body || typeof body !== "object") {
+    throw createError({ statusCode: 400, statusMessage: "The quiz submission is invalid." });
+  }
   const moduleId = body == null ? void 0 : body.moduleId;
-  const expectedAnswers = typeof moduleId === "number" ? answerKeys[moduleId] : void 0;
-  if (typeof moduleId !== "number" || !Number.isInteger(moduleId) || !expectedAnswers || !body.answers || typeof body.answers !== "object" || Array.isArray(body.answers)) {
+  const expectedAnswers = typeof moduleId === "number" ? getStaticAnswers(moduleId) : void 0;
+  if (body.courseId !== void 0 && body.courseId !== courseId || typeof moduleId !== "number" || !Number.isInteger(moduleId) || !expectedAnswers || !body.answers || typeof body.answers !== "object" || Array.isArray(body.answers)) {
     throw createError({ statusCode: 400, statusMessage: "The quiz submission is invalid." });
   }
   const answers = body.answers;
-  if (Object.keys(answers).length > Object.keys(expectedAnswers).length || Object.keys(answers).some((questionId) => !(questionId in expectedAnswers)) || Object.values(answers).some((answer) => !isStringArray(answer) || answer.length > 10 || answer.some((value) => value.length > 100))) {
+  const { db } = getFirebaseAdmin(event);
+  const module = courseModules.find((item) => item.id === moduleId);
+  const addedQuestionsSnapshot = await db.collection("quizQuestions").where("courseId", "==", courseId).where("moduleId", "==", moduleId).get();
+  const allQuestionIds = /* @__PURE__ */ new Set([
+    ...module.quiz.map((question) => question.id),
+    ...addedQuestionsSnapshot.docs.map((question) => question.id)
+  ]);
+  if (Object.keys(answers).length > allQuestionIds.size || Object.keys(answers).some((questionId) => !allQuestionIds.has(questionId)) || Object.values(answers).some((answer) => !isStringArray(answer) || answer.length > 10 || answer.some((value) => value.length > 100))) {
     throw createError({ statusCode: 400, statusMessage: "The quiz answers are invalid." });
   }
-  const correctCount = Object.entries(expectedAnswers).reduce((total, [questionId, correct]) => {
+  const answerKey = { ...expectedAnswers };
+  const allowedOptions = new Map(module.quiz.map((question) => [
+    question.id,
+    new Set(question.options.map((option) => option.value))
+  ]));
+  for (const document of addedQuestionsSnapshot.docs) {
+    const question = document.data();
+    if (!isStringArray(question.correctAnswers) || question.correctAnswers.length === 0 || !Array.isArray(question.options) || !question.options.every((option) => typeof option === "object" && option !== null && "value" in option && typeof option.value === "string")) {
+      throw createError({ statusCode: 500, statusMessage: "A saved quiz question is invalid." });
+    }
+    answerKey[document.id] = question.correctAnswers;
+    allowedOptions.set(document.id, new Set(question.options.map((option) => option.value)));
+  }
+  if (Object.entries(answers).some(([questionId, answer]) => answer.some((value) => {
+    var _a;
+    return !((_a = allowedOptions.get(questionId)) == null ? void 0 : _a.has(value));
+  }))) {
+    throw createError({ statusCode: 400, statusMessage: "The quiz answers are invalid." });
+  }
+  const correctCount = Object.entries(answerKey).reduce((total, [questionId, correct]) => {
     var _a;
     const submitted = [...(_a = answers[questionId]) != null ? _a : []].sort();
     return total + (JSON.stringify(submitted) === JSON.stringify([...correct].sort()) ? 1 : 0);
   }, 0);
-  const score = Math.round(correctCount / Object.keys(expectedAnswers).length * 100);
+  const score = Math.round(correctCount / Object.keys(answerKey).length * 100);
   const passed = score >= 70;
-  const { db } = getFirebaseAdmin(event);
-  const progressRef = db.doc(`users/${user.uid}/courseProgress/race-for-parliament`);
+  const progressRef = db.doc(`users/${user.uid}/courseProgress/${courseId}`);
   const attemptRef = db.collection("quizAttempts").doc();
   const attempts = await db.runTransaction(async (transaction) => {
     var _a, _b;
@@ -4812,6 +4944,9 @@ const submit_post = defineEventHandler(async (event) => {
       courseId: "race-for-parliament",
       moduleId,
       attemptNumber,
+      answers,
+      reviewStatus: "pending",
+      automaticScore: score,
       score,
       passed,
       createdAt: FieldValue.serverTimestamp()
@@ -4832,22 +4967,6 @@ const submit_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.definePrope
   __proto__: null,
   default: submit_post
 }, Symbol.toStringTag, { value: 'Module' }));
-
-//#region src/app/internal/tracing.ts
-let _channels;
-function getChannel(name) {
-	_channels ??= {};
-	if (name in _channels) return _channels[name];
-	const dc = globalThis.process?.getBuiltinModule?.("node:diagnostics_channel");
-	const channel = dc?.tracingChannel ? dc.tracingChannel(name) : null;
-	_channels[name] = channel;
-	return channel;
-}
-function traceAsync(name, context, fn) {
-	const channel = getChannel(name);
-	if (!channel || channel.hasSubscribers === false) return fn();
-	return channel.tracePromise(() => Promise.resolve(fn()), context);
-}
 
 //#region src/runtime/server/renderer/payload.ts
 function renderPayloadResponse(ssrContext, event) {
@@ -4989,11 +5108,7 @@ async function renderRoute(instance, event, ssrError) {
 		prefersStream: false
 	};
 	await hooks.callHook("render:route", renderRouteContext, { event: hookEvent });
-	const _rendered = await (traceAsync("nuxt.render", {
-		event: hookEvent,
-		ssrContext,
-		streaming: false
-	}, () => renderer.renderToString(ssrContext)) ).catch(async (error) => {
+	const _rendered = await (renderer.renderToString(ssrContext)).catch(async (error) => {
 		if ((ssrContext["~renderResponse"] || ssrContext._renderResponse) && error.message === "skipping render") return {};
 		const _err = !ssrError && ssrContext.payload?.error || error;
 		await ssrContext.nuxt?.hooks.callHook("app:error", _err);

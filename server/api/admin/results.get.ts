@@ -10,6 +10,11 @@ export default defineEventHandler(async (event) => {
     return {
       id: attempt.id,
       ...data,
+      reviewStatus: data.reviewStatus === 'reviewed'
+        ? 'reviewed'
+        : data.reviewStatus === 'pending'
+          ? 'pending'
+          : 'unavailable',
       createdAt: data.createdAt?.toDate?.().toISOString() ?? null,
       participantName: participant.get('displayName') ?? participant.get('email') ?? data.uid,
     }

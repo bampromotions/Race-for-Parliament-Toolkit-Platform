@@ -4,7 +4,7 @@ export default defineEventHandler(async (event) => {
   await requireAdminUser(event)
   const { db } = getFirebaseAdmin(event)
   const [participantsCount, progressCount, completedCount, attempts] = await Promise.all([
-    db.collection('users').count().get(),
+    db.collection('users').where('role', '==', 'participant').count().get(),
     db.collectionGroup('courseProgress').count().get(),
     db.collectionGroup('courseProgress').where('passedModules', 'array-contains', 4).count().get(),
     db.collection('quizAttempts').orderBy('createdAt', 'desc').limit(500).get(),

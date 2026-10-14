@@ -2,7 +2,15 @@ import { getApps, initializeApp } from 'firebase/app'
 import { getAnalytics, isSupported } from 'firebase/analytics'
 import { getAuth, onAuthStateChanged, type User } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
-import type { FirebaseClient, FirebaseSession } from '../types/firebase'
+import type { FirebaseClient, FirebaseSession, UserRole } from '../types/firebase'
+
+function getUserRole(claims: Record<string, unknown>): UserRole {
+  if (claims.admin === true) return 'admin'
+  if (claims.role === 'admin' || claims.role === 'contentEditor' || claims.role === 'marker') {
+    return claims.role
+  }
+  return 'participant'
+}
 
 export default defineNuxtPlugin(() => {
   
@@ -66,11 +74,13 @@ export default defineNuxtPlugin(() => {
       }
 
       const token = await user.getIdTokenResult()
+      const role = getUserRole(token.claims)
       session.value = {
         uid: user.uid,
         email: user.email,
         displayName: user.displayName,
-        isAdmin: token.claims.admin === true,
+        role,
+        isAdmin: role === 'admin',
       }
     } catch (cause) {
       session.value = null

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { courseId, courseModules } from '~/data/course'
+import type { CourseMaterial } from '~/data/course'
 import { createCourseProgressRepository, type CourseProgress } from '~/repositories/courseProgressRepository'
 
 definePageMeta({ layout: 'participant', middleware: 'auth' })
@@ -14,7 +15,9 @@ if (!module) throw createError({ statusCode: 404, statusMessage: 'Module not fou
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const api = createCourseProgressRepository(useFirebaseApi().request)
+const firebaseApi = useFirebaseApi()
 const progress = ref<CourseProgress | null>(null)
+const addedMaterials = ref<Array<CourseMaterial & { id: string }>>([])
 const loading = ref(true)
 const errorMessage = ref('')
 const unlocked = computed(() => moduleId === 1 || Boolean(progress.value?.passedModules.includes(moduleId - 1)))
@@ -26,7 +29,14 @@ useSeoMeta({
 onMounted(async () => {
   try {
     progress.value = await api.getProgress()
-    if (!unlocked.value) await navigateTo(localePath(`/course/${courseId}`), { replace: true })
+    if (!unlocked.value) {
+      await navigateTo(localePath(`/course/${courseId}`), { replace: true })
+      return
+    }
+    const response = await firebaseApi.request<{ materials: Array<CourseMaterial & { id: string }> }>(
+      `/api/course/${courseId}/module/${moduleId}/materials`,
+    )
+    addedMaterials.value = response.materials
   } catch (error) {
     errorMessage.value = error instanceof Error ? error.message : t('common.unexpectedError')
   } finally {
@@ -48,7 +58,11 @@ onMounted(async () => {
     <template v-else-if="unlocked">
       <section class="space-y-4">
         <h2 class="text-xl font-semibold text-slate-950">{{ t('course.courseMaterial') }}</h2>
-        <article v-for="item in module.material" :key="item.titleEn" class="rounded-xl border border-slate-200 bg-white p-5 sm:p-6">
+        <article v-for="(item, index) in module.material" :key="`bundled-${index}`" class="rounded-xl border border-slate-200 bg-white p-5 sm:p-6">
+          <h3 class="font-semibold text-slate-950">{{ locale === 'en' ? item.titleEn : item.titleSt }}</h3>
+          <p class="mt-3 leading-7 text-slate-700">{{ locale === 'en' ? item.bodyEn : item.bodySt }}</p>
+        </article>
+        <article v-for="item in addedMaterials" :key="item.id" class="rounded-xl border border-slate-200 bg-white p-5 sm:p-6">
           <h3 class="font-semibold text-slate-950">{{ locale === 'en' ? item.titleEn : item.titleSt }}</h3>
           <p class="mt-3 leading-7 text-slate-700">{{ locale === 'en' ? item.bodyEn : item.bodySt }}</p>
         </article>

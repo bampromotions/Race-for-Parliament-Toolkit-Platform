@@ -12,13 +12,20 @@ export interface CourseQuestion {
   options: CourseOption[]
 }
 
+export interface CourseMaterial {
+  titleEn: string
+  titleSt: string
+  bodyEn: string
+  bodySt: string
+}
+
 export interface CourseModule {
   id: number
   titleEn: string
   titleSt: string
   descriptionEn: string
   descriptionSt: string
-  material: Array<{ titleEn: string; titleSt: string; bodyEn: string; bodySt: string }>
+  material: CourseMaterial[]
   quiz: CourseQuestion[]
 }
 

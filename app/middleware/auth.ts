@@ -24,4 +24,14 @@ export default defineNuxtRouteMiddleware(async (to) => {
       query: { redirect: to.fullPath },
     })
   }
+
+  if (firebase.session.value.role !== 'participant') {
+    const { role } = firebase.session.value
+    const path = role === 'admin'
+      ? '/admin'
+      : role === 'contentEditor'
+        ? '/admin/quizzes'
+        : '/marking'
+    return navigateTo(useLocalePath()(path), { replace: true })
+  }
 })

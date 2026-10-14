@@ -18,7 +18,7 @@ export default defineNuxtRouteMiddleware(async () => {
     return navigateTo(useLocalePath()('/auth/login'), { replace: true })
   }
 
-  if (!firebase.session.value.isAdmin) {
+  if (firebase.session.value.role !== 'admin') {
     return navigateTo(useLocalePath()('/dashboard'), { replace: true })
   }
 })

@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const result = snapshot.data()!
-  if (result.uid !== user.uid && user.admin !== true) {
+  if (result.uid !== user.uid && user.admin !== true && user.role !== 'admin') {
     throw createError({ statusCode: 403, statusMessage: 'You do not have access to this quiz result.' })
   }
 

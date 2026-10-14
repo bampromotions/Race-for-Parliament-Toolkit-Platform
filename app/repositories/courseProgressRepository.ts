@@ -12,6 +12,8 @@ export interface QuizAttemptResult {
   score: number
   passed: boolean
   attempts: number
+  reviewStatus?: 'pending' | 'reviewed'
+  reviewerFeedback?: string
 }
 
 export function createCourseProgressRepository(request: ReturnType<typeof useFirebaseApi>['request']) {

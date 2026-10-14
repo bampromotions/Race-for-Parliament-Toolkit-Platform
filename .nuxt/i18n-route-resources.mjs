@@ -18,6 +18,7 @@ export const localizedPaths = [
   "/admin",
   "/course",
   "/dashboard",
+  "/marking",
   "/profile",
   "/progress",
   "/"

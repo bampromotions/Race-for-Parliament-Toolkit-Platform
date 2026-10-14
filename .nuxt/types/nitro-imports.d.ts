@@ -79,6 +79,7 @@ declare global {
   const getRouterParam: typeof import('../../node_modules/h3/dist/index').getRouterParam
   const getRouterParams: typeof import('../../node_modules/h3/dist/index').getRouterParams
   const getSession: typeof import('../../node_modules/h3/dist/index').getSession
+  const getStaticAnswers: typeof import('../../server/utils/course-quiz').getStaticAnswers
   const getValidatedQuery: typeof import('../../node_modules/h3/dist/index').getValidatedQuery
   const getValidatedRouterParams: typeof import('../../node_modules/h3/dist/index').getValidatedRouterParams
   const handleCacheHeaders: typeof import('../../node_modules/h3/dist/index').handleCacheHeaders
@@ -104,6 +105,7 @@ declare global {
   const removeResponseHeader: typeof import('../../node_modules/h3/dist/index').removeResponseHeader
   const requireAdminUser: typeof import('../../server/utils/firebase-admin').requireAdminUser
   const requireFirebaseUser: typeof import('../../server/utils/firebase-admin').requireFirebaseUser
+  const requireRole: typeof import('../../server/utils/firebase-admin').requireRole
   const runTask: typeof import('../../node_modules/nitropack/dist/runtime/internal/task').runTask
   const sanitizeStatusCode: typeof import('../../node_modules/h3/dist/index').sanitizeStatusCode
   const sanitizeStatusMessage: typeof import('../../node_modules/h3/dist/index').sanitizeStatusMessage
@@ -125,6 +127,7 @@ declare global {
   const setResponseHeaders: typeof import('../../node_modules/h3/dist/index').setResponseHeaders
   const setResponseStatus: typeof import('../../node_modules/h3/dist/index').setResponseStatus
   const splitCookiesString: typeof import('../../node_modules/h3/dist/index').splitCookiesString
+  const staticAnswerKeys: typeof import('../../server/utils/course-quiz').staticAnswerKeys
   const toEventHandler: typeof import('../../node_modules/h3/dist/index').toEventHandler
   const toNodeListener: typeof import('../../node_modules/h3/dist/index').toNodeListener
   const toPlainHandler: typeof import('../../node_modules/h3/dist/index').toPlainHandler
@@ -172,4 +175,5 @@ export { defineI18nLocale, defineI18nConfig } from 'C:/Users/USER/Documents/shel
 export { defineI18nLocaleDetector } from 'C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/node_modules/@nuxtjs/i18n/dist/runtime/composables/server';
 export { useTranslation } from '@intlify/h3';
 export { getCookieLocale, getHeaderLanguage, getHeaderLanguages, getHeaderLocale, getHeaderLocales, getPathLocale, getQueryLocale, setCookieLocale, tryCookieLocale, tryHeaderLocale, tryHeaderLocales, tryPathLocale, tryQueryLocale } from '@intlify/utils/h3';
-export { getFirebaseAdmin, requireFirebaseUser, requireAdminUser } from 'C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/server/utils/firebase-admin';
+export { staticAnswerKeys, getStaticAnswers } from 'C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/server/utils/course-quiz';
+export { getFirebaseAdmin, requireFirebaseUser, requireRole, requireAdminUser } from 'C:/Users/USER/Documents/shelileworkplace/nuxt-js-quiz-system-development/server/utils/firebase-admin';

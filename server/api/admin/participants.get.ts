@@ -5,7 +5,9 @@ export default defineEventHandler(async (event) => {
   const { db } = getFirebaseAdmin(event)
   const query = getQuery(event)
   const cursor = typeof query.cursor === 'string' ? query.cursor : ''
-  let participantsQuery = db.collection('users').orderBy('displayName')
+  let participantsQuery = db.collection('users')
+    .where('role', '==', 'participant')
+    .orderBy('displayName')
   if (cursor) {
     if (!/^[A-Za-z0-9_-]{1,128}$/.test(cursor)) {
       throw createError({ statusCode: 400, statusMessage: 'The participant page cursor is invalid.' })

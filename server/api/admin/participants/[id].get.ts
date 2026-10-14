@@ -14,7 +14,9 @@ export default defineEventHandler(async (event) => {
     db.doc(`users/${participantId}/courseProgress/race-for-parliament`).get(),
     db.collection('quizAttempts').where('uid', '==', participantId).orderBy('createdAt', 'desc').limit(100).get(),
   ])
-  if (!profile.exists) throw createError({ statusCode: 404, statusMessage: 'Participant not found.' })
+  if (!profile.exists || profile.get('role') !== 'participant') {
+    throw createError({ statusCode: 404, statusMessage: 'Participant not found.' })
+  }
 
   return {
     profile: profile.data(),

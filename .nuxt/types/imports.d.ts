@@ -240,7 +240,7 @@ declare global {
   export type { PageMeta } from '../../node_modules/nuxt/dist/app/composables/pages'
   import('../../node_modules/nuxt/dist/app/composables/pages')
   // @ts-ignore
-  export type { FirebaseSession, FirebaseClient } from '../../app/types/firebase'
+  export type { UserRole, FirebaseSession, FirebaseClient } from '../../app/types/firebase'
   import('../../app/types/firebase')
 }
 // for vue template auto import

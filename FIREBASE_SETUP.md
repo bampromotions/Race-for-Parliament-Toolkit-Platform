@@ -10,14 +10,16 @@
    firebase deploy --only firestore:rules,firestore:indexes
    ```
 
-6. Create a participant using the registration page. Grant administrator access only to trusted CSO staff from a secured operator environment:
+6. Users self-register as Participants. Assign staff roles only to trusted CSO staff from a secured operator environment:
 
    ```sh
-   node --env-file=.env scripts/set-admin-claim.mjs <firebase-user-id> grant
+   node --env-file=.env scripts/set-admin-claim.mjs <firebase-user-id> admin
+   node --env-file=.env scripts/set-admin-claim.mjs <firebase-user-id> contentEditor
+   node --env-file=.env scripts/set-admin-claim.mjs <firebase-user-id> marker
    ```
 
-   To revoke it, use `node --env-file=.env scripts/set-admin-claim.mjs <firebase-user-id> revoke`. The user must refresh their Firebase ID token after the claim changes. The server checks this custom claim for every admin API request; a user profile field cannot grant admin access.
+   To return an account to the Participant role, use `node --env-file=.env scripts/set-admin-claim.mjs <firebase-user-id> participant`. The user must refresh their Firebase ID token after a role change. Admin access continues to accept the existing `admin: true` claim for compatibility; a user profile field cannot grant staff access.
 
-The application stores participant profiles in `users/{uid}`, server-validated course progress in `users/{uid}/courseProgress/{courseId}`, and immutable quiz attempts in `quizAttempts/{attemptId}`. Client writes to progress and quiz results are denied by `firestore.rules`; quiz grading and progression updates run through the authenticated Nuxt server API.
+The application stores participant profiles in `users/{uid}`, server-validated course progress in `users/{uid}/courseProgress/{courseId}`, and server-managed quiz attempts in `quizAttempts/{attemptId}`. Client writes to progress and quiz results are denied by `firestore.rules`; quiz grading and progression updates run through the authenticated Nuxt server API.
 
-Course materials and quiz questions are currently bundled with the application. Admin participant, progress, and results views are backed by Firestore; course/module/quiz management screens are currently read-only.
+The original course and lesson materials are bundled with the application. Admins can add bilingual lesson material to existing modules; it is stored in the server-only `courseMaterials` collection. New bilingual quiz questions are stored in `courseQuestions` and can be added by Admins and Content editors. Quiz attempts retain submitted answers for Marker review; Markers can confirm or override the automatic score. Staff permissions are checked on both pages and every staff API, using Firebase custom claims.

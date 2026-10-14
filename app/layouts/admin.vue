@@ -1,5 +1,5 @@
 <template>
-  <PlatformLayout area="admin">
+  <PlatformLayout area="staff">
     <slot />
   </PlatformLayout>
 </template>

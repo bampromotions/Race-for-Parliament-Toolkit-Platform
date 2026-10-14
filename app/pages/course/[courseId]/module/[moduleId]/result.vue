@@ -50,6 +50,10 @@ onMounted(async () => {
       <p class="mt-2 text-base font-semibold" :class="result.passed ? 'text-emerald-800' : 'text-amber-800'">
         {{ result.passed ? t('course.passed') : t('course.notPassed') }}
       </p>
+      <p v-if="result.reviewStatus === 'pending'" class="mt-3 text-sm leading-6 text-slate-600">{{ t('course.awaitingReview') }}</p>
+      <p v-if="result.reviewStatus === 'reviewed' && result.reviewerFeedback" class="mt-3 rounded-lg bg-slate-50 p-3 text-left text-sm leading-6 text-slate-700">
+        <span class="font-semibold">{{ t('course.markerFeedback') }}:</span> {{ result.reviewerFeedback }}
+      </p>
       <p v-if="!result.passed" class="mt-3 text-sm leading-6 text-slate-600">{{ t('course.passThreshold') }}</p>
       <div class="mt-7 flex flex-wrap justify-center gap-3">
         <NuxtLink v-if="result.passed && nextModule <= 4" :to="localePath(`/course/${courseId}/module/${nextModule}`)" class="rounded-md bg-emerald-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-900">{{ t('course.nextModule') }}</NuxtLink>
