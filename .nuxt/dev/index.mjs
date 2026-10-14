@@ -1162,7 +1162,7 @@ const renderSSRHeadOptions = {"omitLineBreaks":true};
 
 const NUXT_PRERENDER_NO_SSR_ROUTES = ["/index.html","/200.html","/404.html"];
 const NUXT_NO_SCRIPTS_PATTERNS = [];
-const NUXT_PAGE_PATTERNS = ["/admin/courses/:id","/st/admin/courses/:id","/admin/participants/:id","/st/admin/participants/:id","/admin/courses","/st/admin/courses","/admin/modules","/st/admin/modules","/admin/participants","/st/admin/participants","/admin/quizzes","/st/admin/quizzes","/admin/results","/st/admin/results","/auth/forgot-password","/st/auth/forgot-password","/auth/login","/st/auth/login","/auth/register","/st/auth/register","/auth/reset-password","/st/auth/reset-password","/course/:courseId/module/:moduleId/quiz","/st/course/:courseId/module/:moduleId/quiz","/course/:courseId/module/:moduleId/result","/st/course/:courseId/module/:moduleId/result","/course/:courseId/module/:moduleId","/st/course/:courseId/module/:moduleId","/course/:courseId","/st/course/:courseId","/admin","/st/admin","/course","/st/course","/dashboard","/st/dashboard","/marking","/st/marking","/profile","/st/profile","/progress","/st/progress","/","/st"];
+const NUXT_PAGE_PATTERNS = ["/admin/courses/:id","/st/admin/courses/:id","/admin/participants/:id","/st/admin/participants/:id","/admin/courses","/st/admin/courses","/admin/modules","/st/admin/modules","/admin/participants","/st/admin/participants","/admin/quizzes","/admin/quizzes/create","/st/admin/quizzes","/st/admin/quizzes/create","/admin/results","/st/admin/results","/auth/forgot-password","/st/auth/forgot-password","/auth/login","/st/auth/login","/auth/register","/st/auth/register","/auth/reset-password","/st/auth/reset-password","/course/:courseId/module/:moduleId/quiz","/st/course/:courseId/module/:moduleId/quiz","/course/:courseId/module/:moduleId/result","/st/course/:courseId/module/:moduleId/result","/course/:courseId/module/:moduleId","/st/course/:courseId/module/:moduleId","/course/:courseId","/st/course/:courseId","/quizzes/:id","/st/quizzes/:id","/admin","/st/admin","/course","/st/course","/dashboard","/st/dashboard","/marking","/st/marking","/profile","/st/profile","/progress","/st/progress","/quizzes","/st/quizzes","/","/st"];
 const NUXT_PAYLOAD_INLINE = false;
 const NUXT_SSR_STREAMING = false;
 const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"description","content":"A bilingual civic learning platform for parliament, democracy and public participation."}],"link":[],"style":[],"script":[],"noscript":[],"title":"Race for Parliament Toolkit"};
@@ -3118,22 +3118,7 @@ dev_errors_default,
 _Z4Vm0BJMJeyU_KFYzGBgSOBoZ4JOQn4jYmko_KtDwU
 ];
 
-const assets = {
-  "/index.mjs": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"3790a-E7J2FhBml+tpLiNtiIDqouE51z0\"",
-    "mtime": "2026-10-14T10:56:08.539Z",
-    "size": 227594,
-    "path": "index.mjs"
-  },
-  "/index.mjs.map": {
-    "type": "application/json",
-    "etag": "\"c67bb-boNjBqlPkXZld/6RPn+XSB5J3n4\"",
-    "mtime": "2026-10-14T10:56:08.539Z",
-    "size": 812987,
-    "path": "index.mjs.map"
-  }
-};
+const assets = {};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
