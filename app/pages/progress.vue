@@ -4,7 +4,7 @@ import { createCourseProgressRepository, type CourseProgress } from '../reposito
 
 definePageMeta({ layout: 'participant', middleware: 'auth' })
 const { t, locale } = useI18n()
-const api = createCourseProgressRepository(useFirebaseApi().request)
+const api = createCourseProgressRepository(useFirebase())
 const progress = ref<CourseProgress | null>(null)
 const loading = ref(true)
 const errorMessage = ref('')

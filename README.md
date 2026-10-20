@@ -1,6 +1,6 @@
 # Race for Parliament Toolkit Platform
 
-A bilingual (English and Sesotho) learning website for the Race for Parliament Toolkit. Participants create profiles, work through course modules in order, complete quizzes, and save their learning progress. Admins manage course materials, quiz questions, participants, results, and marking.
+A bilingual (English and Sesotho) learning website for the Race for Parliament Toolkit. Firebase Authentication and client-side profile management remain enabled. Server-backed quizzes, progress updates, and Admin features are temporarily disabled while the backend is replaced.
 
 ## User flow
 
@@ -9,19 +9,16 @@ Trusted operator creates an Admin account in Firebase Authentication
 and a matching users/{uid} Firestore profile with role "admin"
         |
         v
-Admin signs in and manages materials, questions, results, and marking
+Admin signs in (Admin server features temporarily unavailable)
         |
         v
 Participant registers and signs in
         |
         v
-Participant reads Module 1 and submits its quiz
+Participant reads course material
         |
         v
-Progress is saved; passing unlocks the next module
-        |
-Participant continues through the ordered modules;
-Admin monitors progress and quiz results
+Quiz submission and saved progress updates are temporarily unavailable
 ```
 
 ## Create the first Admin
@@ -41,19 +38,17 @@ Only trusted operators should set the Admin role. The app prevents users from ch
 
 | Role | How the account is created | Website workflow |
 | --- | --- | --- |
-| **Admin** | A trusted operator creates the account in Firebase Authentication and its `users/{uid}` profile with `role: "admin"`. | Create and publish standalone quizzes; add bilingual course questions and lesson material; monitor participants, progress, and results; review and mark quizzes. |
-| **Participant** | Register on the website; every public sign-up starts with this role. | Create a profile, choose English or Sesotho, study modules in sequence, take quizzes, and resume saved progress. |
+| **Admin** | A trusted operator creates the account in Firebase Authentication and its `users/{uid}` profile with `role: "admin"`. | Sign in. Admin management, reports, and marking are temporarily unavailable. |
+| **Participant** | Register on the website; every public sign-up starts with this role. | Create a profile, choose English or Sesotho, and read the bundled course materials. Quiz submissions and progress updates are temporarily unavailable. |
 
-The application uses only `admin` and `participant`. Firebase ID tokens verify identity; the app and server read authorization from the matching Firestore `users/{uid}` profile. Firestore rules prevent users from changing their own role. Published standalone quizzes appear on the Participant Quizzes page and are automatically scored on submission.
+The application uses only `admin` and `participant`. The client reads the matching Firestore `users/{uid}` profile, and Firestore rules prevent users from changing their own role. Server-backed Admin and quiz features are disabled until a trusted backend is available.
 
 ## Participant learning flow
 
 1. The participant creates an account through the registration page and chooses a preferred language.
-2. Their profile and learning progress are associated with that account.
-3. Module 1 is available first. Later modules stay locked until the preceding module quiz is passed.
-4. The participant reads the material and submits the module quiz. The server calculates and saves the score, answers, and progress.
-5. A passing score (70% or more) unlocks the next module. The participant can return later and continue from their saved progress.
-6. An Admin can review the submission, confirm or adjust its score, add feedback, and monitor overall participation, individual progress, and results.
+2. Their profile is associated with that account.
+3. Participants can read bundled course material and their own previously saved progress/results.
+4. Quiz submissions, new progress updates, standalone quizzes, and Admin management are temporarily disabled.
 
 The course interface, lessons, and questions support English and Sesotho.
 
@@ -67,21 +62,20 @@ Copy-Item .env.example .env
 pnpm dev
 ```
 
-Fill in the Firebase Web App values in `.env`. The server also needs Firebase Admin credentials, either Application Default Credentials or `NUXT_FIREBASE_SERVICE_ACCOUNT_JSON`. Keep service-account credentials private and out of source control.
+Fill in the Firebase Web App values in `.env`. No Firebase Admin SDK or service-account JSON is used by this deployment.
 
 ## Firebase setup
 
 1. Create a Firebase project and enable **Email/Password** under Authentication.
 2. Add the local/deployment host to Firebase Authentication's authorized domains. Configure the password-reset action URL for `/auth/reset-password`.
 3. Copy `.env.example` to `.env` and set the Firebase Web App configuration.
-4. Configure Firebase Admin credentials for the server using Application Default Credentials or the secret `NUXT_FIREBASE_SERVICE_ACCOUNT_JSON`.
-5. Deploy Firestore security rules and indexes:
+4. Deploy Firestore security rules and indexes:
 
    ```sh
    firebase deploy --only firestore:rules,firestore:indexes
    ```
 
-6. Create the first Admin by following [Create the first Admin](#create-the-first-admin).
+5. Create the first Admin profile by following [Create the first Admin](#create-the-first-admin). Admin-only server features remain disabled.
 
 For additional Firebase configuration detail, see [FIREBASE_SETUP.md](./FIREBASE_SETUP.md).
 
@@ -93,4 +87,4 @@ For additional Firebase configuration detail, see [FIREBASE_SETUP.md](./FIREBASE
 - Staff-authored quiz questions: `quizQuestions/{questionId}`
 - Admin-authored lesson material: `courseMaterials/{materialId}`
 
-Client writes to course progress and quiz attempts are denied by Firestore rules. Authenticated server APIs validate quiz submissions, save progress, and apply Admin marking decisions.
+Client reads of a user's own course progress and quiz attempts are permitted by Firestore rules. Writes to progress, quiz attempts, quiz questions, and Admin-managed data remain denied. Server API routes return 503 until a trusted backend is implemented; no service-account credential is required or used.

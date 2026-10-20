@@ -68,7 +68,8 @@ service cloud.firestore {
     }
 
     match /courseMaterials/{materialId} {
-      allow read, write: if false;
+      allow read: if signedIn();
+      allow write: if false;
     }
 
     match /{document=**} {

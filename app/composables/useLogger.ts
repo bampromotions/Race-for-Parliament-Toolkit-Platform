@@ -23,8 +23,6 @@ const logger = pino({
       '*.cookie',
       'serviceAccount',
       '*.serviceAccount',
-      'firebaseServiceAccountJson',
-      '*.firebaseServiceAccountJson',
     ],
     censor: '[REDACTED]',
   },

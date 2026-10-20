@@ -2,6 +2,7 @@
 import { courseId, courseModules } from '~/data/course'
 import type { CourseMaterial } from '~/data/course'
 import { createCourseProgressRepository, type CourseProgress } from '~/repositories/courseProgressRepository'
+import { createCourseMaterialRepository } from '~/repositories/courseMaterialRepository'
 
 definePageMeta({ layout: 'participant', middleware: 'auth' })
 const route = useRoute()
@@ -14,8 +15,9 @@ if (!module) throw createError({ statusCode: 404, statusMessage: 'Module not fou
 
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
-const api = createCourseProgressRepository(useFirebaseApi().request)
-const firebaseApi = useFirebaseApi()
+const firebase = useFirebase()
+const api = createCourseProgressRepository(firebase)
+const materials = createCourseMaterialRepository(firebase)
 const progress = ref<CourseProgress | null>(null)
 const addedMaterials = ref<Array<CourseMaterial & { id: string }>>([])
 const loading = ref(true)
@@ -33,10 +35,7 @@ onMounted(async () => {
       await navigateTo(localePath(`/course/${courseId}`), { replace: true })
       return
     }
-    const response = await firebaseApi.request<{ materials: Array<CourseMaterial & { id: string }> }>(
-      `/api/course/${courseId}/module/${moduleId}/materials`,
-    )
-    addedMaterials.value = response.materials
+    addedMaterials.value = await materials.getForModule(courseId, moduleId)
   } catch (error) {
     errorMessage.value = error instanceof Error ? error.message : t('common.unexpectedError')
   } finally {
