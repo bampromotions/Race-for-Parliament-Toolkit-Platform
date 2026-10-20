@@ -80,7 +80,7 @@ export async function requireFirebaseUser(event: H3Event) {
       })
       throw createError({
         statusCode: 503,
-        statusMessage: 'Firebase Admin credentials are unavailable. Configure NUXT_FIREBASE_SERVICE_ACCOUNT_JSON or Application Default Credentials.',
+        statusMessage: 'Firebase Admin credentials are unavailable or invalid.',
       })
     }
 
