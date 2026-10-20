@@ -59,7 +59,7 @@ export async function requireFirebaseUser(event: H3Event) {
 
   const adminAuth = getFirebaseAdmin(event).auth
   try {
-    return await adminAuth.verifyIdToken(match[1], true)
+    return await adminAuth.verifyIdToken(match[1]!, true)
   } catch (error) {
     const code = typeof error === 'object' && error !== null && 'code' in error && typeof error.code === 'string'
       ? error.code
