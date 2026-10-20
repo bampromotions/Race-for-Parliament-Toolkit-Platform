@@ -15,6 +15,7 @@ firebase-service-account.json
 service-account*.json
 *-firebase-adminsdk-*.json
 .nuxt/
+.nuxt.*
 
 # Common ignores
 node_modules
