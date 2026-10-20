@@ -91,6 +91,7 @@
     "question": "Question {current} of {total}",
     "questionCount": "{count} questions",
     "quizConfirm": "Submit your answers?",
+    "quizSubmissionUnavailable": "Quiz submission and progress updates are temporarily unavailable while the server backend is being replaced.",
     "result": "Quiz Result",
     "passed": "Passed",
     "notPassed": "Not passed",

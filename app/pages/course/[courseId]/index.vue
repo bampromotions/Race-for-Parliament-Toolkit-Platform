@@ -10,7 +10,7 @@ if (route.params.courseId !== courseId) {
 
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
-const api = createCourseProgressRepository(useFirebaseApi().request)
+const api = createCourseProgressRepository(useFirebase())
 const progress = ref<CourseProgress | null>(null)
 const loading = ref(true)
 const errorMessage = ref('')

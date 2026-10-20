@@ -10,9 +10,10 @@ Firebase Authentication and Firestore.
    development.
 2. Register at `/auth/register` to create a Participant account, or sign in at
    `/auth/login`.
-3. Participants can study the course, take quizzes, and view their progress.
-   Admins use the same login page and can manage lesson materials, questions,
-   participants, results, and quiz marking.
+3. Participants can read course material and their permitted saved data.
+   Quiz submission and saved progress updates are temporarily unavailable.
+   Admins can sign in, but Admin management, results, and marking are
+   temporarily unavailable while the server backend is replaced.
 
 ## Configure Firebase
 
@@ -23,14 +24,7 @@ Firebase Authentication and Firestore.
 3. Configure the Firebase Web App settings using `.env.example`. The
    `NUXT_PUBLIC_FIREBASE_*` values identify the web app; they do not grant
    Admin access.
-4. Configure the Firebase Admin SDK credential for the server. In deployment,
-   use a protected secret named `NUXT_FIREBASE_SERVICE_ACCOUNT_JSON` or the
-   hosting provider's Application Default Credentials. For local development,
-   prefer Application Default Credentials; the server also reads the ignored
-   root file
-   `raceforpalament-39d8d-firebase-adminsdk-fbsvc-bcfdae06a5.json` when
-   present.
-5. Deploy Firestore rules and indexes:
+4. Deploy Firestore rules and indexes:
 
    ```sh
    firebase deploy --only firestore:rules,firestore:indexes
@@ -75,34 +69,16 @@ document ID does not count. The app displays the UID/path it tried to read.
 
 | Role | Access |
 | --- | --- |
-| `participant` | Study course materials, take quizzes, and view personal progress. |
-| `admin` | Create and publish standalone quizzes; manage lesson materials and course quiz questions; monitor participants, progress, and results; review and mark quizzes. |
-
-Admins create standalone quizzes from **Administration → Quizzes → Create a
-standalone quiz**. Each quiz has English and Sesotho titles and one or more
-bilingual single-choice, multiple-choice, or true/false questions. A new quiz
-is published immediately and appears in the Participant **Quizzes** page.
-Participants receive an automatic score; 70% is the passing threshold.
+| `participant` | Read course materials and personal saved data. Quiz submission and progress updates are temporarily unavailable. |
+| `admin` | Sign in; Admin management, reports, and marking are temporarily unavailable. |
 
 Public registration always creates a Participant profile. Only a trusted
 operator should set `role` to `admin`. Firestore rules prevent users from
-changing their own role. Firebase ID tokens are used to verify identity; the
-app and server check the role in the matching Firestore profile.
+changing their own role. The browser Firebase client checks the role in the
+matching Firestore profile. No Firebase Admin SDK or service-account JSON is
+used.
 
-## Why the Firebase Admin credential is needed
-
-The server uses the Firebase Admin SDK credential to verify signed-in users
-and perform trusted server-side Firestore operations, such as saving quiz
-results and progress. This server credential is separate from the website's
-Admin role. Creating a service-account key does not create an Admin user or
-grant website access; `users/{uid}.role` controls that access.
-
-If you need a service-account key, open **Firebase Console → Project settings
-→ Service accounts → Firebase Admin SDK → Generate new private key**. Store
-the JSON securely and configure it only in your hosting provider's secret
-store or a private local credential file. Never commit it, put it in a
-`NUXT_PUBLIC_*` variable, or share its contents.
-
-If a key was exposed, revoke it in Google Cloud IAM, create a replacement,
-update the secret, and redeploy. Deleting an exposed file from the latest
-commit does not invalidate the key.
+Server routes for privileged operations return 503 until a trusted backend
+is implemented. This is intentional: moving score calculation and Admin
+operations to browser code would let users tamper with scores and bypass
+trusted checks.

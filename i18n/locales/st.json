@@ -90,6 +90,7 @@
     "question": "Potso {current} ho tse {total}",
     "questionCount": "Lipotso: {count}",
     "quizConfirm": "Romela likarabo tsa hau?",
+    "quizSubmissionUnavailable": "Ho romela likarabo le ho ntlafatsa tsoelo-pele ha ho fumanehe hajoale ha tsamaiso ea seva e ntse e nkeloa sebaka.",
     "result": "Sephetho sa lipotso",
     "passed": "U atlehile",
     "notPassed": "Ha ua atleha",

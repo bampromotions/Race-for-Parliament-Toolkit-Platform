@@ -34,7 +34,6 @@ export default defineNuxtConfig({
     ],
   },
   runtimeConfig: {
-    firebaseServiceAccountJson: '',
     public: {
       firebaseApiKey: 'AIzaSyBuQeKD0Emv9yJ4i9yg8p0hP7gfVd7Axyk',
       firebaseAuthDomain: 'raceforpalament-39d8d.firebaseapp.com',
